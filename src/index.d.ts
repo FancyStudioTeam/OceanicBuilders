@@ -5,6 +5,7 @@ import type {
   EmbedField,
   EmbedFooterOptions,
   EmbedOptions,
+  File,
   MessageActionRow,
   NullablePartialEmoji,
   TextInput,
@@ -15,6 +16,14 @@ export class ActionRowBuilder {
   addComponents(components: ButtonBuilder[]): this;
   toJSON(): MessageActionRow;
   toJSONArray(): MessageActionRow[];
+}
+
+export class AttachmentBuilder {
+  setContent(content: Buffer): this;
+  setName(name: string): this;
+  setIndex(index: number): this;
+  toJSON(): File;
+  toJSONArray(): File[];
 }
 
 export class ButtonBuilder {
