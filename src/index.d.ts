@@ -5,8 +5,15 @@ import type {
   EmbedField,
   EmbedFooterOptions,
   EmbedOptions,
+  MessageActionRow,
   NullablePartialEmoji,
 } from "oceanic.js";
+
+export class ActionRowBuilder {
+  addComponents(components: ButtonBuilder[]): this;
+  toJSON(): MessageActionRow;
+  toJSONArray(): MessageActionRow[];
+}
 
 export class ButtonBuilder {
   constructor(button?: ButtonComponent);

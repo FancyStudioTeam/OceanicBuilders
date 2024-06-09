@@ -9,7 +9,6 @@ module.exports = class ButtonBuilder {
    *
    * @param {import("oceanic.js").ButtonComponent?} button
    */
-
   constructor(button) {
     this.#json = button ?? {
       customID: "",
@@ -19,10 +18,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
+   * The button custom ID
    * @param {string} id
    * @returns {this}
    */
-
   setCustomID(id) {
     if (this.#json.style !== ButtonStyles.LINK) {
       this.#json.customID = id;
@@ -34,11 +33,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
+   * If the button should be disabled
    * @param {boolean} disabled
    * @returns
    */
-
   setDisabled(disabled) {
     this.#json.disabled = disabled;
 
@@ -46,11 +44,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
+   * The button emoji
    * @param {import("oceanic.js").NullablePartialEmoji} emoji
    * @returns {this}
    */
-
   setEmoji(emoji) {
     this.#json.emoji = {
       id: emoji.id ?? "",
@@ -61,11 +58,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
+   * The button label
    * @param {string} label
    * @returns {this}
    */
-
   setLabel(label) {
     this.#json.label = label;
 
@@ -73,11 +69,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
+   * The button style
    * @param {import("oceanic.js").ButtonStyles} style
    * @returns {this}
    */
-
   setStyle(style) {
     this.#json.style = style;
 
@@ -85,11 +80,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
+   * The button URL
    * @param {string} url
    * @returns {this}
    */
-
   setURL(url) {
     if (this.#json.type === ComponentTypes.BUTTON && this.#json.style === ButtonStyles.LINK) {
       this.#json.url = url;
@@ -100,11 +94,10 @@ module.exports = class ButtonBuilder {
   }
 
   /**
-   *
-   * @returns {import("oceanic.js").ButtonComponent[]}
+   * The button in JSON
+   * @returns {import("oceanic.js").ButtonComponent}
    */
-
   toJSON() {
-    return [this.#json];
+    return this.#json;
   }
 };
