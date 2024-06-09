@@ -7,6 +7,8 @@ import type {
   EmbedOptions,
   MessageActionRow,
   NullablePartialEmoji,
+  TextInput,
+  TextInputStyles,
 } from "oceanic.js";
 
 export class ActionRowBuilder {
@@ -25,7 +27,6 @@ export class ButtonBuilder {
   setURL(url: string): this;
   toJSON(): ButtonComponent;
 }
-
 export class EmbedBuilder {
   constructor(embed?: EmbedOptions);
   setAuthor(author: EmbedAuthorOptions): this;
@@ -41,4 +42,17 @@ export class EmbedBuilder {
   setURL(url: string): this;
   toJSON(): EmbedOptions;
   toJSONArray(): EmbedOptions[];
+}
+
+export class TextInputBuilder {
+  constructor(textInput?: TextInput);
+  setCustomID(id: string): this;
+  setLabel(label: string): this;
+  setMaxLength(maxLength: number): this;
+  setMinLength(minLength: number): this;
+  setPlaceholder(placeholder: string): this;
+  setRequired(required: boolean): this;
+  setStyle(style: TextInputStyles): this;
+  setValue(value: string): this;
+  toJSON(): TextInput;
 }
