@@ -27,6 +27,7 @@ export class ButtonBuilder {
   setURL(url: string): this;
   toJSON(): ButtonComponent;
 }
+
 export class EmbedBuilder {
   constructor(embed?: EmbedOptions);
   setAuthor(author: EmbedAuthorOptions): this;
