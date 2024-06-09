@@ -28,7 +28,6 @@ module.exports = class ActionRowBuilder {
    * @param {import("..").ButtonBuilder[]} components
    * @returns {this}
    */
-
   addComponents(components) {
     for (const component of components) {
       this.#json.components.push(component.toJSON());
@@ -41,7 +40,6 @@ module.exports = class ActionRowBuilder {
    *
    * @returns {import("oceanic.js").MessageActionRow}
    */
-
   toJSON() {
     return this.#json;
   }
@@ -50,7 +48,6 @@ module.exports = class ActionRowBuilder {
    *
    * @returns {import("oceanic.js").MessageActionRow[]}
    */
-
   toJSONArray() {
     return [this.#json];
   }
