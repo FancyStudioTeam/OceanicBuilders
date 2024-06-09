@@ -39,7 +39,6 @@ module.exports = class ButtonBuilder {
    */
   setDisabled(disabled) {
     this.#json.disabled = disabled;
-
     return this;
   }
 
@@ -53,7 +52,6 @@ module.exports = class ButtonBuilder {
       id: emoji.id ?? "",
       name: emoji.name ?? "",
     };
-
     return this;
   }
 
@@ -64,7 +62,6 @@ module.exports = class ButtonBuilder {
    */
   setLabel(label) {
     this.#json.label = label;
-
     return this;
   }
 
@@ -75,7 +72,6 @@ module.exports = class ButtonBuilder {
    */
   setStyle(style) {
     this.#json.style = style;
-
     return this;
   }
 
@@ -85,11 +81,12 @@ module.exports = class ButtonBuilder {
    * @returns {this}
    */
   setURL(url) {
-    if (this.#json.type === ComponentTypes.BUTTON && this.#json.style === ButtonStyles.LINK) {
+    if (this.#json.style === ButtonStyles.LINK) {
       this.#json.url = url;
     } else {
       throw new Error(`${this.constructor.name}.setURL() can only be used in URL buttons`);
     }
+
     return this;
   }
 

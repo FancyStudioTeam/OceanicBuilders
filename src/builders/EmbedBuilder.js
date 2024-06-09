@@ -22,7 +22,6 @@ module.exports = class EmbedBuilder {
       name: author.name ?? "",
       url: author.url,
     };
-
     return this;
   }
 
@@ -33,7 +32,6 @@ module.exports = class EmbedBuilder {
    */
   setColor(color) {
     this.#json.color = color;
-
     return this;
   }
 
@@ -44,7 +42,6 @@ module.exports = class EmbedBuilder {
    */
   setDescription(description) {
     this.#json.description = description;
-
     return this;
   }
 
@@ -55,7 +52,6 @@ module.exports = class EmbedBuilder {
    */
   addField(field) {
     this.#json.fields = this.#json.fields?.length ? [...this.#json.fields, field] : [field];
-
     return this;
   }
 
@@ -82,7 +78,6 @@ module.exports = class EmbedBuilder {
       iconURL: footer.iconURL ?? "",
       text: footer.text ?? "",
     };
-
     return this;
   }
 
@@ -95,7 +90,6 @@ module.exports = class EmbedBuilder {
     this.#json.image = {
       url: image,
     };
-
     return this;
   }
 
@@ -108,7 +102,6 @@ module.exports = class EmbedBuilder {
     this.#json.thumbnail = {
       url: thumbnail,
     };
-
     return this;
   }
 
@@ -118,7 +111,6 @@ module.exports = class EmbedBuilder {
    */
   setTimestamp() {
     this.#json.timestamp = new Date().toISOString();
-
     return this;
   }
 
@@ -129,7 +121,6 @@ module.exports = class EmbedBuilder {
    */
   setTitle(title) {
     this.#json.title = title;
-
     return this;
   }
 
@@ -140,7 +131,6 @@ module.exports = class EmbedBuilder {
    */
   setURL(url) {
     this.#json.url = url;
-
     return this;
   }
 
