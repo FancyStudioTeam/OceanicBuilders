@@ -20,3 +20,19 @@ export class EmbedBuilder {
 	toJSON(): EmbedOptions;
 	toJSONArray(): EmbedOptions[];
 }
+
+import type {
+	ButtonComponent,
+	ButtonStyles,
+	NullablePartialEmoji,
+} from "oceanic.js";
+
+export class ButtonBuilder {
+	setCustomID(id: string): this;
+	setDisabled(disabled: boolean): this;
+	setEmoji(emoji: NullablePartialEmoji): this;
+	setLabel(label: string): this;
+	setStyle(style: ButtonStyles): this;
+	setURL(url: string): this;
+	toJSON(): ButtonComponent;
+}
