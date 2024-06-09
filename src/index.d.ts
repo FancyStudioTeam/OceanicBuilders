@@ -9,6 +9,7 @@ import type {
 } from "oceanic.js";
 
 export class ButtonBuilder {
+  constructor(button?: ButtonComponent);
   setCustomID(id: string): this;
   setDisabled(disabled: boolean): this;
   setEmoji(emoji: NullablePartialEmoji): this;
@@ -19,6 +20,7 @@ export class ButtonBuilder {
 }
 
 export class EmbedBuilder {
+  constructor(embed?: EmbedOptions);
   setAuthor(author: EmbedAuthorOptions): this;
   setColor(color: number): this;
   setDescription(description: string): this;
