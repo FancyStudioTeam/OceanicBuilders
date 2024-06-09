@@ -1,4 +1,22 @@
-import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
+import type {
+  ButtonComponent,
+  ButtonStyles,
+  EmbedAuthorOptions,
+  EmbedField,
+  EmbedFooterOptions,
+  EmbedOptions,
+  NullablePartialEmoji,
+} from "oceanic.js";
+
+export class ButtonBuilder {
+  setCustomID(id: string): this;
+  setDisabled(disabled: boolean): this;
+  setEmoji(emoji: NullablePartialEmoji): this;
+  setLabel(label: string): this;
+  setStyle(style: ButtonStyles): this;
+  setURL(url: string): this;
+  toJSON(): ButtonComponent;
+}
 
 export class EmbedBuilder {
   setAuthor(author: EmbedAuthorOptions): this;
@@ -14,20 +32,4 @@ export class EmbedBuilder {
   setURL(url: string): this;
   toJSON(): EmbedOptions;
   toJSONArray(): EmbedOptions[];
-}
-
-import type {
-	ButtonComponent,
-	ButtonStyles,
-	NullablePartialEmoji,
-} from "oceanic.js";
-
-export class ButtonBuilder {
-	setCustomID(id: string): this;
-	setDisabled(disabled: boolean): this;
-	setEmoji(emoji: NullablePartialEmoji): this;
-	setLabel(label: string): this;
-	setStyle(style: ButtonStyles): this;
-	setURL(url: string): this;
-	toJSON(): ButtonComponent;
 }
