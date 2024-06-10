@@ -10,6 +10,10 @@ import type {
   NullablePartialEmoji,
   TextInput,
   TextInputStyles,
+  ChannelTypes,
+  SelectMenuComponent,
+  SelectMenuDefaultValue,
+  SelectOption,
 } from "oceanic.js";
 
 export class ActionRowBuilder {
@@ -35,6 +39,19 @@ export class ButtonBuilder {
   setStyle(style: ButtonStyles): this;
   setURL(url: string): this;
   toJSON(): ButtonComponent;
+}
+
+export class SelectMenuBuilder {
+  setChannelTypes(types: ChannelTypes[]): this;
+  setCustomID(id: string): this;
+  setDefaultValues(values: SelectMenuDefaultValue[]): this;
+  setDisabled(disabled: boolean): this;
+  setMaxValues(value: number): this;
+  setMinValues(value: number): this;
+  addOptions(components: SelectOption[]): this;
+  setPlaceholder(placeholder: string): this;
+  setType(type: ValidType): this;
+  toJSON(): SelectMenuComponent;
 }
 
 export class EmbedBuilder {
