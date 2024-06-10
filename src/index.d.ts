@@ -9,6 +9,7 @@ import type {
   EmbedOptions,
   File,
   MessageActionRow,
+  ModalData,
   NullablePartialEmoji,
   SelectMenuComponent,
   SelectMenuDefaultValue,
@@ -66,6 +67,14 @@ export class EmbedBuilder {
   setURL(url: string): this;
   toJSON(): EmbedOptions;
   toJSONArray(): EmbedOptions[];
+}
+
+export class ModalBuilder {
+  constructor(modal?: ModalData);
+  setCustomID(id: string): this;
+  setTitle(title: string): this;
+  addComponents(components: TextInputBuilder[]): this;
+  toJSON(): ModalData;
 }
 
 export class SelectMenuBuilder {
