@@ -16,6 +16,13 @@ import type {
   SelectOption,
 } from "oceanic.js";
 
+type ValidType =
+  | ComponentTypes.CHANNEL_SELECT
+  | ComponentTypes.MENTIONABLE_SELECT
+  | ComponentTypes.ROLE_SELECT
+  | ComponentTypes.STRING_SELECT
+  | ComponentTypes.USER_SELECT;
+
 export class ActionRowBuilder {
   addComponents(components: ButtonBuilder[]): this;
   toJSON(): MessageActionRow;

@@ -1,11 +1,11 @@
-const { ComponentTypes, SelectMenuOptions } = require("oceanic.js");
+const { ComponentTypes } = require("oceanic.js");
 
 module.exports = class SelectMenuBuilder {
     #json;
 
     /**
      * 
-     * @param {import("oceanic.js").SelectMenuComponent?} selectMenu
+     * @param {import("oceanic.js").SelectMenuBuilder?} selectMenu
      */
     constructor(selectMenu) {
         this.#json = selectMenu ?? {
@@ -72,6 +72,17 @@ module.exports = class SelectMenuBuilder {
      */
     setMaxValues(maxValues) {
         this.#json.maxValues = maxValues;
+        return this;
+    }
+
+    /**
+     * The select menu type
+     * @param {ValidType} type
+     * @returns {this}
+     *
+     */
+    setType(type) {
+        this.#json.type = type;
         return this;
     }
 
