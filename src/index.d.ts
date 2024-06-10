@@ -1,6 +1,8 @@
 import type {
   ButtonComponent,
   ButtonStyles,
+  ChannelTypes,
+  ComponentTypes,
   EmbedAuthorOptions,
   EmbedField,
   EmbedFooterOptions,
@@ -8,15 +10,16 @@ import type {
   File,
   MessageActionRow,
   NullablePartialEmoji,
-  TextInput,
-  TextInputStyles,
-  ChannelTypes,
   SelectMenuComponent,
   SelectMenuDefaultValue,
   SelectOption,
+  TextInput,
+  TextInputStyles,
 } from "oceanic.js";
 
-type ValidType =
+export type ValidComponentTypes = ButtonBuilder | SelectMenuBuilder;
+
+export type ValidSelectMenuTypes =
   | ComponentTypes.CHANNEL_SELECT
   | ComponentTypes.MENTIONABLE_SELECT
   | ComponentTypes.ROLE_SELECT
@@ -24,7 +27,7 @@ type ValidType =
   | ComponentTypes.USER_SELECT;
 
 export class ActionRowBuilder {
-  addComponents(components: ButtonBuilder[]): this;
+  addComponents(components: ValidComponentTypes[]): this;
   toJSON(): MessageActionRow;
   toJSONArray(): MessageActionRow[];
 }
@@ -48,19 +51,6 @@ export class ButtonBuilder {
   toJSON(): ButtonComponent;
 }
 
-export class SelectMenuBuilder {
-  setChannelTypes(types: ChannelTypes[]): this;
-  setCustomID(id: string): this;
-  setDefaultValues(values: SelectMenuDefaultValue[]): this;
-  setDisabled(disabled: boolean): this;
-  setMaxValues(value: number): this;
-  setMinValues(value: number): this;
-  addOptions(components: SelectOption[]): this;
-  setPlaceholder(placeholder: string): this;
-  setType(type: ValidType): this;
-  toJSON(): SelectMenuComponent;
-}
-
 export class EmbedBuilder {
   constructor(embed?: EmbedOptions);
   setAuthor(author: EmbedAuthorOptions): this;
@@ -76,6 +66,20 @@ export class EmbedBuilder {
   setURL(url: string): this;
   toJSON(): EmbedOptions;
   toJSONArray(): EmbedOptions[];
+}
+
+export class SelectMenuBuilder {
+  constructor(selectMenu?: SelectMenuComponent);
+  setChannelTypes(types: ChannelTypes[]): this;
+  setCustomID(id: string): this;
+  setDefaultValues(values: SelectMenuDefaultValue[]): this;
+  setDisabled(disabled: boolean): this;
+  setMaxValues(value: number): this;
+  setMinValues(value: number): this;
+  addOptions(components: SelectOption[]): this;
+  setPlaceholder(placeholder: string): this;
+  setType(type: ValidSelectMenuTypes): this;
+  toJSON(): SelectMenuComponent;
 }
 
 export class TextInputBuilder {

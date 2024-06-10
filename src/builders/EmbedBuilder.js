@@ -4,7 +4,6 @@ module.exports = class EmbedBuilder {
   #json;
 
   /**
-   *
    * @param {import("oceanic.js").EmbedOptions?} embed
    */
   constructor(embed) {

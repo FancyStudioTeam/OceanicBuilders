@@ -6,7 +6,6 @@ module.exports = class ButtonBuilder {
   #json;
 
   /**
-   *
    * @param {import("oceanic.js").ButtonComponent?} button
    */
   constructor(button) {

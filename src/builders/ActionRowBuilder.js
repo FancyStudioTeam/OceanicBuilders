@@ -7,7 +7,6 @@ module.exports = class ActionRowBuilder {
 
   constructor() {
     /**
-     *
      * @type {import("oceanic.js").MessageActionRow}
      * @private
      */
@@ -25,7 +24,7 @@ module.exports = class ActionRowBuilder {
 
   /**
    *
-   * @param {import("..").ButtonBuilder[]} components
+   * @param {import("..").ValidComponentTypes[]} components
    * @returns {this}
    */
   addComponents(components) {

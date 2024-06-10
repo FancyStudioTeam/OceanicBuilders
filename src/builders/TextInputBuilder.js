@@ -6,7 +6,6 @@ module.exports = class TextInputBuilder {
   #json;
 
   /**
-   *
    * @param {import("oceanic.js").TextInput?} textInput
    */
   constructor(textInput) {
