@@ -1,20 +1,22 @@
 {
   "name": "oceanic-builders",
-  "version": "0.0.12-alpha",
+  "version": "0.0.13-alpha",
   "description": "",
   "main": "dist/index.js",
   "types": "src/types.d.ts",
   "scripts": {
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
-    "pub": "npm run biome && npm run build && npm publish"
+    "pub": "npm run biome && npm run build && npm publish",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "dependencies": {
-    "oceanic.js": "1.11.0"
+    "oceanic.js": "1.11.0",
+    "zod": "3.23.8"
   },
   "files": ["dist", "src/**/*.d.ts"],
   "devDependencies": {
