@@ -1,6 +1,6 @@
 {
   "name": "oceanic-builders",
-  "version": "0.0.15-alpha",
+  "version": "0.0.16-alpha",
   "description": "Oceanic compatible utilities",
   "main": "dist/index.js",
   "types": "src/types.d.ts",
