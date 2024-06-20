@@ -47,6 +47,7 @@ export class Button {
   setDisabled(disabled: boolean): this;
   setEmoji(emoji: NullablePartialEmoji): this;
   setLabel(label: string): this;
+  setSkuID(skuID: string): this;
   setStyle(style: ButtonStyles): this;
   setURL(url: string): this;
   toJSON(): ButtonComponent;

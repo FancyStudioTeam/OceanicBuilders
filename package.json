@@ -12,18 +12,26 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
+  },
+  "bugs": {
+    "url": "https://github.com/FancyStudioTeam/OceanicBuilders/issues"
+  },
+  "homepage": "https://discord.gg/gud55BjNFC",
   "license": "ISC",
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "dependencies": {
-    "oceanic.js": "1.11.0",
+    "oceanic.js": "1.11.1-dev.05899ff",
     "zod": "3.23.8"
   },
   "files": ["dist", "src/**/*.d.ts"],
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
-    "@types/node": "20.14.5",
+    "@biomejs/biome": "1.8.2",
+    "@types/node": "20.14.6",
     "tsx": "4.15.6",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "vitest": "1.6.0"
   }
 }
