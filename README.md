@@ -6,5 +6,5 @@
 
 ## Install
 ```sh
-npm i oceanicjs-builders
+npm i oceanic-builders
 ```
