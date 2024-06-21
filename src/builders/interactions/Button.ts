@@ -16,7 +16,6 @@ import {
   partialEmojiValidator,
   urlValidator,
   validate,
-  validateButton,
 } from "../../schemas";
 import type { Button as ButtonType } from "../../types";
 import { Component } from "../miscellaneous/Component";
@@ -65,27 +64,10 @@ export class Button extends Component<ButtonComponent> implements ButtonType {
   }
 
   toJSON(): ButtonComponent {
-    validateButton({
-      customID: (this.data as TextButton).customID,
-      label: (this.data as TextButton).label,
-      emoji: (this.data as TextButton).emoji,
-      style: this.data.style,
-      url: (this.data as URLButton).url,
-    });
-
     return this.data as ButtonComponent;
   }
 
   toJSONArray(): ButtonComponent[] {
-    validateButton({
-      customID: (this.data as TextButton).customID,
-      label: (this.data as TextButton).label,
-      emoji: (this.data as TextButton).emoji,
-      style: this.data.style,
-      url: (this.data as URLButton).url,
-      skuID: (this.data as PremiumButton).skuID,
-    });
-
     return [this.data as ButtonComponent];
   }
 }
