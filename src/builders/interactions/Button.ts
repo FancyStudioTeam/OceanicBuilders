@@ -16,6 +16,7 @@ import {
   partialEmojiValidator,
   urlValidator,
   validate,
+  verifyExternalButtonJSON,
 } from "../../schemas";
 import type { Button as ButtonType } from "../../types";
 import { Component } from "../miscellaneous/Component";
@@ -23,7 +24,7 @@ import { Component } from "../miscellaneous/Component";
 export class Button extends Component<ButtonComponent> implements ButtonType {
   constructor(button?: Partial<ButtonComponent>) {
     super({
-      ...button,
+      ...verifyExternalButtonJSON(button ?? {}),
       type: ComponentTypes.BUTTON,
     });
   }

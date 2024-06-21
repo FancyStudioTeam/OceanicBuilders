@@ -29,18 +29,19 @@ npm i oceanic-builders
 
 > ⚠️ Stage 1 means that they have been implemented, but have not been properly verified with tests
 
-- `Button`
 - `ChannelSelectMenu`
 - `MentionableSelectMenu`
 - `RoleSelectMenu`
 - `StringSelectMenu`
-- `Attachment`
 - `Embed`
 - `ActionRow`
 
 ### Builders in `Stage 2`
 
-> ⚠️ Stage 2 means that they are being verified by testing or improving functionality
+> ⚠️ Stage 2 means that they are being verified by testing or improving functionality (There may be changes)
+
+- `Button`
+- `Attachment`
 
 ### Builders in `Stage 3`
 

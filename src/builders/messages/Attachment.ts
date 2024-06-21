@@ -1,4 +1,5 @@
 import type { File } from "oceanic.js";
+import { attachmentContentValidator, attachmentIndexValidator, attachmentNameValidator, validate } from "../../schemas";
 import type { Attachment as AttachmentType } from "../../types";
 
 export class Attachment implements AttachmentType {
@@ -9,17 +10,17 @@ export class Attachment implements AttachmentType {
   }
 
   setContent(content: Buffer): this {
-    this.json.contents = content;
+    this.json.contents = validate(attachmentContentValidator, content);
     return this;
   }
 
   setIndex(index: number): this {
-    this.json.index = index;
+    this.json.index = validate(attachmentIndexValidator, index);
     return this;
   }
 
   setName(name: string): this {
-    this.json.name = name;
+    this.json.name = validate(attachmentNameValidator, name);
     return this;
   }
 

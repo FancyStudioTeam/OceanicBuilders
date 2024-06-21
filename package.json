@@ -1,6 +1,6 @@
 {
   "name": "oceanic-builders",
-  "version": "0.0.16-alpha",
+  "version": "0.0.17-alpha",
   "description": "Oceanic compatible utilities",
   "main": "dist/index.js",
   "types": "src/types.d.ts",
@@ -8,7 +8,7 @@
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
     "pub": "npm run biome && npm run build && npm publish",
-    "test": "vitest run"
+    "test": "vitest watch"
   },
   "keywords": [],
   "author": "",
@@ -29,8 +29,8 @@
   "files": ["dist", "src/**/*.d.ts"],
   "devDependencies": {
     "@biomejs/biome": "1.8.2",
-    "@types/node": "20.14.6",
-    "tsx": "4.15.6",
+    "@types/node": "20.14.7",
+    "tsx": "4.15.7",
     "typescript": "5.5.2",
     "vitest": "1.6.0"
   }
