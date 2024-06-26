@@ -72,7 +72,7 @@ export class Embed {
   setFooter(footer: EmbedFooterOptions): this;
   setImage(image: string): this;
   setThumbnail(thumbnail: string): this;
-  setTimestamp(date: Date): this;
+  setTimestamp(date?: Date): this;
   setTitle(title: string): this;
   setURL(url: string): this;
   toJSON(): EmbedOptions;
