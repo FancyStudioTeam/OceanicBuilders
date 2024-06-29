@@ -19,15 +19,8 @@
     "pub": "npm run biome && npm run build && npm publish",
     "test": "vitest watch"
   },
-  "files": [
-    "dist",
-    "esm.mjs"
-  ],
-  "keywords": [
-    "oceanic.js",
-    "discord",
-    "builders"
-  ],
+  "files": ["dist", "esm.mjs"],
+  "keywords": ["oceanic.js", "discord", "builders"],
   "author": "FancyStudio",
   "repository": {
     "type": "git",
