@@ -1,7 +1,6 @@
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
-import type { Embed as EmbedType } from "../../types";
 
-export class Embed implements EmbedType {
+export class Embed {
   private json: EmbedOptions;
 
   constructor(embed: EmbedOptions = {}) {
@@ -57,8 +56,8 @@ export class Embed implements EmbedType {
     return this;
   }
 
-  setTimestamp(): this {
-    this.json.timestamp = new Date().toISOString();
+  setTimestamp(date?: Date): this {
+    this.json.timestamp = date?.toISOString() ?? new Date().toISOString();
     return this;
   }
 
@@ -72,11 +71,19 @@ export class Embed implements EmbedType {
     return this;
   }
 
-  toJSON(): EmbedOptions {
-    return this.json;
+  toJSON(inArray: true): [EmbedOptions];
+  toJSON(inArray?: false): EmbedOptions;
+  toJSON(inArray = false): EmbedOptions | EmbedOptions[] {
+    return inArray ? [this.json] : this.json;
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): EmbedOptions[] {
-    return [this.json];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "Embed",
+    );
+
+    return this.toJSON(true);
   }
 }

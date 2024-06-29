@@ -81,6 +81,11 @@ export class Button extends Component<ButtonComponent> {
 
   /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): ButtonComponent[] {
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "Button",
+    );
+
     return this.toJSON(true);
   }
 }

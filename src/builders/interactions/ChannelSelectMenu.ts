@@ -4,10 +4,9 @@ import {
   type ChannelSelectMenu as OceanicChannelSelectMenu,
   type SelectMenuDefaultValue,
 } from "oceanic.js";
-import type { ChannelSelectMenu as ChannelSelectMenuType } from "../../types";
 import { SelectMenu } from "../miscellaneous/SelectMenu";
 
-export class ChannelSelectMenu extends SelectMenu implements ChannelSelectMenuType {
+export class ChannelSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicChannelSelectMenu>) {
     super({
       ...selectMenu,
@@ -25,11 +24,19 @@ export class ChannelSelectMenu extends SelectMenu implements ChannelSelectMenuTy
     return this;
   }
 
-  toJSON(): OceanicChannelSelectMenu {
-    return this.data as OceanicChannelSelectMenu;
+  toJSON(inArray: true): [OceanicChannelSelectMenu];
+  toJSON(inArray?: false): OceanicChannelSelectMenu;
+  toJSON(inArray = false): OceanicChannelSelectMenu | OceanicChannelSelectMenu[] {
+    return inArray ? [this.data as OceanicChannelSelectMenu] : (this.data as OceanicChannelSelectMenu);
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): OceanicChannelSelectMenu[] {
-    return [this.data as OceanicChannelSelectMenu];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "ChannelSelectMenu",
+    );
+
+    return this.toJSON(true);
   }
 }

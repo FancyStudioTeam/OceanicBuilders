@@ -1,8 +1,7 @@
 import type { SelectMenuComponent } from "oceanic.js";
-import type { SelectMenu as SelectMenuType } from "../../types";
 import { Component } from "./Component";
 
-export class SelectMenu extends Component<SelectMenuComponent> implements SelectMenuType {
+export class SelectMenu extends Component<SelectMenuComponent> {
   setCustomID(customID: string): this {
     this.data.customID = customID;
     return this;

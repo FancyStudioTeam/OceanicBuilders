@@ -1,8 +1,7 @@
 import { ComponentTypes, type UserSelectMenu as OceanicUserSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
-import type { UserSelectMenu as UserSelectMenuType } from "../../types";
 import { SelectMenu } from "../miscellaneous/SelectMenu";
 
-export class UserSelectMenu extends SelectMenu implements UserSelectMenuType {
+export class UserSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicUserSelectMenu>) {
     super({
       ...selectMenu,
@@ -15,11 +14,19 @@ export class UserSelectMenu extends SelectMenu implements UserSelectMenuType {
     return this;
   }
 
-  toJSON(): OceanicUserSelectMenu {
-    return this.data as OceanicUserSelectMenu;
+  toJSON(inArray: true): [OceanicUserSelectMenu];
+  toJSON(inArray?: false): OceanicUserSelectMenu;
+  toJSON(inArray = false): OceanicUserSelectMenu | OceanicUserSelectMenu[] {
+    return inArray ? [this.data as OceanicUserSelectMenu] : (this.data as OceanicUserSelectMenu);
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): OceanicUserSelectMenu[] {
-    return [this.data as OceanicUserSelectMenu];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "UserSelectMenu",
+    );
+
+    return this.toJSON(true);
   }
 }

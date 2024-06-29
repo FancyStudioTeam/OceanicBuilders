@@ -1,34 +1,52 @@
 import type { File } from "oceanic.js";
-import { attachmentContentValidator, attachmentIndexValidator, attachmentNameValidator, validate } from "../../schemas";
-import type { Attachment as AttachmentType } from "../../types";
+import {
+  attachmentContentVerifier,
+  attachmentIndexVerifier,
+  attachmentNameVerifier,
+  validate,
+  verifyAttachmentJSON,
+} from "../../schemas";
 
-export class Attachment implements AttachmentType {
-  private json: Partial<File>;
+export class Attachment {
+  private data: Partial<File>;
 
   constructor() {
-    this.json = {};
+    this.data = {};
   }
 
   setContent(content: Buffer): this {
-    this.json.contents = validate(attachmentContentValidator, content);
+    this.data.contents = validate(attachmentContentVerifier, content);
     return this;
   }
 
   setIndex(index: number): this {
-    this.json.index = validate(attachmentIndexValidator, index);
+    this.data.index = validate(attachmentIndexVerifier, index);
     return this;
   }
 
   setName(name: string): this {
-    this.json.name = validate(attachmentNameValidator, name);
+    this.data.name = validate(attachmentNameVerifier, name);
     return this;
   }
 
-  toJSON(): File {
-    return this.json as File;
+  toJSON(inArray: true): [File];
+  toJSON(inArray?: false): File;
+  toJSON(inArray = false): File | File[] {
+    verifyAttachmentJSON({
+      contents: this.data.contents,
+      name: this.data.name,
+    });
+
+    return inArray ? [this.data as File] : (this.data as File);
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): File[] {
-    return [this.json as File];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "Attachment",
+    );
+
+    return this.toJSON(true);
   }
 }

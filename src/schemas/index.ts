@@ -1,18 +1,15 @@
 import { z } from "zod";
 
 export * from "./interactions/Button";
-
 export * from "./messages/Attachment";
+export * from "./messages/Embed";
 
-export const customIDValidator = z.string().min(1).max(100);
-
-export const disabledValidator = z.boolean();
-
-export const urlValidator = z.string().url();
-
-export const partialEmojiValidator = z.object({
-  name: z.string().nullish(),
-  id: z.string().nullish(),
+export const customIDVerifier = z.string().min(1).max(100);
+export const disabledVerifier = z.boolean();
+export const urlVerifier = z.string().min(1).url();
+export const partialEmojiVerifier = z.object({
+  name: z.string().min(1),
+  id: z.string().min(1).nullish(),
 });
 
 export function validate<T>(schema: z.ZodType<T>, value: unknown): T {

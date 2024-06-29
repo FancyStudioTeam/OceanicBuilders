@@ -1,8 +1,7 @@
 import { ComponentTypes, type StringSelectMenu as OceanicStringSelectMenu, type SelectOption } from "oceanic.js";
-import type { StringSelectMenu as StringSelectMenuType } from "../../types";
 import { SelectMenu } from "../miscellaneous/SelectMenu";
 
-export class StringSelectMenu extends SelectMenu implements StringSelectMenuType {
+export class StringSelectMenu extends SelectMenu {
   options: SelectOption[];
 
   constructor(selectMenu?: Partial<OceanicStringSelectMenu>) {
@@ -29,19 +28,29 @@ export class StringSelectMenu extends SelectMenu implements StringSelectMenuType
     return this;
   }
 
-  toJSON(): OceanicStringSelectMenu {
-    return {
-      ...this.data,
-      options: this.options,
-    } as OceanicStringSelectMenu;
+  toJSON(inArray: true): [OceanicStringSelectMenu];
+  toJSON(inArray?: false): OceanicStringSelectMenu;
+  toJSON(inArray = false): OceanicStringSelectMenu | OceanicStringSelectMenu[] {
+    return inArray
+      ? [
+          {
+            ...this.data,
+            options: this.options,
+          } as OceanicStringSelectMenu,
+        ]
+      : ({
+          ...this.data,
+          options: this.options,
+        } as OceanicStringSelectMenu);
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): OceanicStringSelectMenu[] {
-    return [
-      {
-        ...this.data,
-        options: this.options,
-      } as OceanicStringSelectMenu,
-    ];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "StringSelectMenu",
+    );
+
+    return this.toJSON(true);
   }
 }

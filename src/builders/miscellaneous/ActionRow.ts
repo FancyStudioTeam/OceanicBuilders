@@ -1,8 +1,21 @@
 import { type ActionRowBase, ComponentTypes, type MessageActionRow } from "oceanic.js";
-import type { ActionRowComponents, ActionRow as ActionRowType } from "../../types";
+import type { Button } from "../interactions/Button";
+import type { ChannelSelectMenu } from "../interactions/ChannelSelectMenu";
+import type { MentionableSelectMenu } from "../interactions/MentionableSelectMenu";
+import type { RoleSelectMenu } from "../interactions/RoleSelectMenu";
+import type { StringSelectMenu } from "../interactions/StringSelectMenu";
+import type { UserSelectMenu } from "../interactions/UserSelectMenu";
 import { Component } from "./Component";
 
-export class ActionRow<T extends ActionRowComponents> extends Component<MessageActionRow> implements ActionRowType<T> {
+type ActionRowComponents =
+  | Button
+  | ChannelSelectMenu
+  | MentionableSelectMenu
+  | RoleSelectMenu
+  | StringSelectMenu
+  | UserSelectMenu;
+
+export class ActionRow<T extends ActionRowComponents> extends Component<MessageActionRow> {
   components: T[];
 
   constructor({ components, ...init }: Partial<MessageActionRow> = {}) {
@@ -27,19 +40,29 @@ export class ActionRow<T extends ActionRowComponents> extends Component<MessageA
     return this;
   }
 
-  toJSON(): MessageActionRow {
-    return {
-      ...this.data,
-      components: this.components.map((component) => component.toJSON()),
-    } as ActionRowBase<ReturnType<T["toJSON"]>>;
+  toJSON(inArray: true): [MessageActionRow];
+  toJSON(inArray?: false): MessageActionRow;
+  toJSON(inArray = false): MessageActionRow | MessageActionRow[] {
+    return inArray
+      ? [
+          {
+            ...this.data,
+            components: this.components.map((component) => component.toJSON()),
+          } as ActionRowBase<ReturnType<T["toJSON"]>>,
+        ]
+      : ({
+          ...this.data,
+          components: this.components.map((component) => component.toJSON()),
+        } as ActionRowBase<ReturnType<T["toJSON"]>>);
   }
 
+  /** @deprecated Use toJSON(true) instead. */
   toJSONArray(): MessageActionRow[] {
-    return [
-      {
-        ...this.data,
-        components: this.components.map((component) => component.toJSON()),
-      } as ActionRowBase<ReturnType<T["toJSON"]>>,
-    ];
+    process.emitWarning(
+      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
+      "ActionRow",
+    );
+
+    return this.toJSON(true);
   }
 }
