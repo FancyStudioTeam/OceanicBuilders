@@ -2,9 +2,9 @@
 
 > ⚠️ Package under development, **may contain bugs**
 
-[Oceanic][oceanic_repository_url] compatible utility package
+[Oceanic][OceanicRepositoryURL] compatible utility package
 
-> ⚠️ This project uses version [1.11.1-dev.05899ff][version_commit] of [Oceanic][oceanic_repository_url]
+> ⚠️ This project uses version [1.11.1-dev.05899ff][VersionCommitURL] of [Oceanic][OceanicRepositoryURL]
 
 ## Get Started
 
@@ -14,10 +14,11 @@
 npm i oceanic-builders
 ```
 
-## Stages
+## Documentation
 
-<details open>
-<summary>See information</summary>
+Visit [Oceanic Builders Documentation][DocumentationURL]
+
+## Stages
 
 ### Builders in `Stage 0`
 
@@ -26,7 +27,6 @@ npm i oceanic-builders
 - `Modal`
 - `TextInput`
 - `Poll`
-- `StringSelectMenuOption` (?)
 
 ### Builders in `Stage 1`
 
@@ -43,14 +43,14 @@ npm i oceanic-builders
 
 > ⚠️ Stage 2 means that they are being verified by testing or improving functionality (There may be changes)
 
+- `Attachment`
+
 ### Builders in `Stage 3`
 
 > ⚠️ Stage 3 means that they have been verified with tests and are stable
 
 - `Button`
-- `Attachment`
 
-</details>
-
-[oceanic_repository_url]: https://github.com/OceanicJS/Oceanic
-[version_commit]: https://github.com/OceanicJS/Oceanic/commit/05899ff
+[OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic
+[VersionCommitURL]: https://github.com/OceanicJS/Oceanic/commit/05899ff
+[DocumentationURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders

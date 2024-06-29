@@ -1,61 +1,57 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { Attachment } from "../src";
+import { Attachment as AttachmentBuilder } from "../src";
+import { attachmentContentVerifier, attachmentIndexVerifier, attachmentNameVerifier, validate } from "../src/schemas";
 
-describe("Valid", () => {
-  describe("Arguments", () => {
-    test("Returns an object with predefined or empty properties", () => {
-      expect(new Attachment().toJSON()).toStrictEqual({});
-    });
+const Attachment = () => new AttachmentBuilder();
 
-    test("Returns an object with 'contents' property", () => {
-      expect(new Attachment().setContent(Buffer.from("")).toJSON()).toStrictEqual({
-        contents: Buffer.from(""),
-      });
-    });
+describe("Verifier", () => {
+  test("Verify arguments of the 'contents' verifier", () => {
+    // Valid
+    expect(() => validate(attachmentContentVerifier, Buffer.from(""))).not.toThrowError();
 
-    test("Returns an object with 'index' property", () => {
-      expect(new Attachment().setIndex(0).toJSON()).toStrictEqual({
-        index: 0,
-      });
-    });
+    // Invalid
+    expect(() => validate(attachmentContentVerifier, "")).toThrowError();
+  });
 
-    test("Returns an object with 'name' property", () => {
-      expect(new Attachment().setName("Attachment.png").toJSON()).toStrictEqual({
-        name: "Attachment.png",
-      });
-    });
+  test("Verify arguments of the 'index' verifier", () => {
+    // Valid
+    expect(() => validate(attachmentIndexVerifier, 0)).not.toThrowError();
+
+    // Invalid
+    expect(() => validate(attachmentIndexVerifier, "0")).toThrowError();
+    expect(() => validate(attachmentIndexVerifier, -1)).toThrowError();
+  });
+
+  test("Verify arguments of the 'name' verifier", () => {
+    // Valid
+    expect(() => validate(attachmentNameVerifier, "Attachment.png")).not.toThrowError();
+
+    // Invalid
+    expect(() => validate(attachmentNameVerifier, "")).toThrowError();
+    expect(() => validate(attachmentNameVerifier, 1)).toThrowError();
   });
 });
 
-describe("Invalid", () => {
-  describe("Arguments", () => {
-    test("Checks for invalid arguments in 'contents' property", () => {
-      // Invalid type
-      expect(() => {
-        // @ts-expect-error
-        new Attachment().setContent("attachment");
-      }).toThrowError();
-    });
+describe("JSON Export", () => {
+  test("Verify attachment", () => {
+    // Valid
+    expect(() =>
+      Attachment()
+        .setContent(readFileSync(join(__dirname, "..", "assets/Oceanic.png")))
+        .setName("Image")
+        .toJSON(),
+    ).not.toThrowError();
+    expect(() =>
+      Attachment()
+        .setContent(readFileSync(join(__dirname, "..", "assets/Oceanic.png")))
+        .setName("Image")
+        .toJSONArray(),
+    ).not.toThrowError();
 
-    test("Checks for invalid arguments in 'index' property", () => {
-      // Invalid type
-      expect(() => {
-        // @ts-expect-error
-        new Attachment().setIndex("0");
-      }).toThrowError();
-    });
-
-    test("Checks for invalid arguments in 'name' property", () => {
-      // Min length
-      expect(() => {
-        new Attachment().setName("");
-      }).toThrowError();
-
-      // Invalid type
-      expect(() => {
-        // @ts-expect-error
-        new Attachment().setName(1);
-      }).toThrowError();
-    });
+    // Invalid
+    expect(() => Attachment().toJSON()).toThrowError();
+    expect(() => Attachment().toJSONArray()).toThrowError();
   });
 });
