@@ -3,17 +3,16 @@
 ## ⚙️ Constructors
 
 - **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**: **[`Button`](Button.md)**
-  > Creates a new button from the API data.
+  > Create a button from API data.
 
 ## 🔧 Methods
 
 - **setCustomID(`customID`: [`string`][StringURL])**: **[`this`][ThisURL]**
-  > Sets the custom button ID.
+  > Sets the button custom ID.
 - **setDisabled(`disabled`: [`boolean`][BooleanURL])**: **[`this`][ThisURL]**
   > Sets whether the button should be disabled.
 - **setEmoji(`emoji`: [`NullablePartialEmoji`][NullablePartialEmojiURL])**: **[`this`][ThisURL]**
-  > Sets the button emoji.
-  > **⚠️ The `name` property of type [`NullablePartialEmoji`][NullablePartialEmojiURL] is required.**
+  > Sets the button emoji.<br>**(⚠️) The `name` property of type [`NullablePartialEmoji`][NullablePartialEmojiURL] is required.**
 - **setLabel(`label`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the button label.
 - **setSkuID(`skuID`: [`string`][StringURL])**: **[`this`][ThisURL]**
@@ -23,8 +22,7 @@
 - **setURL(`url`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the button URL.
 - **toJSON(`inArray?`: [`boolean`][BooleanURL])**: [`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]
-  > Returns a JSON compatible with the API.
-  > **🛟 You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.**
+  > Returns a JSON compatible with the API.<br>**(🛟) You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.**
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [ButtonComponentURL]: https://docs.oceanic.ws/dev/types/Types_Channels.ButtonComponent.html
