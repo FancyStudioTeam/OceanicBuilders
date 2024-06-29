@@ -48,7 +48,7 @@
 
 ---
 
-### Method: setEmoji {#my-explicit-id}
+### Method: setEmoji
 
 - **setEmoji(`emoji`)**: [`this`][ThisURL]
 
