@@ -16,131 +16,65 @@
 - [setStyle](#method-setstyle)
 - [setURL](#method-seturl)
 - [toJSON](#method-tojson)
-- [toJSONArray](#method-tojsonarray) (deprecated)
 
 ## ⚙️ Constructors
 
 ### Constructor: Button
 
-- **new Button(`button?`)**: [`Button`](Button.md)
-
-#### Parameters
-
-| Name     | Type                                             | Description     |
-| -------- | ------------------------------------------------ | --------------- |
-| `button` | [`Partial<ButtonComponent>`][ButtonComponentURL] | The button data |
+- **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**: **[`Button`](Button.md)**
+  > Creates a new button from the API data.
 
 ## 🔧 Methods
 
 ### Method: setCustomID
 
-- **setCustomID(`customID`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name       | Type                  | Description          |
-| ---------- | --------------------- | -------------------- |
-| `customID` | [`string`][StringURL] | The button custom ID |
-
----
+- **setCustomID(`customID`: [`string`][StringURL])**: **[`this`][ThisURL]**
+  > Sets the custom button ID.
 
 ### Method: setDisabled
 
-- **setDisabled(`disabled`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name       | Type                    | Description                      |
-| ---------- | ----------------------- | -------------------------------- |
-| `disabled` | [`boolean`][BooleanURL] | If the button should be disabled |
-
----
+- **setDisabled(`disabled`: [`boolean`][BooleanURL])**: **[`this`][ThisURL]**
+  > Sets whether the button should be disabled.
 
 ### Method: setEmoji
 
-- **setEmoji(`emoji`)**: [`this`][ThisURL]
-
-#### Parameters
+- **setEmoji(`emoji`: [`NullablePartialEmoji`][NullablePartialEmojiURL])**: **[`this`][ThisURL]**
+  > Sets the button emoji.
 
 > [!WARNING]
 > The `name` property of type [`NullablePartialEmoji`][NullablePartialEmojiURL] is required.
 
-| Name    | Type                                              | Description      |
-| ------- | ------------------------------------------------- | ---------------- |
-| `emoji` | [`NullablePartialEmoji`][NullablePartialEmojiURL] | The button emoji |
-
----
-
 ### Method: setLabel
 
-- **setLabel(`label`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name    | Type                  | Description      |
-| ------- | --------------------- | ---------------- |
-| `label` | [`string`][StringURL] | The button label |
-
----
+- **setLabel(`label`: [`string`][StringURL])**: **[`this`][ThisURL]**
+  > Sets the button label.
 
 ### Method: setSkuID
 
-- **setSkuID(`skuID`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name    | Type                  | Description       |
-| ------- | --------------------- | ----------------- |
-| `skuID` | [`string`][StringURL] | The button sku ID |
-
----
+- **setSkuID(`skuID`: [`string`][StringURL])**: **[`this`][ThisURL]**
+  > Sets the button sku ID.
 
 ### Method: setStyle
 
-- **setStyle(`style`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name    | Type                              | Description      |
-| ------- | --------------------------------- | ---------------- |
-| `style` | [`ButtonStyles`][ButtonStylesURL] | The button style |
-
----
+- **setStyle(`style`: [`ButtonStyles`][ButtonStylesURL])**: **[`this`][ThisURL]**
+  > Sets the button style.
 
 ### Method: setURL
 
-- **setURL(`url`)**: [`this`][ThisURL]
-
-#### Parameters
-
-| Name  | Type                  | Description    |
-| ----- | --------------------- | -------------- |
-| `url` | [`string`][StringURL] | The button URL |
-
----
+- **setURL(`url`: [`string`][StringURL])**: **[`this`][ThisURL]**
+  > Sets the button URL.
 
 ### Method: toJSON
 
-- **toJSON(`inArray?`)**: [`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]
+- **toJSON(`inArray?`: [`boolean`][BooleanURL])**: [`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]
+  > Returns a JSON compatible with the API.
 
-#### Parameters
+> [!TIP]
+> You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.
 
-| Name      | Type      | Description                           |
-| --------- | --------- | ------------------------------------- |
-| `inArray` | `boolean` | If the JSON should be inside an array |
-
----
-
-### Method: toJSONArray
-
-- **toJSONArray()**: [`ButtonComponent[]`][ButtonComponentURL]
-
-> [!WARNING]
-> (DEPRECATED) Use `toJSON(true)` instead.
-
-[ThisURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/This
-[StringURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [ButtonComponentURL]: https://docs.oceanic.ws/dev/types/Types_Channels.ButtonComponent.html
-[NullablePartialEmojiURL]: https://docs.oceanic.ws/dev/interfaces/Types_Guilds.NullablePartialEmoji.html
 [ButtonStylesURL]: https://docs.oceanic.ws/v1.11.0/enums/Constants.ButtonStyles.html
+[NullablePartialEmojiURL]: https://docs.oceanic.ws/dev/interfaces/Types_Guilds.NullablePartialEmoji.html
+[StringURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[ThisURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/This
