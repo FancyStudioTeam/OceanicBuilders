@@ -29,4 +29,4 @@
 [ButtonStylesURL]: https://docs.oceanic.ws/v1.11.0/enums/Constants.ButtonStyles.html
 [NullablePartialEmojiURL]: https://docs.oceanic.ws/dev/interfaces/Types_Guilds.NullablePartialEmoji.html
 [StringURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
-[ThisURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/This
+[ThisURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
