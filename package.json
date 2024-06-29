@@ -1,17 +1,34 @@
 {
   "name": "oceanic-builders",
-  "version": "0.0.19-alpha",
+  "version": "0.0.20-alpha",
   "description": "Oceanic compatible utilities",
   "main": "dist/index.js",
-  "types": "src/types.d.ts",
+  "types": "dist/index.d.ts",
+  "module": "./esm.mjs",
+  "exports": {
+    ".": {
+      "bun": "./dist/index.js",
+      "import": "./esm.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
     "pub": "npm run biome && npm run build && npm publish",
     "test": "vitest watch"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist",
+    "esm.mjs"
+  ],
+  "keywords": [
+    "oceanic.js",
+    "discord",
+    "builders"
+  ],
+  "author": "FancyStudio",
   "repository": {
     "type": "git",
     "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
@@ -21,17 +38,16 @@
   },
   "homepage": "https://discord.gg/gud55BjNFC",
   "license": "ISC",
-  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "dependencies": {
     "oceanic.js": "1.11.1-dev.05899ff",
     "zod": "3.23.8"
   },
-  "files": ["dist", "src/**/*.d.ts"],
   "devDependencies": {
-    "@biomejs/biome": "1.8.2",
+    "@biomejs/biome": "1.8.3",
     "@types/node": "20.14.9",
-    "tsx": "4.15.7",
+    "tsx": "4.16.0",
     "typescript": "5.5.2",
     "vitest": "1.6.0"
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
 }
