@@ -2,7 +2,7 @@
 
 ## ⚙️ Constructors
 
-- **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**: **[`Button`](Button.md)**
+- **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**
   > Create a button from API data.
 
 ## 🔧 Methods
