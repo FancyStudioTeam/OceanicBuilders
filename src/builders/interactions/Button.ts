@@ -17,14 +17,13 @@ import {
   urlVerifier,
   validate,
   verifyButtonJSON,
-  verifyExternalButtonJSON,
 } from "../../schemas";
 import { Component } from "../miscellaneous/Component";
 
 export class Button extends Component<ButtonComponent> {
   constructor(button?: Partial<ButtonComponent>) {
     super({
-      ...verifyExternalButtonJSON(button ?? {}),
+      ...button,
       type: ComponentTypes.BUTTON,
     });
   }
