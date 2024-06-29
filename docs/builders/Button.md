@@ -57,7 +57,7 @@
 #### Parameters
 
 > [!WARNING]
-> The `name` property is required
+> The `name` property of type [`NullablePartialEmoji`][NullablePartialEmojiURL] is required.
 
 | Name    | Type                                              | Description      |
 | ------- | ------------------------------------------------- | ---------------- |
