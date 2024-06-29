@@ -21,7 +21,7 @@
   > Sets the button style.
 - **setURL(`url`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the button URL.
-- **toJSON(`inArray?`: [`boolean`][BooleanURL])**: [`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]
+- **toJSON(`inArray?`: [`boolean`][BooleanURL])**: **[`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]**
   > Returns a JSON compatible with the API.<br>**(🛟) You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.**
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
