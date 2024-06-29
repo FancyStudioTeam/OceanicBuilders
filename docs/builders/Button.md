@@ -4,11 +4,13 @@
 
 ### Constructors
 
-- [constructor](#custom_id)
+- [constructor](#constructor-button)
 
 ### Methods
 
-- setCustomID
+- [setCustomID](#method-setcustomid)
+- [setDisabled](#method-setdisabled)
+- [setEmoji](#method-setemoji)
 
 ## ⚙️ Constructors
 
