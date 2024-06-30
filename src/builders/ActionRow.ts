@@ -27,6 +27,7 @@ export class ActionRow<T extends ActionRowComponents> extends Builder<MessageAct
     this.components = [];
   }
 
+  /** @deprecated Use addComponents instead. */
   addComponent(component: T): this {
     this.components.push(component);
     return this;
@@ -34,7 +35,7 @@ export class ActionRow<T extends ActionRowComponents> extends Builder<MessageAct
 
   addComponents(components: T[]): this {
     for (const component of components) {
-      this.addComponent(component);
+      this.components.push(component);
     }
 
     return this;
