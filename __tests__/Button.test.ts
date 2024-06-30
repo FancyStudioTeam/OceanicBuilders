@@ -72,7 +72,11 @@ describe("Verifier", () => {
     // Invalid
     expect(() => validate(buttonStyleVerifier, 7)).toThrowError();
     expect(() => validate(buttonStyleVerifier, 0)).toThrowError();
+    expect(() => validate(buttonStyleVerifier, 5.5)).toThrowError();
+    expect(() => validate(buttonStyleVerifier, -5)).toThrowError();
     expect(() => validate(buttonStyleVerifier, "PREMIUM")).toThrowError();
+    expect(() => validate(buttonStyleVerifier, Number.NaN)).toThrowError();
+    expect(() => validate(buttonStyleVerifier, Number.POSITIVE_INFINITY)).toThrowError();
   });
 
   test("Verify arguments of the 'url' verifier", () => {
@@ -100,6 +104,7 @@ describe("JSON Export", () => {
     ).not.toThrowError();
 
     // Invalid
+    expect(() => Button().toJSON()).toThrowError();
     expect(() => Button().setStyle(ButtonStyles.PRIMARY).toJSON()).toThrowError();
     expect(() => Button().setStyle(ButtonStyles.PRIMARY).setCustomID("button").toJSON()).toThrowError();
     expect(() =>
@@ -127,6 +132,7 @@ describe("JSON Export", () => {
     ).not.toThrowError();
 
     // Invalid
+    expect(() => Button().toJSON()).toThrowError();
     expect(() => Button().setStyle(ButtonStyles.LINK).toJSON()).toThrowError();
     expect(() =>
       Button()
@@ -151,6 +157,7 @@ describe("JSON Export", () => {
     expect(() => Button().setStyle(ButtonStyles.PREMIUM).setSkuID("1088510058284990888").toJSON()).not.toThrowError();
 
     // Invalid
+    expect(() => Button().toJSON()).toThrowError();
     expect(() => Button().setStyle(ButtonStyles.PREMIUM).toJSON()).toThrowError();
     expect(() =>
       Button().setStyle(ButtonStyles.PREMIUM).setSkuID("1088510058284990888").setCustomID("button").toJSON(),

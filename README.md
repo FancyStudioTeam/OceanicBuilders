@@ -43,12 +43,11 @@ Visit [Oceanic Builders Documentation][DocumentationURL]
 
 > ⚠️ Stage 2 means that they are being verified by testing or improving functionality (There may be changes)
 
-- `Attachment`
-
 ### Builders in `Stage 3`
 
 > ⚠️ Stage 3 means that they have been verified with tests and are stable
 
+- `Attachment`
 - `Button`
 
 [OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic

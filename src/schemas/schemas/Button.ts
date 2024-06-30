@@ -20,6 +20,10 @@ export function verifyButtonJSON({
   skuID?: string;
   url?: string;
 }): void {
+  if (!style) {
+    throw new Error("Buttons must have the 'style' property");
+  }
+
   if (style === ButtonStyles.PREMIUM) {
     if (!skuID) {
       throw new Error("Premium buttons must have the 'skuID' property");

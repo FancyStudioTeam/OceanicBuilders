@@ -3,7 +3,7 @@
 ## ⚙️ Constructors
 
 - **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**
-  > Create a button from API data.
+  > Creates a button.<br>**(🛟) You can load data from the API.**
 
 ## 🔧 Methods
 

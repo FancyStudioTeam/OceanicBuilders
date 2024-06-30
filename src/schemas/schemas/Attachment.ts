@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const attachmentContentVerifier = z.instanceof(Buffer);
-export const attachmentIndexVerifier = z.number().min(0).nonnegative();
+export const attachmentContentVerifier = z.instanceof(Buffer).refine((value) => value.length > 0);
+export const attachmentIndexVerifier = z.number().min(1).int();
 export const attachmentNameVerifier = z.string().min(1);
 
 export function verifyAttachmentJSON({ contents, name }: { contents?: Buffer; name?: string }): void {
