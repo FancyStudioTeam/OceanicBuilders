@@ -1,4 +1,16 @@
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
+import {
+  embedAuthorVerifier,
+  embedColorVerifier,
+  embedDescriptionVerifier,
+  embedFieldVerifier,
+  embedFooterVerifier,
+  embedTimestampVerifier,
+  embedTitleVerifier,
+  imageURLVerifier,
+  urlVerifier,
+  validate,
+} from "../schemas";
 import { Builder } from "./Builder";
 
 export class Embed extends Builder<EmbedOptions> {
@@ -8,42 +20,52 @@ export class Embed extends Builder<EmbedOptions> {
     });
   }
 
+  /** @deprecated Use addFields instead. */
   addField(field: EmbedField): this {
+    process.emitWarning(
+      "addField is deprecated and will be removed in the next major, use addFields instead.",
+      "Embed",
+    );
+
     this.data.fields = this.data.fields?.length ? [...this.data.fields, field] : [field];
     return this;
   }
 
   addFields(fields: EmbedField[]): this {
     for (const field of fields) {
-      this.addField(field);
+      if (this.data.fields?.length) {
+        this.data.fields.push(validate(embedFieldVerifier, field));
+      } else {
+        this.data.fields = [validate(embedFieldVerifier, field)];
+      }
     }
 
     return this;
   }
 
   setAuthor(author: EmbedAuthorOptions): this {
-    this.data.author = author;
+    this.data.author = validate(embedAuthorVerifier, author);
     return this;
   }
 
   setColor(color: number): this {
-    this.data.color = color;
+    this.data.color = validate(embedColorVerifier, color);
     return this;
   }
 
   setDescription(description: string): this {
-    this.data.description = description;
+    this.data.description = validate(embedDescriptionVerifier, description);
     return this;
   }
 
   setFooter(footer: EmbedFooterOptions): this {
-    this.data.footer = footer;
+    this.data.footer = validate(embedFooterVerifier, footer);
     return this;
   }
 
   setImage(image: string): this {
     this.data.image = {
-      url: image,
+      url: validate(imageURLVerifier, image),
     };
 
     return this;
@@ -51,24 +73,24 @@ export class Embed extends Builder<EmbedOptions> {
 
   setThumbnail(thumbnail: string): this {
     this.data.thumbnail = {
-      url: thumbnail,
+      url: validate(imageURLVerifier, thumbnail),
     };
 
     return this;
   }
 
   setTimestamp(date?: Date): this {
-    this.data.timestamp = date?.toISOString() ?? new Date().toISOString();
+    this.data.timestamp = date ? validate(embedTimestampVerifier, date).toISOString() : new Date().toISOString();
     return this;
   }
 
   setTitle(title: string): this {
-    this.data.title = title;
+    this.data.title = validate(embedTitleVerifier, title);
     return this;
   }
 
   setURL(url: string): this {
-    this.data.url = url;
+    this.data.url = validate(urlVerifier, url);
     return this;
   }
 

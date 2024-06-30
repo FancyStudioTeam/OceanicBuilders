@@ -6,10 +6,14 @@ export * from "./schemas/Embed";
 
 export const customIDVerifier = z.string().max(100);
 export const disabledVerifier = z.boolean();
-export const urlVerifier = z
+export const imageURLVerifier = z
   .string()
   .url()
   .regex(/^(http:|https:|attachment:).*/);
+export const urlVerifier = z
+  .string()
+  .url()
+  .regex(/^(http:|https:).*/);
 export const partialEmojiVerifier = z.object({
   name: z.string(),
   id: z.string().nullish(),

@@ -36,12 +36,13 @@ Visit [Oceanic Builders Documentation][DocumentationURL]
 - `MentionableSelectMenu`
 - `RoleSelectMenu`
 - `StringSelectMenu`
-- `Embed`
 - `ActionRow`
 
 ### Builders in `Stage 2`
 
 > ⚠️ Stage 2 means that they are being verified by testing or improving functionality (There may be changes)
+
+- `Embed`
 
 ### Builders in `Stage 3`
 

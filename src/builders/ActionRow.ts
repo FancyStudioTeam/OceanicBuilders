@@ -29,6 +29,11 @@ export class ActionRow<T extends ActionRowComponents> extends Builder<MessageAct
 
   /** @deprecated Use addComponents instead. */
   addComponent(component: T): this {
+    process.emitWarning(
+      "addComponent is deprecated and will be removed in the next major, use addComponents instead.",
+      "ActionRow",
+    );
+
     this.components.push(component);
     return this;
   }

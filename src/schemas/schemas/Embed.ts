@@ -18,6 +18,5 @@ export const embedFooterVerifier = z.object({
 });
 export const embedImageVerifier = z.string().url();
 export const embedThumbnailVerifier = z.string().url();
-export const embedTimestampVerifier = z.date();
+export const embedTimestampVerifier = z.instanceof(Date);
 export const embedTitleVerifier = z.string().max(256);
-export const embedURLVerifier = z.string().url();
