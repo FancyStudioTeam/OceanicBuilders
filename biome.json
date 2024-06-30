@@ -32,6 +32,9 @@
       },
       "correctness": {
         "noNodejsModules": "off"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off"
       }
     }
   }

@@ -6,7 +6,7 @@ import {
   validate,
   verifyAttachmentJSON,
 } from "../schemas";
-import { Builder } from "./base/Builder";
+import { Builder } from "./Builder";
 
 export class Attachment extends Builder<File> {
   constructor() {

@@ -1,11 +1,11 @@
 import { type ActionRowBase, ComponentTypes, type MessageActionRow } from "oceanic.js";
+import { Builder } from "./Builder";
 import type { Button } from "./Button";
 import type { ChannelSelectMenu } from "./ChannelSelectMenu";
 import type { MentionableSelectMenu } from "./MentionableSelectMenu";
 import type { RoleSelectMenu } from "./RoleSelectMenu";
 import type { StringSelectMenu } from "./StringSelectMenu";
 import type { UserSelectMenu } from "./UserSelectMenu";
-import { Builder } from "./base/Builder";
 
 type ActionRowComponents =
   | Button

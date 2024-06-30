@@ -18,7 +18,7 @@ import {
   validate,
   verifyButtonJSON,
 } from "../schemas";
-import { Builder } from "./base/Builder";
+import { Builder } from "./Builder";
 
 export class Button extends Builder<ButtonComponent> {
   constructor(button?: Partial<ButtonComponent>) {

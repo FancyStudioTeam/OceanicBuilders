@@ -1,5 +1,5 @@
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
-import { Builder } from "./base/Builder";
+import { Builder } from "./Builder";
 
 export class Embed extends Builder<EmbedOptions> {
   constructor(embed?: Partial<EmbedOptions>) {

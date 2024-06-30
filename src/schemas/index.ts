@@ -1,12 +1,16 @@
 import { z } from "zod";
 
-export * from "./interactions/Button";
-export * from "./messages/Attachment";
-export * from "./messages/Embed";
+export * from "./schemas/Attachment";
+export * from "./schemas/Button";
+export * from "./schemas/Embed";
 
 export const customIDVerifier = z.string().min(1).max(100);
 export const disabledVerifier = z.boolean();
-export const urlVerifier = z.string().min(1).url();
+export const urlVerifier = z
+  .string()
+  .min(1)
+  .url()
+  .regex(/^(http:|https:|attachment:).*/);
 export const partialEmojiVerifier = z.object({
   name: z.string().min(1),
   id: z.string().min(1).nullish(),

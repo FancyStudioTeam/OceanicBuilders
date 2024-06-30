@@ -5,7 +5,6 @@ export const buttonLabelVerifier = z.string().min(1).max(80);
 export const buttonSkuIDVerifier = z.string().min(1);
 export const buttonStyleVerifier = z.nativeEnum(ButtonStyles);
 
-// biome-ignore lint/complexity/noExcessiveCognitiveComplexity:
 export function verifyButtonJSON({
   style,
   label,
