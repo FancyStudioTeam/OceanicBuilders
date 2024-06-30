@@ -1,11 +1,11 @@
 import { type ActionRowBase, ComponentTypes, type MessageActionRow } from "oceanic.js";
-import type { Button } from "../interactions/Button";
-import type { ChannelSelectMenu } from "../interactions/ChannelSelectMenu";
-import type { MentionableSelectMenu } from "../interactions/MentionableSelectMenu";
-import type { RoleSelectMenu } from "../interactions/RoleSelectMenu";
-import type { StringSelectMenu } from "../interactions/StringSelectMenu";
-import type { UserSelectMenu } from "../interactions/UserSelectMenu";
-import { Component } from "./Component";
+import type { Button } from "./Button";
+import type { ChannelSelectMenu } from "./ChannelSelectMenu";
+import type { MentionableSelectMenu } from "./MentionableSelectMenu";
+import type { RoleSelectMenu } from "./RoleSelectMenu";
+import type { StringSelectMenu } from "./StringSelectMenu";
+import type { UserSelectMenu } from "./UserSelectMenu";
+import { Builder } from "./base/Builder";
 
 type ActionRowComponents =
   | Button
@@ -15,7 +15,7 @@ type ActionRowComponents =
   | StringSelectMenu
   | UserSelectMenu;
 
-export class ActionRow<T extends ActionRowComponents> extends Component<MessageActionRow> {
+export class ActionRow<T extends ActionRowComponents> extends Builder<MessageActionRow> {
   components: T[];
 
   constructor({ components, ...init }: Partial<MessageActionRow> = {}) {

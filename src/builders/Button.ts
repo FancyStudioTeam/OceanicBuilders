@@ -17,10 +17,10 @@ import {
   urlVerifier,
   validate,
   verifyButtonJSON,
-} from "../../schemas";
-import { Component } from "../miscellaneous/Component";
+} from "../schemas";
+import { Builder } from "./base/Builder";
 
-export class Button extends Component<ButtonComponent> {
+export class Button extends Builder<ButtonComponent> {
   constructor(button?: Partial<ButtonComponent>) {
     super({
       ...button,

@@ -1,14 +1,15 @@
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
+import { Builder } from "./base/Builder";
 
-export class Embed {
-  private json: EmbedOptions;
-
-  constructor(embed: EmbedOptions = {}) {
-    this.json = embed;
+export class Embed extends Builder<EmbedOptions> {
+  constructor(embed?: Partial<EmbedOptions>) {
+    super({
+      ...embed,
+    });
   }
 
   addField(field: EmbedField): this {
-    this.json.fields = this.json.fields?.length ? [...this.json.fields, field] : [field];
+    this.data.fields = this.data.fields?.length ? [...this.data.fields, field] : [field];
     return this;
   }
 
@@ -21,27 +22,27 @@ export class Embed {
   }
 
   setAuthor(author: EmbedAuthorOptions): this {
-    this.json.author = author;
+    this.data.author = author;
     return this;
   }
 
   setColor(color: number): this {
-    this.json.color = color;
+    this.data.color = color;
     return this;
   }
 
   setDescription(description: string): this {
-    this.json.description = description;
+    this.data.description = description;
     return this;
   }
 
   setFooter(footer: EmbedFooterOptions): this {
-    this.json.footer = footer;
+    this.data.footer = footer;
     return this;
   }
 
   setImage(image: string): this {
-    this.json.image = {
+    this.data.image = {
       url: image,
     };
 
@@ -49,7 +50,7 @@ export class Embed {
   }
 
   setThumbnail(thumbnail: string): this {
-    this.json.thumbnail = {
+    this.data.thumbnail = {
       url: thumbnail,
     };
 
@@ -57,24 +58,24 @@ export class Embed {
   }
 
   setTimestamp(date?: Date): this {
-    this.json.timestamp = date?.toISOString() ?? new Date().toISOString();
+    this.data.timestamp = date?.toISOString() ?? new Date().toISOString();
     return this;
   }
 
   setTitle(title: string): this {
-    this.json.title = title;
+    this.data.title = title;
     return this;
   }
 
   setURL(url: string): this {
-    this.json.url = url;
+    this.data.url = url;
     return this;
   }
 
   toJSON(inArray: true): [EmbedOptions];
   toJSON(inArray?: false): EmbedOptions;
   toJSON(inArray = false): EmbedOptions | EmbedOptions[] {
-    return inArray ? [this.json] : this.json;
+    return inArray ? [this.data] : this.data;
   }
 
   /** @deprecated Use toJSON(true) instead. */

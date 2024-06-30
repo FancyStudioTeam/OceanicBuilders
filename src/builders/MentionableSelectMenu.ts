@@ -3,7 +3,7 @@ import {
   type MentionableSelectMenu as OceanicMentionableSelectMenu,
   type SelectMenuDefaultValue,
 } from "oceanic.js";
-import { SelectMenu } from "../miscellaneous/SelectMenu";
+import { SelectMenu } from "./SelectMenu";
 
 export class MentionableSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicMentionableSelectMenu>) {

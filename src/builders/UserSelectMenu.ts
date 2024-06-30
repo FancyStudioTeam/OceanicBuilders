@@ -1,5 +1,5 @@
 import { ComponentTypes, type UserSelectMenu as OceanicUserSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
-import { SelectMenu } from "../miscellaneous/SelectMenu";
+import { SelectMenu } from "./SelectMenu";
 
 export class UserSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicUserSelectMenu>) {

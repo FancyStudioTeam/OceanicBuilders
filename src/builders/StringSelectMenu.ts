@@ -1,5 +1,5 @@
 import { ComponentTypes, type StringSelectMenu as OceanicStringSelectMenu, type SelectOption } from "oceanic.js";
-import { SelectMenu } from "../miscellaneous/SelectMenu";
+import { SelectMenu } from "./SelectMenu";
 
 export class StringSelectMenu extends SelectMenu {
   options: SelectOption[];

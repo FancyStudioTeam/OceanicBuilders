@@ -1,5 +1,5 @@
 import { ComponentTypes, type RoleSelectMenu as OceanicRoleSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
-import { SelectMenu } from "../miscellaneous/SelectMenu";
+import { SelectMenu } from "./SelectMenu";
 
 export class RoleSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicRoleSelectMenu>) {

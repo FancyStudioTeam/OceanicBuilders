@@ -5,13 +5,12 @@ import {
   attachmentNameVerifier,
   validate,
   verifyAttachmentJSON,
-} from "../../schemas";
+} from "../schemas";
+import { Builder } from "./base/Builder";
 
-export class Attachment {
-  private data: Partial<File>;
-
+export class Attachment extends Builder<File> {
   constructor() {
-    this.data = {};
+    super({});
   }
 
   setContent(content: Buffer): this {
