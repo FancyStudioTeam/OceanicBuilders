@@ -1,8 +1,8 @@
 import { ButtonStyles, type NullablePartialEmoji } from "oceanic.js";
 import { z } from "zod";
 
-export const buttonLabelVerifier = z.string().min(1).max(80);
-export const buttonSkuIDVerifier = z.string().min(1);
+export const buttonLabelVerifier = z.string().max(80);
+export const buttonSkuIDVerifier = z.string();
 export const buttonStyleVerifier = z.nativeEnum(ButtonStyles);
 
 export function verifyButtonJSON({

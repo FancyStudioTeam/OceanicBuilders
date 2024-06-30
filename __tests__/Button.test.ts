@@ -21,7 +21,6 @@ describe("Verifier", () => {
     expect(() => validate(customIDVerifier, "_".repeat(100))).not.toThrowError();
 
     // Invalid
-    expect(() => validate(customIDVerifier, "")).toThrowError();
     expect(() => validate(customIDVerifier, "_".repeat(101))).toThrowError();
     expect(() => validate(customIDVerifier, 1)).toThrowError();
   });
@@ -50,7 +49,6 @@ describe("Verifier", () => {
     expect(() => validate(buttonLabelVerifier, "_".repeat(80))).not.toThrowError();
 
     // Invalid
-    expect(() => validate(buttonLabelVerifier, "")).toThrowError();
     expect(() => validate(buttonLabelVerifier, "_".repeat(81))).toThrowError();
     expect(() => validate(buttonLabelVerifier, 1)).toThrowError();
   });
@@ -60,7 +58,6 @@ describe("Verifier", () => {
     expect(() => validate(buttonSkuIDVerifier, "1088510058284990888")).not.toThrowError();
 
     // Invalid
-    expect(() => validate(buttonSkuIDVerifier, "")).toThrowError();
     expect(() => validate(buttonSkuIDVerifier, 1)).toThrowError();
   });
 

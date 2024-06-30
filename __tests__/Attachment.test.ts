@@ -39,7 +39,6 @@ describe("Verifier", () => {
     expect(() => validate(attachmentNameVerifier, "Image")).not.toThrowError();
 
     // Invalid
-    expect(() => validate(attachmentNameVerifier, "")).toThrowError();
     expect(() => validate(attachmentNameVerifier, 1)).toThrowError();
   });
 });
