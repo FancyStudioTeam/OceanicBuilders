@@ -51,8 +51,8 @@ Visit [Oceanic Builders Documentation][DocumentationURL]
 
 > ⚠️ Stage 3 means that they have been verified with tests and are stable
 
-- `Attachment`
-- `Button`
+- [`Attachment`](https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/docs/builders/Attachment.md)
+- [`Button`](https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/docs/builders/Button.md)
 
 [OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic
 [VersionCommitURL]: https://github.com/OceanicJS/Oceanic/commit/05899ff
