@@ -16,8 +16,7 @@
   "scripts": {
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
-    "clear": "rm -rf dist",
-    "release": "npm run clear && npm run biome && npm run build && npm publish",
+    "release": "bash release.sh",
     "test": "vitest watch"
   },
   "files": ["dist", "esm.mjs"],
