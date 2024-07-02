@@ -7,6 +7,7 @@
     "allowUnusedLabels": false,
     "alwaysStrict": true,
     "declaration": true,
+    "declarationDir": "dist/types",
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
     "experimentalDecorators": true,
