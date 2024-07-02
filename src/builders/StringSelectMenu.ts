@@ -50,6 +50,11 @@ export class StringSelectMenu extends SelectMenu {
 
   /** @deprecated Use addOptions instead. */
   addOption(option: StringSelectMenuOption | SelectOption): this {
+    process.emitWarning(
+      "addOption is deprecated and will be removed in the next major, use addOptions instead.",
+      "StringSelectMenu",
+    );
+
     this.options.push(option instanceof StringSelectMenuOption ? option.toJSON() : option);
     return this;
   }
