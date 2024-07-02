@@ -1,4 +1,4 @@
-import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
+import type { EmbedAuthorOptions, EmbedFooterOptions, EmbedOptions, EmbedField as OceanicEmbedField } from "oceanic.js";
 import {
   embedAuthorVerifier,
   embedColorVerifier,
@@ -13,6 +13,33 @@ import {
 } from "../schemas";
 import { Builder } from "./Builder";
 
+export class EmbedField extends Builder<OceanicEmbedField> {
+  constructor() {
+    super({});
+  }
+
+  setInline(inline: boolean): this {
+    this.data.inline = inline;
+    return this;
+  }
+
+  setName(name: string): this {
+    this.data.name = name;
+    return this;
+  }
+
+  setValue(value: string): this {
+    this.data.value = value;
+    return this;
+  }
+
+  toJSON(inArray: true): [OceanicEmbedField];
+  toJSON(inArray?: false): OceanicEmbedField;
+  toJSON(inArray = false): OceanicEmbedField | OceanicEmbedField[] {
+    return inArray ? [this.data as OceanicEmbedField] : (this.data as OceanicEmbedField);
+  }
+}
+
 export class Embed extends Builder<EmbedOptions> {
   constructor(embed?: Partial<EmbedOptions>) {
     super({
@@ -21,22 +48,24 @@ export class Embed extends Builder<EmbedOptions> {
   }
 
   /** @deprecated Use addFields instead. */
-  addField(field: EmbedField): this {
+  addField(field: OceanicEmbedField): this {
     process.emitWarning(
       "addField is deprecated and will be removed in the next major, use addFields instead.",
       "Embed",
     );
 
-    this.data.fields = this.data.fields?.length ? [...this.data.fields, field] : [field];
+    this.data.fields = this.data.fields?.length
+      ? [...this.data.fields, field instanceof EmbedField ? field.toJSON() : field]
+      : [field instanceof EmbedField ? field.toJSON() : field];
     return this;
   }
 
-  addFields(fields: EmbedField[]): this {
+  addFields(fields: (EmbedField | OceanicEmbedField)[]): this {
     for (const field of fields) {
       if (this.data.fields?.length) {
-        this.data.fields.push(validate(embedFieldVerifier, field));
+        this.data.fields.push(validate(embedFieldVerifier, field instanceof EmbedField ? field.toJSON() : field));
       } else {
-        this.data.fields = [validate(embedFieldVerifier, field)];
+        this.data.fields = [validate(embedFieldVerifier, field instanceof EmbedField ? field.toJSON() : field)];
       }
     }
 

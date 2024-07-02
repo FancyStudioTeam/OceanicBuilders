@@ -1,5 +1,38 @@
 import { ComponentTypes, type StringSelectMenu as OceanicStringSelectMenu, type SelectOption } from "oceanic.js";
+import { Builder } from "./Builder";
 import { SelectMenu } from "./SelectMenu";
+
+export class StringSelectMenuOption extends Builder<SelectOption> {
+  constructor() {
+    super({});
+  }
+
+  setDefault(_default_: boolean): this {
+    this.data.default = _default_;
+    return this;
+  }
+
+  setDescription(description: string): this {
+    this.data.description = description;
+    return this;
+  }
+
+  setLabel(label: string): this {
+    this.data.label = label;
+    return this;
+  }
+
+  setValue(value: string): this {
+    this.data.value = value;
+    return this;
+  }
+
+  toJSON(inArray: true): [SelectOption];
+  toJSON(inArray?: false): SelectOption;
+  toJSON(inArray = false): SelectOption | SelectOption[] {
+    return inArray ? [this.data as SelectOption] : (this.data as SelectOption);
+  }
+}
 
 export class StringSelectMenu extends SelectMenu {
   options: SelectOption[];
@@ -15,14 +48,15 @@ export class StringSelectMenu extends SelectMenu {
     this.options = options ?? [];
   }
 
-  addOption(option: SelectOption): this {
-    this.options.push(option);
+  /** @deprecated Use addOptions instead. */
+  addOption(option: StringSelectMenuOption | SelectOption): this {
+    this.options.push(option instanceof StringSelectMenuOption ? option.toJSON() : option);
     return this;
   }
 
-  addOptions(options: SelectOption[]): this {
+  addOptions(options: (StringSelectMenuOption | SelectOption)[]): this {
     for (const option of options) {
-      this.addOption(option);
+      this.options.push(option instanceof StringSelectMenuOption ? option.toJSON() : option);
     }
 
     return this;

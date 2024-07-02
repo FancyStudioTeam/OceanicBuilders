@@ -24,11 +24,7 @@ Visit [Oceanic Builders Documentation][DocumentationURL]
 
 > ⚠️ Stage 0 means that they have not been implemented or are being planned
 
-- `EmbedField`
 - `Modal`
-- `PollMedia`
-- `Poll`
-- `StringSelectMenuOption`
 - `TextInput`
 
 ### Builders in `Stage 1`
@@ -37,8 +33,12 @@ Visit [Oceanic Builders Documentation][DocumentationURL]
 
 - `ActionRow`
 - `ChannelSelectMenu`
+- `EmbedField`
 - `MentionableSelectMenu`
+- `PollMedia`
+- `Poll`
 - `RoleSelectMenu`
+- `StringSelectMenuOption`
 - `StringSelectMenu`
 
 ### Builders in `Stage 2`
