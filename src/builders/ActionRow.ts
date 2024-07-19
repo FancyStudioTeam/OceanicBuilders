@@ -1,46 +1,16 @@
-import { type ActionRowBase, ComponentTypes, type MessageActionRow } from "oceanic.js";
-import { Builder } from "./Builder";
-import type { Button } from "./Button";
-import type { ChannelSelectMenu } from "./ChannelSelectMenu";
-import type { MentionableSelectMenu } from "./MentionableSelectMenu";
-import type { RoleSelectMenu } from "./RoleSelectMenu";
-import type { StringSelectMenu } from "./StringSelectMenu";
-import type { UserSelectMenu } from "./UserSelectMenu";
+import { ComponentTypes, type MessageActionRow } from "oceanic.js";
+import type { JSONComponents, ValidComponents } from "../types";
 
-type ActionRowComponents =
-  | Button
-  | ChannelSelectMenu
-  | MentionableSelectMenu
-  | RoleSelectMenu
-  | StringSelectMenu
-  | UserSelectMenu;
+export class ActionRow {
+  components: JSONComponents[];
 
-export class ActionRow<T extends ActionRowComponents> extends Builder<MessageActionRow> {
-  components: T[];
-
-  constructor({ components, ...init }: Partial<MessageActionRow> = {}) {
-    super({
-      type: ComponentTypes.ACTION_ROW,
-      ...init,
-    });
-
+  constructor() {
     this.components = [];
   }
 
-  /** @deprecated Use addComponents instead. */
-  addComponent(component: T): this {
-    process.emitWarning(
-      "addComponent is deprecated and will be removed in the next major, use addComponents instead.",
-      "ActionRow",
-    );
-
-    this.components.push(component);
-    return this;
-  }
-
-  addComponents(components: T[]): this {
+  addComponents(components: ValidComponents[]): this {
     for (const component of components) {
-      this.components.push(component);
+      this.components.push("toJSON" in component ? component.toJSON() : component);
     }
 
     return this;
@@ -52,23 +22,13 @@ export class ActionRow<T extends ActionRowComponents> extends Builder<MessageAct
     return inArray
       ? [
           {
-            ...this.data,
-            components: this.components.map((component) => component.toJSON()),
-          } as ActionRowBase<ReturnType<T["toJSON"]>>,
+            type: ComponentTypes.ACTION_ROW,
+            components: this.components,
+          },
         ]
-      : ({
-          ...this.data,
-          components: this.components.map((component) => component.toJSON()),
-        } as ActionRowBase<ReturnType<T["toJSON"]>>);
-  }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): MessageActionRow[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "ActionRow",
-    );
-
-    return this.toJSON(true);
+      : {
+          type: ComponentTypes.ACTION_ROW,
+          components: this.components,
+        };
   }
 }
