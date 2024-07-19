@@ -9,8 +9,8 @@ export class UserSelectMenu extends SelectMenu {
     });
   }
 
-  setDefaultValues(defaultValues: SelectMenuDefaultValue[]): this {
-    (this.data as OceanicUserSelectMenu).defaultValues = defaultValues;
+  setDefaultValue(defaultValue: SelectMenuDefaultValue): this {
+    (this.data as OceanicUserSelectMenu).defaultValues = [defaultValue];
     return this;
   }
 

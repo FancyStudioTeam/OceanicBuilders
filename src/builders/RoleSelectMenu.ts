@@ -9,8 +9,8 @@ export class RoleSelectMenu extends SelectMenu {
     });
   }
 
-  setDefaultValues(defaultValues: SelectMenuDefaultValue[]): this {
-    (this.data as OceanicRoleSelectMenu).defaultValues = defaultValues;
+  setDefaultValue(defaultValue: SelectMenuDefaultValue): this {
+    (this.data as OceanicRoleSelectMenu).defaultValues = [defaultValue];
     return this;
   }
 

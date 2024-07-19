@@ -19,8 +19,8 @@ export class ChannelSelectMenu extends SelectMenu {
     return this;
   }
 
-  setDefaultValues(defaultValues: SelectMenuDefaultValue[]): this {
-    (this.data as OceanicChannelSelectMenu).defaultValues = defaultValues;
+  setDefaultValue(defaultValue: SelectMenuDefaultValue): this {
+    (this.data as OceanicChannelSelectMenu).defaultValues = [defaultValue];
     return this;
   }
 

@@ -13,8 +13,8 @@ export class MentionableSelectMenu extends SelectMenu {
     });
   }
 
-  setDefaultValues(defaultValues: SelectMenuDefaultValue[]): this {
-    (this.data as OceanicMentionableSelectMenu).defaultValues = defaultValues;
+  setDefaultValue(defaultValue: SelectMenuDefaultValue): this {
+    (this.data as OceanicMentionableSelectMenu).defaultValues = [defaultValue];
     return this;
   }
 
