@@ -16,6 +16,7 @@
   "scripts": {
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
+    "example": "tsx --watch --env-file=\".env\" example.ts",
     "prepare": "husky",
     "release": "bash release.sh",
     "test": "vitest watch"
