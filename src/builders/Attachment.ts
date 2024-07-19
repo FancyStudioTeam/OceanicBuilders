@@ -1,51 +1,30 @@
 import type { File } from "oceanic.js";
-import {
-  attachmentContentVerifier,
-  attachmentIndexVerifier,
-  attachmentNameVerifier,
-  validate,
-  verifyAttachmentJSON,
-} from "../schemas";
-import { Builder } from "./Builder";
 
-export class Attachment extends Builder<File> {
+export class Attachment {
+  data: Partial<File>;
+
   constructor() {
-    super({});
+    this.data = {};
   }
 
-  setContent(content: Buffer): this {
-    this.data.contents = validate(attachmentContentVerifier, content);
+  setContents(contents: Buffer): this {
+    this.data.contents = contents;
     return this;
   }
 
   setIndex(index: number): this {
-    this.data.index = validate(attachmentIndexVerifier, index);
+    this.data.index = index;
     return this;
   }
 
   setName(name: string): this {
-    this.data.name = validate(attachmentNameVerifier, name);
+    this.data.name = name;
     return this;
   }
 
   toJSON(inArray: true): [File];
   toJSON(inArray?: false): File;
   toJSON(inArray = false): File | File[] {
-    verifyAttachmentJSON({
-      contents: this.data.contents,
-      name: this.data.name,
-    });
-
     return inArray ? [this.data as File] : (this.data as File);
-  }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): File[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "Attachment",
-    );
-
-    return this.toJSON(true);
   }
 }
