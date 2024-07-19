@@ -19,14 +19,4 @@ export class UserSelectMenu extends SelectMenu {
   toJSON(inArray = false): OceanicUserSelectMenu | OceanicUserSelectMenu[] {
     return inArray ? [this.data as OceanicUserSelectMenu] : (this.data as OceanicUserSelectMenu);
   }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): OceanicUserSelectMenu[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "UserSelectMenu",
-    );
-
-    return this.toJSON(true);
-  }
 }
