@@ -19,14 +19,4 @@ export class RoleSelectMenu extends SelectMenu {
   toJSON(inArray = false): OceanicRoleSelectMenu | OceanicRoleSelectMenu[] {
     return inArray ? [this.data as OceanicRoleSelectMenu] : (this.data as OceanicRoleSelectMenu);
   }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): OceanicRoleSelectMenu[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "RoleSelectMenu",
-    );
-
-    return this.toJSON(true);
-  }
 }
