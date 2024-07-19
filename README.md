@@ -1,59 +1,44 @@
-# Oceanic Builders (Unofficial) [W.I.P]
+# 🌊 Oceanic Builders (Unofficial)
 
-> ⚠️ Package under development, **may contain bugs**
+Oceanic Builders is a library to create components in a simple way for the [Oceanic.js][OceanicRepositoryURL] library.
 
-[Oceanic][OceanicRepositoryURL] compatible utility package
+## ✨ Features
 
-> ⚠️ This project uses version [1.11.1-dev.05899ff][VersionCommitURL] of [Oceanic][OceanicRepositoryURL]
+- ✅ Easy to use
+- ✅ CJS and ESM support
+- ✅ Support with objects and builders
 
-## Get Started
-
-### Installation
+## 📦 Installation
 
 ```bash
-npm i oceanic-builders
+npm install oceanic-builders
 ```
 
-## Documentation
+## 📚 Documentation
 
-Visit [Oceanic Builders Documentation][DocumentationURL]
+You can see the complete documentation in our [GitHub repository][DocumentationFolderURL].
 
-## Stages
+## 🚀 Basic Example
 
-### Builders in `Stage 0`
+```js
+import { ActionRow, Button } from "oceanic-builders";
 
-> ⚠️ Stage 0 means that they have not been implemented or are being planned
+const actionRow = new ActionRow()
+  .addComponents([
+    new Button().setCustomID("button").setLabel("Click me!").setStyle(2),
+  ])
+  .toJSON();
 
-- `Modal`
-- `TextInput`
+console.log(actionRow);
+```
 
-### Builders in `Stage 1`
+You can also see our [`example.ts`][ExamplesFileURL] file to see all the examples of all the components.
 
-> ⚠️ Stage 1 means that they have been implemented, but have not been properly verified with tests
+## 📄 License
 
-- `ActionRow`
-- `ChannelSelectMenu`
-- `EmbedField`
-- `MentionableSelectMenu`
-- `PollMedia`
-- `Poll`
-- `RoleSelectMenu`
-- `StringSelectMenuOption`
-- `StringSelectMenu`
+This project is licensed under the [MIT License][MITLicenseURL].
 
-### Builders in `Stage 2`
-
-> ⚠️ Stage 2 means that they are being verified by testing or improving functionality (There may be changes)
-
-- `Embed`
-
-### Builders in `Stage 3`
-
-> ⚠️ Stage 3 means that they have been verified with tests and are stable
-
-- [`Attachment`](https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/docs/builders/Attachment.md)
-- [`Button`](https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/docs/builders/Button.md)
-
+[DocumentationFolderURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders
+[ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
+[MITLicenseURL]: https://opensource.org/license/mit
 [OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic
-[VersionCommitURL]: https://github.com/OceanicJS/Oceanic/commit/05899ff
-[DocumentationURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders
