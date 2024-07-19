@@ -18,8 +18,7 @@
     "build": "tsc",
     "example": "tsx --watch --env-file=\".env\" example.ts",
     "prepare": "husky",
-    "release": "bash release.sh",
-    "test": "vitest watch"
+    "release": "bash release.sh"
   },
   "files": ["dist", "esm.mjs"],
   "keywords": ["oceanic.js", "discord", "builders"],
@@ -41,8 +40,7 @@
     "@types/node": "20.14.11",
     "husky": "9.1.1",
     "lint-staged": "15.2.7",
-    "tsx": "4.16.2",
-    "vitest": "2.0.3"
+    "tsx": "4.16.2"
   },
   "packageManager": "pnpm@9.5.0+sha256.dbdf5961c32909fb030595a9daa1dae720162e658609a8f92f2fa99835510ca5",
   "lint-staged": {
