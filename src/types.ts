@@ -2,6 +2,7 @@ import type {
   ButtonComponent,
   EmbedField as OceanicEmbedField,
   PollMedia as OceanicPollMedia,
+  TextInput as OceanicTextInput,
   SelectMenuComponent,
   SelectOption,
 } from "oceanic.js";
@@ -14,6 +15,7 @@ import type {
   RoleSelectMenu,
   StringSelectMenu,
   StringSelectMenuOption,
+  TextInput,
   UserSelectMenu,
 } from ".";
 
@@ -34,3 +36,5 @@ export type ValidEmbedField = EmbedField | OceanicEmbedField;
 export type ValidPollMedia = PollMedia | OceanicPollMedia;
 
 export type ValidSelectMenuOption = StringSelectMenuOption | SelectOption;
+
+export type ValidTextInput = TextInput | OceanicTextInput;
