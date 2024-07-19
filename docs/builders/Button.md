@@ -4,9 +4,6 @@
 
 - **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**
 
-> [!TIP]
-> You can load data directly from the API and modify it.
-
 ## 🔧 Methods
 
 - **setCustomID(`customID`: [`string`][StringURL])**: **[`this`][ThisURL]**
