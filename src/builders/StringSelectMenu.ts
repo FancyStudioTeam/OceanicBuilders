@@ -1,19 +1,31 @@
-import { ComponentTypes, type StringSelectMenu as OceanicStringSelectMenu, type SelectOption } from "oceanic.js";
-import { Builder } from "./Builder";
+import {
+  ComponentTypes,
+  type NullablePartialEmoji,
+  type StringSelectMenu as OceanicStringSelectMenu,
+  type SelectOption,
+} from "oceanic.js";
+import type { ValidSelectMenuOption } from "../types";
 import { SelectMenu } from "./SelectMenu";
 
-export class StringSelectMenuOption extends Builder<SelectOption> {
+export class StringSelectMenuOption {
+  data: Partial<SelectOption>;
+
   constructor() {
-    super({});
+    this.data = {};
   }
 
-  setDefault(_default_: boolean): this {
-    this.data.default = _default_;
+  setDefault(_default: boolean): this {
+    this.data.default = _default;
     return this;
   }
 
   setDescription(description: string): this {
     this.data.description = description;
+    return this;
+  }
+
+  setEmoji(emoji: NullablePartialEmoji): this {
+    this.data.emoji = emoji;
     return this;
   }
 
@@ -48,20 +60,9 @@ export class StringSelectMenu extends SelectMenu {
     this.options = options ?? [];
   }
 
-  /** @deprecated Use addOptions instead. */
-  addOption(option: StringSelectMenuOption | SelectOption): this {
-    process.emitWarning(
-      "addOption is deprecated and will be removed in the next major, use addOptions instead.",
-      "StringSelectMenu",
-    );
-
-    this.options.push(option instanceof StringSelectMenuOption ? option.toJSON() : option);
-    return this;
-  }
-
-  addOptions(options: (StringSelectMenuOption | SelectOption)[]): this {
+  addOptions(options: ValidSelectMenuOption[]): this {
     for (const option of options) {
-      this.options.push(option instanceof StringSelectMenuOption ? option.toJSON() : option);
+      this.options.push("toJSON" in option ? option.toJSON() : option);
     }
 
     return this;
@@ -81,15 +82,5 @@ export class StringSelectMenu extends SelectMenu {
           ...this.data,
           options: this.options,
         } as OceanicStringSelectMenu);
-  }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): OceanicStringSelectMenu[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "StringSelectMenu",
-    );
-
-    return this.toJSON(true);
   }
 }
