@@ -6,7 +6,7 @@
 
 ## 🔧 Methods
 
-- **addOptions(`options`: [`ValidSelectMenuOption[]`][StringSelectMenuOptionURL] | [`StringSelectMenuOption`][StringSelectMenuOptionURL])**: **[`this`][ThisURL]**
+- **addOptions(`options`: [`ValidSelectMenuOption[]`][StringSelectMenuOptionURL])**: **[`this`][ThisURL]**
 - **setCustomID(`customID`: [`string`][StringURL])**: **[`this`][ThisURL]**
 - **setDisabled(`disabled`: [`boolean`][BooleanURL])**: **[`this`][ThisURL]**
 - **setMaxValues(`maxValues`: [`number`][NumberURL])**: **[`this`][ThisURL]**
