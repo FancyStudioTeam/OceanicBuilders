@@ -7,14 +7,14 @@
 
 ## 🔧 Methods
 
-- **setContent(`content`: [`Buffer`][BufferURL])**: **[`this`][ThisURL]**
+- **setContents(`contents`: [`Buffer`][BufferURL])**: **[`this`][ThisURL]**
   > Sets the attachment content.
 - **setIndex(`index`: [`number`][NumberURL])**: **[`this`][ThisURL]**
   > Sets the attachment index.
 - **setName(`name`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the attachment name.
 - **toJSON(`inArray?`: [`boolean`][BooleanURL])**: **[`File`][FileURL] | [`File[]`][FileURL]**
-  > Returns a JSON compatible with the API.<br>**(🛟) You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.**
+  > Returns a JSON compatible with the API.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [BufferURL]: https://nodejs.org/api/buffer.html#class-buffer

@@ -3,7 +3,10 @@
 ## ⚙️ Constructors
 
 - **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**
-  > Creates a button.<br>**(🛟) You can load data from the API.**
+  > Creates a button.
+
+> [!NOTE]
+> You can load data from the API.
 
 ## 🔧 Methods
 
@@ -12,7 +15,7 @@
 - **setDisabled(`disabled`: [`boolean`][BooleanURL])**: **[`this`][ThisURL]**
   > Sets whether the button should be disabled.
 - **setEmoji(`emoji`: [`NullablePartialEmoji`][NullablePartialEmojiURL])**: **[`this`][ThisURL]**
-  > Sets the button emoji.<br>**(⚠️) The `name` property of type [`NullablePartialEmoji`][NullablePartialEmojiURL] is required.**
+  > Sets the button emoji.
 - **setLabel(`label`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the button label.
 - **setSkuID(`skuID`: [`string`][StringURL])**: **[`this`][ThisURL]**
@@ -22,7 +25,7 @@
 - **setURL(`url`: [`string`][StringURL])**: **[`this`][ThisURL]**
   > Sets the button URL.
 - **toJSON(`inArray?`: [`boolean`][BooleanURL])**: **[`ButtonComponent`][ButtonComponentURL] | [`ButtonComponent[]`][ButtonComponentURL]**
-  > Returns a JSON compatible with the API.<br>**(🛟) You can wrap the JSON inside an array by setting the `inArray` parameter to `true`.**
+  > Returns a JSON compatible with the API.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [ButtonComponentURL]: https://docs.oceanic.ws/dev/types/Types_Channels.ButtonComponent.html
