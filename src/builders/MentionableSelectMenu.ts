@@ -23,14 +23,4 @@ export class MentionableSelectMenu extends SelectMenu {
   toJSON(inArray = false): OceanicMentionableSelectMenu | OceanicMentionableSelectMenu[] {
     return inArray ? [this.data as OceanicMentionableSelectMenu] : (this.data as OceanicMentionableSelectMenu);
   }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): OceanicMentionableSelectMenu[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "MentionableSelectMenu",
-    );
-
-    return this.toJSON(true);
-  }
 }
