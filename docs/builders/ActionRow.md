@@ -10,7 +10,7 @@
 - **toJSON(`inArray?`: [`boolean`][BooleanURL])**: **[`MessageActionRow`][MessageActionRowURL] | [`MessageActionRow[]`][MessageActionRowURL]**
 
 > [!CAUTION]
-> You must use the `toJSON` method in order for the Builder to function correctly.
+> You must use the `toJSON` method to convert the Builder into an Oceanic.js compatible object.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [MessageActionRowURL]: https://docs.oceanic.ws/dev/interfaces/Types_Channels.MessageActionRow.html

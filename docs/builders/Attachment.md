@@ -12,7 +12,7 @@
 - **toJSON(`inArray?`: [`boolean`][BooleanURL])**: **[`File`][FileURL] | [`File[]`][FileURL]**
 
 > [!CAUTION]
-> You must use the `toJSON` method in order for the Builder to function correctly.
+> You must use the `toJSON` method to convert the Builder into an Oceanic.js compatible object.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [BufferURL]: https://nodejs.org/api/buffer.html#class-buffer
