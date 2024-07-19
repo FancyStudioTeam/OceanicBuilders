@@ -5,9 +5,6 @@
 - **new Button(`button?`: [`Partial<ButtonComponent>`][ButtonComponentURL])**
   > Creates a button.
 
-> [!NOTE]
-> You can load data from the API.
-
 ## 🔧 Methods
 
 - **setCustomID(`customID`: [`string`][StringURL])**: **[`this`][ThisURL]**
