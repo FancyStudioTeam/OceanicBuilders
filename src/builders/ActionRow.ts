@@ -19,16 +19,11 @@ export class ActionRow {
   toJSON(inArray: true): [MessageActionRow];
   toJSON(inArray?: false): MessageActionRow;
   toJSON(inArray = false): MessageActionRow | MessageActionRow[] {
-    return inArray
-      ? [
-          {
-            type: ComponentTypes.ACTION_ROW,
-            components: this.components,
-          },
-        ]
-      : {
-          type: ComponentTypes.ACTION_ROW,
-          components: this.components,
-        };
+    const data = {
+      type: ComponentTypes.ACTION_ROW,
+      components: this.components,
+    } as MessageActionRow;
+
+    return inArray ? [data] : data;
   }
 }

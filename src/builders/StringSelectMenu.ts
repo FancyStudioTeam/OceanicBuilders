@@ -42,7 +42,9 @@ export class StringSelectMenuOption {
   toJSON(inArray: true): [SelectOption];
   toJSON(inArray?: false): SelectOption;
   toJSON(inArray = false): SelectOption | SelectOption[] {
-    return inArray ? [this.data as SelectOption] : (this.data as SelectOption);
+    const data = this.data as SelectOption;
+
+    return inArray ? [data] : data;
   }
 }
 
@@ -71,16 +73,11 @@ export class StringSelectMenu extends SelectMenu {
   toJSON(inArray: true): [OceanicStringSelectMenu];
   toJSON(inArray?: false): OceanicStringSelectMenu;
   toJSON(inArray = false): OceanicStringSelectMenu | OceanicStringSelectMenu[] {
-    return inArray
-      ? [
-          {
-            ...this.data,
-            options: this.options,
-          } as OceanicStringSelectMenu,
-        ]
-      : ({
-          ...this.data,
-          options: this.options,
-        } as OceanicStringSelectMenu);
+    const data = {
+      ...this.data,
+      options: this.options,
+    } as OceanicStringSelectMenu;
+
+    return inArray ? [data] : data;
   }
 }

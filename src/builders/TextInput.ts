@@ -52,6 +52,8 @@ export class TextInput {
   toJSON(inArray: true): [OceanicTextInput];
   toJSON(inArray?: false): OceanicTextInput;
   toJSON(inArray = false): OceanicTextInput | OceanicTextInput[] {
-    return inArray ? [this.data as OceanicTextInput] : (this.data as OceanicTextInput);
+    const data = this.data as OceanicTextInput;
+
+    return inArray ? [data] : data;
   }
 }

@@ -25,6 +25,8 @@ export class Attachment {
   toJSON(inArray: true): [File];
   toJSON(inArray?: false): File;
   toJSON(inArray = false): File | File[] {
-    return inArray ? [this.data as File] : (this.data as File);
+    const data = this.data as File;
+
+    return inArray ? [data] : data;
   }
 }

@@ -56,6 +56,8 @@ export class Button {
   toJSON(inArray: true): [ButtonComponent];
   toJSON(inArray?: false): ButtonComponent;
   toJSON(inArray = false): ButtonComponent | ButtonComponent[] {
-    return inArray ? [this.data as ButtonComponent] : (this.data as ButtonComponent);
+    const data = this.data as ButtonComponent;
+
+    return inArray ? [data] : data;
   }
 }

@@ -17,6 +17,8 @@ export class UserSelectMenu extends SelectMenu {
   toJSON(inArray: true): [OceanicUserSelectMenu];
   toJSON(inArray?: false): OceanicUserSelectMenu;
   toJSON(inArray = false): OceanicUserSelectMenu | OceanicUserSelectMenu[] {
-    return inArray ? [this.data as OceanicUserSelectMenu] : (this.data as OceanicUserSelectMenu);
+    const data = this.data as OceanicUserSelectMenu;
+
+    return inArray ? [data] : data;
   }
 }

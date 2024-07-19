@@ -26,7 +26,9 @@ export class EmbedField {
   toJSON(inArray: true): [OceanicEmbedField];
   toJSON(inArray?: false): OceanicEmbedField;
   toJSON(inArray = false): OceanicEmbedField | OceanicEmbedField[] {
-    return inArray ? [this.data as OceanicEmbedField] : (this.data as OceanicEmbedField);
+    const data = this.data as OceanicEmbedField;
+
+    return inArray ? [data] : data;
   }
 }
 
@@ -103,16 +105,11 @@ export class Embed {
   toJSON(inArray: true): [EmbedOptions];
   toJSON(inArray?: false): EmbedOptions;
   toJSON(inArray = false): EmbedOptions | EmbedOptions[] {
-    return inArray
-      ? [
-          {
-            ...this.data,
-            fields: this.fields,
-          },
-        ]
-      : {
-          ...this.data,
-          fields: this.fields,
-        };
+    const data = {
+      ...this.data,
+      fields: this.fields,
+    };
+
+    return inArray ? [data] : data;
   }
 }

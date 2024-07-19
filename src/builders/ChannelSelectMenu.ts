@@ -27,6 +27,8 @@ export class ChannelSelectMenu extends SelectMenu {
   toJSON(inArray: true): [OceanicChannelSelectMenu];
   toJSON(inArray?: false): OceanicChannelSelectMenu;
   toJSON(inArray = false): OceanicChannelSelectMenu | OceanicChannelSelectMenu[] {
-    return inArray ? [this.data as OceanicChannelSelectMenu] : (this.data as OceanicChannelSelectMenu);
+    const data = this.data as OceanicChannelSelectMenu;
+
+    return inArray ? [data] : data;
   }
 }

@@ -21,6 +21,8 @@ export class MentionableSelectMenu extends SelectMenu {
   toJSON(inArray: true): [OceanicMentionableSelectMenu];
   toJSON(inArray?: false): OceanicMentionableSelectMenu;
   toJSON(inArray = false): OceanicMentionableSelectMenu | OceanicMentionableSelectMenu[] {
-    return inArray ? [this.data as OceanicMentionableSelectMenu] : (this.data as OceanicMentionableSelectMenu);
+    const data = this.data as OceanicMentionableSelectMenu;
+
+    return inArray ? [data] : data;
   }
 }

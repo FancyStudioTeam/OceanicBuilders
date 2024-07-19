@@ -17,6 +17,8 @@ export class RoleSelectMenu extends SelectMenu {
   toJSON(inArray: true): [OceanicRoleSelectMenu];
   toJSON(inArray?: false): OceanicRoleSelectMenu;
   toJSON(inArray = false): OceanicRoleSelectMenu | OceanicRoleSelectMenu[] {
-    return inArray ? [this.data as OceanicRoleSelectMenu] : (this.data as OceanicRoleSelectMenu);
+    const data = this.data as OceanicRoleSelectMenu;
+
+    return inArray ? [data] : data;
   }
 }

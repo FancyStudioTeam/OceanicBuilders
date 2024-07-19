@@ -27,7 +27,9 @@ export class PollMedia {
   toJSON(inArray: true): [OceanicPollMedia];
   toJSON(inArray?: false): OceanicPollMedia;
   toJSON(inArray = false): OceanicPollMedia | OceanicPollMedia[] {
-    return inArray ? [this.data as OceanicPollMedia] : (this.data as OceanicPollMedia);
+    const data = this.data as OceanicPollMedia;
+
+    return inArray ? [data] : data;
   }
 }
 
@@ -78,16 +80,11 @@ export class Poll {
   toJSON(inArray: true): [MessagePollOptions];
   toJSON(inArray?: false): MessagePollOptions;
   toJSON(inArray = false): MessagePollOptions | MessagePollOptions[] {
-    return inArray
-      ? [
-          {
-            ...this.data,
-            answers: this.answers,
-          } as MessagePollOptions,
-        ]
-      : ({
-          ...this.data,
-          answers: this.answers,
-        } as MessagePollOptions);
+    const data = {
+      ...this.data,
+      answers: this.answers,
+    } as MessagePollOptions;
+
+    return inArray ? [data] : data;
   }
 }
