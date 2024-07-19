@@ -7,84 +7,55 @@ import {
   type TextButton,
   type URLButton,
 } from "oceanic.js";
-import {
-  buttonLabelVerifier,
-  buttonSkuIDVerifier,
-  buttonStyleVerifier,
-  customIDVerifier,
-  disabledVerifier,
-  partialEmojiVerifier,
-  urlVerifier,
-  validate,
-  verifyButtonJSON,
-} from "../schemas";
-import { Builder } from "./Builder";
 
-export class Button extends Builder<ButtonComponent> {
+export class Button {
+  data: Partial<ButtonComponent>;
+
   constructor(button?: Partial<ButtonComponent>) {
-    super({
+    this.data = {
       ...button,
       type: ComponentTypes.BUTTON,
-    });
+    };
   }
 
   setCustomID(customID: string): this {
-    (this.data as TextButton).customID = validate(customIDVerifier, customID);
+    (this.data as TextButton).customID = customID;
     return this;
   }
 
   setDisabled(disabled: boolean): this {
-    (this.data as TextButton).disabled = validate(disabledVerifier, disabled);
+    this.data.disabled = disabled;
     return this;
   }
 
   setEmoji(emoji: NullablePartialEmoji): this {
-    (this.data as TextButton).emoji = validate(partialEmojiVerifier, emoji);
+    (this.data as TextButton).emoji = emoji;
     return this;
   }
 
   setLabel(label: string): this {
-    (this.data as TextButton).label = validate(buttonLabelVerifier, label);
+    (this.data as TextButton).label = label;
     return this;
   }
 
   setSkuID(skuID: string): this {
-    (this.data as PremiumButton).skuID = validate(buttonSkuIDVerifier, skuID);
+    (this.data as PremiumButton).skuID = skuID;
     return this;
   }
 
   setStyle(style: ButtonStyles): this {
-    this.data.style = validate(buttonStyleVerifier, style);
+    this.data.style = style;
     return this;
   }
 
   setURL(url: string): this {
-    (this.data as URLButton).url = validate(urlVerifier, url);
+    (this.data as URLButton).url = url;
     return this;
   }
 
   toJSON(inArray: true): [ButtonComponent];
   toJSON(inArray?: false): ButtonComponent;
   toJSON(inArray = false): ButtonComponent | ButtonComponent[] {
-    verifyButtonJSON({
-      style: this.data.style,
-      label: (this.data as TextButton).label,
-      emoji: (this.data as TextButton).emoji,
-      customID: (this.data as TextButton).customID,
-      skuID: (this.data as PremiumButton).skuID,
-      url: (this.data as URLButton).url,
-    });
-
     return inArray ? [this.data as ButtonComponent] : (this.data as ButtonComponent);
-  }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): ButtonComponent[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "Button",
-    );
-
-    return this.toJSON(true);
   }
 }
