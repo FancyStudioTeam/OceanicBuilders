@@ -1,21 +1,11 @@
 import type { EmbedAuthorOptions, EmbedFooterOptions, EmbedOptions, EmbedField as OceanicEmbedField } from "oceanic.js";
-import {
-  embedAuthorVerifier,
-  embedColorVerifier,
-  embedDescriptionVerifier,
-  embedFieldVerifier,
-  embedFooterVerifier,
-  embedTimestampVerifier,
-  embedTitleVerifier,
-  imageURLVerifier,
-  urlVerifier,
-  validate,
-} from "../schemas";
-import { Builder } from "./Builder";
+import type { ValidEmbedField } from "../types";
 
-export class EmbedField extends Builder<OceanicEmbedField> {
+export class EmbedField {
+  data: Partial<OceanicEmbedField>;
+
   constructor() {
-    super({});
+    this.data = {};
   }
 
   setInline(inline: boolean): this {
@@ -40,61 +30,48 @@ export class EmbedField extends Builder<OceanicEmbedField> {
   }
 }
 
-export class Embed extends Builder<EmbedOptions> {
+export class Embed {
+  data: Partial<EmbedOptions>;
+  fields: OceanicEmbedField[];
+
   constructor(embed?: Partial<EmbedOptions>) {
-    super({
+    this.data = {
       ...embed,
-    });
+    };
+    this.fields = [];
   }
 
-  /** @deprecated Use addFields instead. */
-  addField(field: OceanicEmbedField): this {
-    process.emitWarning(
-      "addField is deprecated and will be removed in the next major, use addFields instead.",
-      "Embed",
-    );
-
-    this.data.fields = this.data.fields?.length
-      ? [...this.data.fields, field instanceof EmbedField ? field.toJSON() : field]
-      : [field instanceof EmbedField ? field.toJSON() : field];
-    return this;
-  }
-
-  addFields(fields: (EmbedField | OceanicEmbedField)[]): this {
+  addFields(fields: ValidEmbedField[]): this {
     for (const field of fields) {
-      if (this.data.fields?.length) {
-        this.data.fields.push(validate(embedFieldVerifier, field instanceof EmbedField ? field.toJSON() : field));
-      } else {
-        this.data.fields = [validate(embedFieldVerifier, field instanceof EmbedField ? field.toJSON() : field)];
-      }
+      this.fields.push("toJSON" in field ? field.toJSON() : field);
     }
 
     return this;
   }
 
   setAuthor(author: EmbedAuthorOptions): this {
-    this.data.author = validate(embedAuthorVerifier, author);
+    this.data.author = author;
     return this;
   }
 
   setColor(color: number): this {
-    this.data.color = validate(embedColorVerifier, color);
+    this.data.color = color;
     return this;
   }
 
   setDescription(description: string): this {
-    this.data.description = validate(embedDescriptionVerifier, description);
+    this.data.description = description;
     return this;
   }
 
   setFooter(footer: EmbedFooterOptions): this {
-    this.data.footer = validate(embedFooterVerifier, footer);
+    this.data.footer = footer;
     return this;
   }
 
   setImage(image: string): this {
     this.data.image = {
-      url: validate(imageURLVerifier, image),
+      url: image,
     };
 
     return this;
@@ -102,40 +79,40 @@ export class Embed extends Builder<EmbedOptions> {
 
   setThumbnail(thumbnail: string): this {
     this.data.thumbnail = {
-      url: validate(imageURLVerifier, thumbnail),
+      url: thumbnail,
     };
 
     return this;
   }
 
   setTimestamp(date?: Date): this {
-    this.data.timestamp = date ? validate(embedTimestampVerifier, date).toISOString() : new Date().toISOString();
+    this.data.timestamp = date?.toISOString() ?? new Date().toISOString();
     return this;
   }
 
   setTitle(title: string): this {
-    this.data.title = validate(embedTitleVerifier, title);
+    this.data.title = title;
     return this;
   }
 
   setURL(url: string): this {
-    this.data.url = validate(urlVerifier, url);
+    this.data.url = url;
     return this;
   }
 
   toJSON(inArray: true): [EmbedOptions];
   toJSON(inArray?: false): EmbedOptions;
   toJSON(inArray = false): EmbedOptions | EmbedOptions[] {
-    return inArray ? [this.data] : this.data;
-  }
-
-  /** @deprecated Use toJSON(true) instead. */
-  toJSONArray(): EmbedOptions[] {
-    process.emitWarning(
-      "toJSONArray is deprecated and will be removed in the next major, use toJSON(true) instead.",
-      "Embed",
-    );
-
-    return this.toJSON(true);
+    return inArray
+      ? [
+          {
+            ...this.data,
+            fields: this.fields,
+          },
+        ]
+      : {
+          ...this.data,
+          fields: this.fields,
+        };
   }
 }
