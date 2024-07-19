@@ -1,7 +1,14 @@
-import type { SelectMenuComponent } from "oceanic.js";
-import { Builder } from "./Builder";
+import type { SelectMenuComponent as OceanicSelectMenuComponent } from "oceanic.js";
 
-export class SelectMenu extends Builder<SelectMenuComponent> {
+export class SelectMenu {
+  data: Partial<OceanicSelectMenuComponent>;
+
+  constructor(selectMenu?: Partial<OceanicSelectMenuComponent>) {
+    this.data = {
+      ...selectMenu,
+    };
+  }
+
   setCustomID(customID: string): this {
     this.data.customID = customID;
     return this;
@@ -12,13 +19,13 @@ export class SelectMenu extends Builder<SelectMenuComponent> {
     return this;
   }
 
-  setMaxValues(maxValue: number): this {
-    this.data.maxValues = maxValue;
+  setMaxValues(maxValues: number): this {
+    this.data.maxValues = maxValues;
     return this;
   }
 
-  setMinValues(minValue: number): this {
-    this.data.minValues = minValue;
+  setMinValues(minValues: number): this {
+    this.data.minValues = minValues;
     return this;
   }
 
