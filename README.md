@@ -18,6 +18,10 @@ npm install oceanic-builders
 
 You can see the complete documentation in our [GitHub repository][DocumentationFolderURL].
 
+## 🛟 Support
+
+If you need help or have any questions or issues, feel free to let us know on our [support server][SupportServerURL].
+
 ## 🚀 Basic Example
 
 ```js
@@ -42,3 +46,4 @@ This project is licensed under the [MIT License][MITLicenseURL].
 [ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
 [MITLicenseURL]: https://opensource.org/license/mit
 [OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic
+[SupportServerURL]: https://discord.gg/gud55BjNFC
