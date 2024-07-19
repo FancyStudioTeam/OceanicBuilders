@@ -2,7 +2,7 @@
 
 ## ⚙️ Constructors
 
-- **new ActionRow()**
+- **new ActionRow(`actionRow?`: [`Partial<MessageActionRow>`][MessageActionRowURL])**
 
 ## 🔧 Methods
 

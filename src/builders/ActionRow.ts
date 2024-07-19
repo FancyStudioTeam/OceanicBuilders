@@ -4,8 +4,10 @@ import type { JSONComponents, ValidComponents } from "../types";
 export class ActionRow {
   components: JSONComponents[];
 
-  constructor() {
-    this.components = [];
+  constructor(actionRow?: Partial<MessageActionRow>) {
+    const { components } = actionRow ?? {};
+
+    this.components = components ?? [];
   }
 
   addComponents(components: ValidComponents[]): this {
