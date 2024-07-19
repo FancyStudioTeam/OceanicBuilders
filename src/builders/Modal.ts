@@ -34,6 +34,16 @@ export class Modal {
   toJSON(inArray: true): [ModalData];
   toJSON(inArray?: false): ModalData;
   toJSON(inArray = false): ModalData | ModalData[] {
-    return inArray ? [this.data as ModalData] : (this.data as ModalData);
+    return inArray
+      ? [
+          {
+            ...this.data,
+            components: this.components,
+          } as ModalData,
+        ]
+      : ({
+          ...this.data,
+          components: this.components,
+        } as ModalData);
   }
 }
