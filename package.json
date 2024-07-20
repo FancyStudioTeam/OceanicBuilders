@@ -33,8 +33,7 @@
   "homepage": "https://discord.gg/gud55BjNFC",
   "license": "MIT",
   "dependencies": {
-    "oceanic.js": "1.11.1-dev.05899ff",
-    "zod": "3.23.8"
+    "oceanic.js": "1.11.1-dev.05899ff"
   },
   "devDependencies": {
     "@types/node": "20.14.11",

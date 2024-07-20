@@ -11,9 +11,6 @@ importers:
       oceanic.js:
         specifier: 1.11.1-dev.05899ff
         version: 1.11.1-dev.05899ff
-      zod:
-        specifier: 3.23.8
-        version: 3.23.8
     devDependencies:
       '@types/node':
         specifier: 20.14.11
@@ -468,9 +465,6 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-
 snapshots:
 
   '@discordjs/voice@0.16.1':
@@ -833,5 +827,3 @@ snapshots:
   ws@8.18.0: {}
 
   yaml@2.4.5: {}
-
-  zod@3.23.8: {}
