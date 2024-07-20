@@ -1,6 +1,16 @@
-# 🌊 Oceanic Builders (Unofficial)
+<div align="center">
 
-Oceanic Builders is a library to create components in a simple way for the [Oceanic.js][OceanicRepositoryURL] library.
+![Oceanic Builders Banner](assets/Banner.png)
+
+[![Oceanic Builders Version](https://img.shields.io/npm/v/oceanic-builders.svg?style=for-the-badge)][OceanicBuildersNPMURL]
+[![Oceanic Builders Downloads](https://img.shields.io/npm/dt/oceanic-builders?style=for-the-badge)][OceanicBuildersNPMURL]
+[![Oceanic Builders Support](https://img.shields.io/badge/Discord-Support-5865F2?style=for-the-badge&logo=discord)][SupportServerURL]
+
+</div>
+
+---
+
+# 🌊 Oceanic Builders (Unofficial)
 
 ## ✨ Features
 
@@ -45,5 +55,5 @@ This project is licensed under the [MIT License][MITLicenseURL].
 [DocumentationFolderURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders
 [ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
 [MITLicenseURL]: https://opensource.org/license/mit
-[OceanicRepositoryURL]: https://github.com/OceanicJS/Oceanic
+[OceanicBuildersNPMURL]: https://www.npmjs.com/package/oceanic-builders
 [SupportServerURL]: https://discord.gg/gud55BjNFC
