@@ -16,8 +16,9 @@
 
 > [!CAUTION]
 > You must use the `toJSON` method to convert the Builder into an Oceanic.js compatible object.
+
 > [!NOTE]
-> When using this component within the `ActionRow` class, the `toJSON` method is optional.
+> When using this component within the `addComponents` method of the `ActionRow` class, the `toJSON` method is optional.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [NumberURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
