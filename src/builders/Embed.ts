@@ -37,10 +37,12 @@ export class Embed {
   fields: OceanicEmbedField[];
 
   constructor(embed?: Partial<EmbedOptions>) {
+    const { fields, ...init } = embed ?? {};
+
     this.data = {
-      ...embed,
+      ...init,
     };
-    this.fields = [];
+    this.fields = fields ?? [];
   }
 
   addFields(fields: ValidEmbedField[]): this {
