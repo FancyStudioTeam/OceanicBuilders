@@ -13,6 +13,8 @@
 
 > [!CAUTION]
 > You must use the `toJSON` method to convert the Builder into an Oceanic.js compatible object.
+> [!NOTE]
+> When using this component within the `Embed` class, the `toJSON` method is optional.
 
 [BooleanURL]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [EmbedFieldURL]: https://docs.oceanic.ws/dev/interfaces/Types_Channels.EmbedField.html
