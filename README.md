@@ -2,9 +2,10 @@
 
 ![Oceanic Builders Banner](assets/Banner.png)
 
-[![Oceanic Builders Version](https://img.shields.io/npm/v/oceanic-builders.svg?style=for-the-badge)][OceanicBuildersNPMURL]
-[![Oceanic Builders Downloads](https://img.shields.io/npm/dt/oceanic-builders?style=for-the-badge)][OceanicBuildersNPMURL]
-[![Oceanic Builders Support](https://img.shields.io/badge/Discord-Support-5865F2?style=for-the-badge&logo=discord)][SupportServerURL]
+[![Oceanic Builders Version][VersionBadgeURL]][OceanicBuildersNPMURL]
+[![Oceanic Builders Downloads][DownloadsBadgeURL]][OceanicBuildersNPMURL]
+[![Oceanic Builders Stars][StarsBadgeURL]][OceanicBuildersNPMURL]
+[![Oceanic Builders Support][SupportBadgeURL]][SupportServerURL]
 
 </div>
 
@@ -53,7 +54,11 @@ You can also see our [`example.ts`][ExamplesFileURL] file to see all the example
 This project is licensed under the [MIT License][MITLicenseURL].
 
 [DocumentationFolderURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders
+[DownloadsBadgeURL]: https://img.shields.io/npm/dt/oceanic-builders?style=for-the-badge&color=2a4f99&label=Downloads&logo=npm&logoColor=white
 [ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
 [MITLicenseURL]: https://opensource.org/license/mit
 [OceanicBuildersNPMURL]: https://www.npmjs.com/package/oceanic-builders
+[StarsBadgeURL]: https://img.shields.io/github/stars/FancyStudioTeam/OceanicBuilders?style=for-the-badge&color=2a4f99&label=Stars&logo=github&logoColor=white
+[SupportBadgeURL]: https://img.shields.io/badge/Support-Support?style=for-the-badge&color=2a4f99&label=Discord&logo=discord&logoColor=white
 [SupportServerURL]: https://discord.gg/gud55BjNFC
+[VersionBadgeURL]: https://img.shields.io/npm/v/oceanic-builders?style=for-the-badge&color=2a4f99&label=Version&logo=npm&logoColor=white
