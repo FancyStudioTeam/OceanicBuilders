@@ -49,6 +49,12 @@ console.log(actionRow);
 
 You can also see our [`example.ts`][ExamplesFileURL] file to see all the examples of all the components.
 
+## ℹ️ Information
+
+This project is made by a user of the Oceanic community. We are not affiliated with Oceanic.
+
+You may also be interested to see the [original and official Oceanic Builders][OriginalOceanicBuildersURL].
+
 ## 📄 License
 
 This project is licensed under the [MIT License][MITLicenseURL].
@@ -58,6 +64,7 @@ This project is licensed under the [MIT License][MITLicenseURL].
 [ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
 [MITLicenseURL]: https://opensource.org/license/mit
 [OceanicBuildersNPMURL]: https://www.npmjs.com/package/oceanic-builders
+[OriginalOceanicBuildersURL]: https://www.npmjs.com/package/@oceanicjs/builders
 [StarsBadgeURL]: https://img.shields.io/github/stars/FancyStudioTeam/OceanicBuilders?style=for-the-badge&color=2a4f99&label=Stars&logo=github&logoColor=white
 [SupportBadgeURL]: https://img.shields.io/badge/Support-Support?style=for-the-badge&color=2a4f99&label=Discord&logo=discord&logoColor=white
 [SupportServerURL]: https://discord.gg/gud55BjNFC
