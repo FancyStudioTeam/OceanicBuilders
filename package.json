@@ -32,17 +32,19 @@
   },
   "homepage": "https://discord.gg/gud55BjNFC",
   "license": "MIT",
-  "dependencies": {
-    "oceanic.js": "1.11.1"
-  },
   "devDependencies": {
-    "@types/node": "20.14.11",
-    "husky": "9.1.1",
-    "lint-staged": "15.2.7",
-    "tsx": "4.16.2"
+    "@biomejs/biome": "1.8.3",
+    "@types/node": "22.4.1",
+    "husky": "9.1.4",
+    "lint-staged": "15.2.9",
+    "tsx": "4.17.0",
+    "typescript": "5.5.4"
   },
-  "packageManager": "pnpm@9.5.0+sha256.dbdf5961c32909fb030595a9daa1dae720162e658609a8f92f2fa99835510ca5",
+  "packageManager": "pnpm@9.7.1+sha256.46f1bbc8f8020aa9869568c387198f1a813f21fb44c82f400e7d1dbde6c70b40",
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["pnpm biome"]
+  },
+  "dependencies": {
+    "oceanic.js": "1.11.2"
   }
 }
