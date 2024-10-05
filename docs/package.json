@@ -2,13 +2,17 @@
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.1.0",
     "@fontsource-variable/plus-jakarta-sans": "5.1.0",
+    "monaco-editor": "0.52.0",
+    "monaco-yaml": "5.2.2",
+    "shiki": "1.21.0",
     "vitepress": "1.3.4",
-    "vue": "3.5.11"
+    "vue": "3.5.11",
+    "yamlcord": "0.0.1-alpha.1"
   },
   "name": "docs",
   "scripts": {
-    "build": "vitepress build docs",
-    "dev": "vitepress dev docs",
-    "preview": "vitepress preview docs"
+    "build": "vitepress build",
+    "dev": "vitepress dev",
+    "preview": "vitepress preview"
   }
 }

@@ -1,4 +1,6 @@
-node_modules
-package-lock.json
-dist
+*.tgz
+.VSCodeCounter
 .env
+dist
+docs/.vitepress/cache
+node_modules
