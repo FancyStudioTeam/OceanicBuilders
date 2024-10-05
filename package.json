@@ -1,10 +1,17 @@
 {
-  "name": "oceanic-builders",
-  "version": "1.0.2",
+  "author": "FancyStudio",
+  "dependencies": {
+    "oceanic.js": "1.11.2"
+  },
   "description": "Oceanic compatible utilities",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "./esm.mjs",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.3",
+    "@types/node": "22.7.4",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "tsx": "4.19.1",
+    "typescript": "5.6.2"
+  },
   "exports": {
     ".": {
       "bun": "./dist/index.js",
@@ -13,6 +20,21 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": ["dist", "esm.mjs"],
+  "homepage": "https://discord.gg/gud55BjNFC",
+  "keywords": ["oceanic.js", "discord", "builders"],
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["pnpm biome"]
+  },
+  "main": "dist/index.js",
+  "module": "./esm.mjs",
+  "name": "oceanic-builders",
+  "packageManager": "pnpm@9.12.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
+  },
   "scripts": {
     "biome": "biome check --write --config-path=\"./biome.json\" .",
     "build": "tsc",
@@ -20,31 +42,6 @@
     "prepare": "husky",
     "release": "bash release.sh"
   },
-  "files": ["dist", "esm.mjs"],
-  "keywords": ["oceanic.js", "discord", "builders"],
-  "author": "FancyStudio",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
-  },
-  "bugs": {
-    "url": "https://github.com/FancyStudioTeam/OceanicBuilders/issues"
-  },
-  "homepage": "https://discord.gg/gud55BjNFC",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@types/node": "22.4.1",
-    "husky": "9.1.4",
-    "lint-staged": "15.2.9",
-    "tsx": "4.17.0",
-    "typescript": "5.5.4"
-  },
-  "packageManager": "pnpm@9.7.1+sha256.46f1bbc8f8020aa9869568c387198f1a813f21fb44c82f400e7d1dbde6c70b40",
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["pnpm biome"]
-  },
-  "dependencies": {
-    "oceanic.js": "1.11.2"
-  }
+  "types": "dist/index.d.ts",
+  "version": "1.0.2"
 }

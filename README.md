@@ -1,71 +1,31 @@
-<div align="center">
+# Oceanic Builders (Unofficial)
 
-![Oceanic Builders Banner](assets/Banner.png)
+<!-- markdownlint-disable -->
+<p>
+  <a href="https://opensource.org/license/mit" style="text-decoration: none">
+    <img src="https://img.shields.io/badge/MIT-_?style=flat&colorA=18181B&colorB=2a5099&label=License&logo=opensourceinitiative&logoColor=white" />
+  </a>
+  <a href="https://discord.gg/yWjeDA6ewJ" style="text-decoration: none">
+    <img src="https://img.shields.io/badge/Support-Support?style=flat&colorA=18181B&colorB=2a5099&label=Discord&logo=discord&logoColor=white" />
+  </a>
+</p>
+<!-- markdownlint-restore -->
 
-[![Oceanic Builders Version][VersionBadgeURL]][OceanicBuildersNPMURL]
-[![Oceanic Builders Downloads][DownloadsBadgeURL]][OceanicBuildersNPMURL]
-[![Oceanic Builders Stars][StarsBadgeURL]][OceanicBuildersNPMURL]
-[![Oceanic Builders Support][SupportBadgeURL]][SupportServerURL]
+## License
 
-</div>
+[Oceanic Builders][OceanicBuildersRepositoryURL] © 2024 by [FancyStudio][FancyStudioGitHubURL] is licensed under [MIT][MITLicenseURL].
 
----
+> Not affiliated with Oceanic. Oceanic's official Builders repository: <https://github.com/OceanicJS/Builders>
 
-# 🌊 Oceanic Builders (Unofficial)
+## Support
 
-## ✨ Features
+If you need help, you can join our [Support Server][SupportServerURL] and ask your questions there.
 
-- ✅ Easy to use
-- ✅ CJS and ESM support
-- ✅ Support with objects and builders
+## Security
 
-## 📦 Installation
+If you believe you have found a security vulnerability, please **DO NOT make a public issue**, instead, go to our [Support Server][SupportServerURL] and contact the developers privately.
 
-```bash
-npm install oceanic-builders
-```
-
-## 📚 Documentation
-
-You can see the complete documentation in our [GitHub repository][DocumentationFolderURL].
-
-## 🛟 Support
-
-If you need help or have any questions or issues, feel free to let us know on our [support server][SupportServerURL].
-
-## 🚀 Basic Example
-
-```js
-import { ActionRow, Button } from "oceanic-builders";
-
-const actionRow = new ActionRow()
-  .addComponents([
-    new Button().setCustomID("button").setLabel("Click me!").setStyle(2),
-  ])
-  .toJSON();
-
-console.log(actionRow);
-```
-
-You can also see our [`example.ts`][ExamplesFileURL] file to see all the examples of all the components.
-
-## ℹ️ Information
-
-This project is made by a user of the Oceanic community. We are not affiliated with Oceanic.
-
-You may also be interested to see the [original and official Oceanic Builders][OriginalOceanicBuildersURL].
-
-## 📄 License
-
-This project is licensed under the [MIT License][MITLicenseURL].
-
-[DocumentationFolderURL]: https://github.com/FancyStudioTeam/OceanicBuilders/tree/main/docs/builders
-[DownloadsBadgeURL]: https://img.shields.io/npm/dt/oceanic-builders?style=for-the-badge&color=2a4f99&label=Downloads&logo=npm&logoColor=white
-[ExamplesFileURL]: https://github.com/FancyStudioTeam/OceanicBuilders/blob/main/example.ts
+[FancyStudioGitHubURL]: https://github.com/FancyStudioTeam
 [MITLicenseURL]: https://opensource.org/license/mit
-[OceanicBuildersNPMURL]: https://www.npmjs.com/package/oceanic-builders
-[OriginalOceanicBuildersURL]: https://www.npmjs.com/package/@oceanicjs/builders
-[StarsBadgeURL]: https://img.shields.io/github/stars/FancyStudioTeam/OceanicBuilders?style=for-the-badge&color=2a4f99&label=Stars&logo=github&logoColor=white
-[SupportBadgeURL]: https://img.shields.io/badge/Support-Support?style=for-the-badge&color=2a4f99&label=Discord&logo=discord&logoColor=white
-[SupportServerURL]: https://discord.gg/gud55BjNFC
-[VersionBadgeURL]: https://img.shields.io/npm/v/oceanic-builders?style=for-the-badge&color=2a4f99&label=Version&logo=npm&logoColor=white
+[OceanicBuildersRepositoryURL]: https://github.com/FancyStudioTeam/OceanicBuilders
+[SupportServerURL]: https://discord.gg/yWjeDA6ewJ

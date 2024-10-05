@@ -15,7 +15,7 @@
     "incremental": true,
     "isolatedModules": true,
     "module": "CommonJS",
-    "newLine": "crlf",
+    "newLine": "lf",
     "noEmitHelpers": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -32,5 +32,5 @@
     "target": "ESNext",
     "useDefineForClassFields": true
   },
-  "exclude": ["node_modules", "dist", "__tests__", "example.ts"]
+  "exclude": ["node_modules", "dist", "__tests__"]
 }
