@@ -1,5 +1,5 @@
 import type { EmbedAuthorOptions, EmbedFooterOptions, EmbedOptions, EmbedField as OceanicEmbedField } from "oceanic.js";
-import type { ValidEmbedField } from "../types";
+import type { ValidEmbedField } from "../types.js";
 
 export class EmbedField {
   data: Partial<OceanicEmbedField>;

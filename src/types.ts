@@ -17,7 +17,7 @@ import type {
   StringSelectMenuOption,
   TextInput,
   UserSelectMenu,
-} from ".";
+} from "./index.js";
 
 export type BuilderComponents =
   | Button

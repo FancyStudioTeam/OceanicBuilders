@@ -1,5 +1,5 @@
 import { ComponentTypes, type MessageActionRow } from "oceanic.js";
-import type { JSONComponents, ValidComponents } from "../types";
+import type { JSONComponents, ValidComponents } from "../types.js";
 
 export class ActionRow {
   components: JSONComponents[];

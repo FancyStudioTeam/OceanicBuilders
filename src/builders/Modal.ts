@@ -1,5 +1,5 @@
 import { ComponentTypes, type ModalActionRow, type ModalData } from "oceanic.js";
-import type { ValidTextInput } from "../types";
+import type { ValidTextInput } from "../types.js";
 
 export class Modal {
   data: Partial<ModalData>;

@@ -18,7 +18,9 @@
         "noExcessiveCognitiveComplexity": "off"
       },
       "correctness": {
-        "noNodejsModules": "off"
+        "noNodejsModules": "off",
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "error"
       },
       "performance": {
         "noBarrelFile": "off",

@@ -5,7 +5,7 @@ import {
   type PollAnswerOption,
   PollLayoutType,
 } from "oceanic.js";
-import type { ValidPollMedia } from "../types";
+import type { ValidPollMedia } from "../types.js";
 
 export class PollMedia {
   data: Partial<OceanicPollMedia>;

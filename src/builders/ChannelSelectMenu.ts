@@ -4,7 +4,7 @@ import {
   type ChannelSelectMenu as OceanicChannelSelectMenu,
   type SelectMenuDefaultValue,
 } from "oceanic.js";
-import { SelectMenu } from "./SelectMenu";
+import { SelectMenu } from "./SelectMenu.js";
 
 export class ChannelSelectMenu extends SelectMenu {
   constructor(selectMenu?: Partial<OceanicChannelSelectMenu>) {

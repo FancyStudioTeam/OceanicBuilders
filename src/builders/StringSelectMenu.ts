@@ -4,8 +4,8 @@ import {
   type StringSelectMenu as OceanicStringSelectMenu,
   type SelectOption,
 } from "oceanic.js";
-import type { ValidSelectMenuOption } from "../types";
-import { SelectMenu } from "./SelectMenu";
+import type { ValidSelectMenuOption } from "../types.js";
+import { SelectMenu } from "./SelectMenu.js";
 
 export class StringSelectMenuOption {
   data: Partial<SelectOption>;
