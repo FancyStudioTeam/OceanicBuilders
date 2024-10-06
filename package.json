@@ -28,7 +28,7 @@
     "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
   },
   "scripts": {
-    "biome": "biome check --write --config-path biome.json",
+    "biome": "sh -c 'if [ \"$IN_NIX_SHELL\" = \"1\" ]; then BIOME_BINARY=$BIOME_BIN_PATH pnpx @biomejs/biome check --write --config-path biome.json; else pnpx @biomejs/biome check --write --config-path biome.json; fi'",
     "build": "tsc",
     "docs:build": "pnpm --filter docs build",
     "docs:dev": "pnpm --filter docs dev",
