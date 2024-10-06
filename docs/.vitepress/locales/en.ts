@@ -26,6 +26,10 @@ const DOCS_SIDEBAR: DefaultTheme.SidebarItem[] = [
         link: "embed",
       },
       {
+        text: "EmbedField",
+        link: "embed-field",
+      },
+      {
         text: "MentionableSelectMenu",
         link: "mentionable-select-menu",
       },
@@ -38,12 +42,20 @@ const DOCS_SIDEBAR: DefaultTheme.SidebarItem[] = [
         link: "poll",
       },
       {
+        text: "PollMedia",
+        link: "poll-media",
+      },
+      {
         text: "RoleSelectMenu",
         link: "role-select-menu",
       },
       {
         text: "StringSelectMenu",
         link: "string-select-menu",
+      },
+      {
+        text: "StringSelectMenuOption",
+        link: "string-select-menu-option",
       },
       {
         text: "TextInput",
