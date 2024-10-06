@@ -63,13 +63,10 @@ export const shared = defineConfig({
     },
   },
   themeConfig: {
-    logo: {
-      src: "/logos/Oceanic.svg",
-    },
     search: {
       provider: "local",
     },
-    siteTitle: false,
+    siteTitle: "Oceanic Builders",
     socialLinks: [
       {
         icon: "discord",
@@ -81,5 +78,4 @@ export const shared = defineConfig({
       },
     ],
   },
-  title: "Oceanic Builders",
 });
