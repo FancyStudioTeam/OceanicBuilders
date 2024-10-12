@@ -6,11 +6,11 @@
   "description": "A set of utilities for developing using Oceanic.js",
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
-    "@types/node": "22.7.4",
+    "@types/node": "22.7.5",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "tsx": "4.19.1",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   },
   "files": ["dist", "esm.mjs"],
   "homepage": "https://oceanicbuilders.pages.dev/",
@@ -28,7 +28,7 @@
     "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
   },
   "scripts": {
-    "biome": "biome check --write --config-path biome.json",
+    "biome": "sh -c 'if [ \"$IN_NIX_SHELL\" = \"1\" ]; then BIOME_BINARY=$BIOME_BIN_PATH pnpx @biomejs/biome check --write --config-path biome.json; else pnpx @biomejs/biome check --write --config-path biome.json; fi'",
     "build": "tsc",
     "docs:build": "pnpm --filter docs build",
     "docs:dev": "pnpm --filter docs dev",
