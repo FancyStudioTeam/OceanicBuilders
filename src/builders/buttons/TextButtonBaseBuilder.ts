@@ -12,14 +12,18 @@ export class TextButtonBaseBuilder<T extends ButtonStyles> extends ButtonBaseBui
     });
   }
 
-  clearEmoji() {
-    this.data.emoji = undefined;
+  clearEmoji(force = false) {
+    // biome-ignore lint/performance/noDelete:
+    // biome-ignore lint/suspicious/noAssignInExpressions:
+    force ? delete this.data.emoji : (this.data.emoji = undefined);
 
     return this;
   }
 
-  clearLabel() {
-    this.data.label = undefined;
+  clearLabel(force = false) {
+    // biome-ignore lint/performance/noDelete:
+    // biome-ignore lint/suspicious/noAssignInExpressions:
+    force ? delete this.data.label : (this.data.label = undefined);
 
     return this;
   }
