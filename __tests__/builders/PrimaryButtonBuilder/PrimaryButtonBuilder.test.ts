@@ -49,14 +49,14 @@ describe("PrimaryButtonBuilder", () => {
       }));
 
     it("Should return JSON base with cleared label", () =>
-      expect(PrimaryButton().setLabel("Test").clearLabel().toJSON()).toStrictEqual({
+      expect(PrimaryButton().setLabel("Test").clear("label").toJSON()).toStrictEqual({
         label: undefined,
         style: ButtonStyles.PRIMARY,
         type: ComponentTypes.BUTTON,
       }));
 
     it("Should return JSON base with force cleared label", () =>
-      expect(PrimaryButton().setLabel("Test").clearLabel(true).toJSON()).toStrictEqual({
+      expect(PrimaryButton().setLabel("Test").clear("label", true).toJSON()).toStrictEqual({
         style: ButtonStyles.PRIMARY,
         type: ComponentTypes.BUTTON,
       }));
@@ -67,7 +67,7 @@ describe("PrimaryButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji()
+          .clear("emoji")
           .toJSON(),
       ).toStrictEqual({
         emoji: undefined,
@@ -81,7 +81,7 @@ describe("PrimaryButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji(true)
+          .clear("emoji", true)
           .toJSON(),
       ).toStrictEqual({
         style: ButtonStyles.PRIMARY,

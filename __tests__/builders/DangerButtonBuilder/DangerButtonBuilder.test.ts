@@ -49,14 +49,14 @@ describe("DangerButtonBuilder", () => {
       }));
 
     it("Should return JSON base with cleared label", () =>
-      expect(DangerButton().setLabel("Test").clearLabel().toJSON()).toStrictEqual({
+      expect(DangerButton().setLabel("Test").clear("label").toJSON()).toStrictEqual({
         label: undefined,
         style: ButtonStyles.DANGER,
         type: ComponentTypes.BUTTON,
       }));
 
     it("Should return JSON base with force cleared label", () =>
-      expect(DangerButton().setLabel("Test").clearLabel(true).toJSON()).toStrictEqual({
+      expect(DangerButton().setLabel("Test").clear("label", true).toJSON()).toStrictEqual({
         style: ButtonStyles.DANGER,
         type: ComponentTypes.BUTTON,
       }));
@@ -67,7 +67,7 @@ describe("DangerButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji()
+          .clear("emoji")
           .toJSON(),
       ).toStrictEqual({
         emoji: undefined,
@@ -81,7 +81,7 @@ describe("DangerButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji(true)
+          .clear("emoji", true)
           .toJSON(),
       ).toStrictEqual({
         style: ButtonStyles.DANGER,

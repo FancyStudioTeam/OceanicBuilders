@@ -49,14 +49,14 @@ describe("SuccessButtonBuilder", () => {
       }));
 
     it("Should return JSON base with cleared label", () =>
-      expect(SuccessButton().setLabel("Test").clearLabel().toJSON()).toStrictEqual({
+      expect(SuccessButton().setLabel("Test").clear("label").toJSON()).toStrictEqual({
         label: undefined,
         style: ButtonStyles.SUCCESS,
         type: ComponentTypes.BUTTON,
       }));
 
     it("Should return JSON base with force cleared label", () =>
-      expect(SuccessButton().setLabel("Test").clearLabel(true).toJSON()).toStrictEqual({
+      expect(SuccessButton().setLabel("Test").clear("label", true).toJSON()).toStrictEqual({
         style: ButtonStyles.SUCCESS,
         type: ComponentTypes.BUTTON,
       }));
@@ -67,7 +67,7 @@ describe("SuccessButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji()
+          .clear("emoji")
           .toJSON(),
       ).toStrictEqual({
         emoji: undefined,
@@ -81,7 +81,7 @@ describe("SuccessButtonBuilder", () => {
           .setEmoji({
             name: "🤖",
           })
-          .clearEmoji(true)
+          .clear("emoji", true)
           .toJSON(),
       ).toStrictEqual({
         style: ButtonStyles.SUCCESS,

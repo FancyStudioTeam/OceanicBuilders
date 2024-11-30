@@ -12,18 +12,10 @@ export class TextButtonBaseBuilder<T extends ButtonStyles> extends ButtonBaseBui
     });
   }
 
-  clearEmoji(force = false) {
+  clear(option: AvailableClearOptions<T>, force = false) {
     // biome-ignore lint/performance/noDelete:
     // biome-ignore lint/suspicious/noAssignInExpressions:
-    force ? delete this.data.emoji : (this.data.emoji = undefined);
-
-    return this;
-  }
-
-  clearLabel(force = false) {
-    // biome-ignore lint/performance/noDelete:
-    // biome-ignore lint/suspicious/noAssignInExpressions:
-    force ? delete this.data.label : (this.data.label = undefined);
+    force ? delete this.data[option] : (this.data[option] = undefined);
 
     return this;
   }
@@ -48,3 +40,8 @@ type TextButtonBaseBuilderWithButtonStyleType<T extends ButtonStyles> = T extend
   : TextButton & {
       style: T;
     };
+
+type AvailableClearOptions<T extends ButtonStyles> = keyof Pick<
+  TextButtonBaseBuilderWithButtonStyleType<T>,
+  "label" | "emoji"
+>;
