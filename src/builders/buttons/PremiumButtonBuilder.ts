@@ -11,5 +11,7 @@ export class PremiumButtonBuilder extends ButtonBaseBuilder<PremiumButton> {
 
   setSkuID(skuID: string) {
     this.data.skuID = skuID;
+
+    return this;
   }
 }
