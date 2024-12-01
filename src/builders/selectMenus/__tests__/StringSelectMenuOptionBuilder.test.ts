@@ -13,7 +13,14 @@ describe("StringSelectMenuOptionBuilder", () => {
         description: "test",
       }));
 
-    it("Should return JSON base with custom emoji", () =>
+    it("Should return JSON base with custom unicode string emoji", () =>
+      expect(StringSelectMenuOption().setEmoji("🤖").toJSON()).toStrictEqual({
+        emoji: {
+          name: "🤖",
+        },
+      }));
+
+    it("Should return JSON base with custom unicode object emoji", () =>
       expect(
         StringSelectMenuOption()
           .setEmoji({
@@ -23,6 +30,29 @@ describe("StringSelectMenuOptionBuilder", () => {
       ).toStrictEqual({
         emoji: {
           name: "🤖",
+        },
+      }));
+
+    it("Should return JSON base with custom string emoji", () =>
+      expect(StringSelectMenuOption().setEmoji("<:OWL:1303797827574698095>").toJSON()).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
+        },
+      }));
+
+    it("Should return JSON base with custom object emoji", () =>
+      expect(
+        StringSelectMenuOption()
+          .setEmoji({
+            id: "1303797827574698095",
+            name: "OWL",
+          })
+          .toJSON(),
+      ).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
         },
       }));
 

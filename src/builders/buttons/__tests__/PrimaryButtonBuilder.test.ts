@@ -33,7 +33,16 @@ describe("PrimaryButtonBuilder", () => {
         type: ComponentTypes.BUTTON,
       }));
 
-    it("Should return JSON base with custom emoji", () =>
+    it("Should return JSON base with custom unicode string emoji", () =>
+      expect(PrimaryButton().setEmoji("🤖").toJSON()).toStrictEqual({
+        emoji: {
+          name: "🤖",
+        },
+        style: ButtonStyles.PRIMARY,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom unicode object emoji", () =>
       expect(
         PrimaryButton()
           .setEmoji({
@@ -43,6 +52,33 @@ describe("PrimaryButtonBuilder", () => {
       ).toStrictEqual({
         emoji: {
           name: "🤖",
+        },
+        style: ButtonStyles.PRIMARY,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom string emoji", () =>
+      expect(PrimaryButton().setEmoji("<:OWL:1303797827574698095>").toJSON()).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
+        },
+        style: ButtonStyles.PRIMARY,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom object emoji", () =>
+      expect(
+        PrimaryButton()
+          .setEmoji({
+            id: "1303797827574698095",
+            name: "OWL",
+          })
+          .toJSON(),
+      ).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
         },
         style: ButtonStyles.PRIMARY,
         type: ComponentTypes.BUTTON,
@@ -62,28 +98,14 @@ describe("PrimaryButtonBuilder", () => {
       }));
 
     it("Should return JSON base with cleared emoji", () =>
-      expect(
-        PrimaryButton()
-          .setEmoji({
-            name: "🤖",
-          })
-          .clear("emoji")
-          .toJSON(),
-      ).toStrictEqual({
+      expect(PrimaryButton().setEmoji("🤖").clear("emoji").toJSON()).toStrictEqual({
         emoji: undefined,
         style: ButtonStyles.PRIMARY,
         type: ComponentTypes.BUTTON,
       }));
 
     it("Should return JSON base with force cleared emoji", () =>
-      expect(
-        PrimaryButton()
-          .setEmoji({
-            name: "🤖",
-          })
-          .clear("emoji", true)
-          .toJSON(),
-      ).toStrictEqual({
+      expect(PrimaryButton().setEmoji("🤖").clear("emoji", true).toJSON()).toStrictEqual({
         style: ButtonStyles.PRIMARY,
         type: ComponentTypes.BUTTON,
       }));

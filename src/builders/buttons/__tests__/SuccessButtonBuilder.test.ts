@@ -33,7 +33,16 @@ describe("SuccessButtonBuilder", () => {
         type: ComponentTypes.BUTTON,
       }));
 
-    it("Should return JSON base with custom emoji", () =>
+    it("Should return JSON base with custom unicode string emoji", () =>
+      expect(SuccessButton().setEmoji("🤖").toJSON()).toStrictEqual({
+        emoji: {
+          name: "🤖",
+        },
+        style: ButtonStyles.SUCCESS,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom unicode object emoji", () =>
       expect(
         SuccessButton()
           .setEmoji({
@@ -43,6 +52,33 @@ describe("SuccessButtonBuilder", () => {
       ).toStrictEqual({
         emoji: {
           name: "🤖",
+        },
+        style: ButtonStyles.SUCCESS,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom string emoji", () =>
+      expect(SuccessButton().setEmoji("<:OWL:1303797827574698095>").toJSON()).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
+        },
+        style: ButtonStyles.SUCCESS,
+        type: ComponentTypes.BUTTON,
+      }));
+
+    it("Should return JSON base with custom object emoji", () =>
+      expect(
+        SuccessButton()
+          .setEmoji({
+            id: "1303797827574698095",
+            name: "OWL",
+          })
+          .toJSON(),
+      ).toStrictEqual({
+        emoji: {
+          id: "1303797827574698095",
+          name: "OWL",
         },
         style: ButtonStyles.SUCCESS,
         type: ComponentTypes.BUTTON,
@@ -62,28 +98,14 @@ describe("SuccessButtonBuilder", () => {
       }));
 
     it("Should return JSON base with cleared emoji", () =>
-      expect(
-        SuccessButton()
-          .setEmoji({
-            name: "🤖",
-          })
-          .clear("emoji")
-          .toJSON(),
-      ).toStrictEqual({
+      expect(SuccessButton().setEmoji("🤖").clear("emoji").toJSON()).toStrictEqual({
         emoji: undefined,
         style: ButtonStyles.SUCCESS,
         type: ComponentTypes.BUTTON,
       }));
 
     it("Should return JSON base with force cleared emoji", () =>
-      expect(
-        SuccessButton()
-          .setEmoji({
-            name: "🤖",
-          })
-          .clear("emoji", true)
-          .toJSON(),
-      ).toStrictEqual({
+      expect(SuccessButton().setEmoji("🤖").clear("emoji", true).toJSON()).toStrictEqual({
         style: ButtonStyles.SUCCESS,
         type: ComponentTypes.BUTTON,
       }));
