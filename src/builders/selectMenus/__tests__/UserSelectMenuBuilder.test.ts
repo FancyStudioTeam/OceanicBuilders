@@ -43,15 +43,23 @@ describe("UserSelectMenuBuilder", () => {
 
     it("Should return JSON base with custom default users", () =>
       expect(
-        UserSelectMenu().setDefaultUsers(["945029082314338407"]).addDefaultUsers(["360235359746916352"]).toJSON(),
+        UserSelectMenu().setDefaultUsers(["user1", "user2"]).addDefaultUsers(["user3", "user4"]).toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "945029082314338407",
+            id: "user1",
             type: "user",
           },
           {
-            id: "360235359746916352",
+            id: "user2",
+            type: "user",
+          },
+          {
+            id: "user3",
+            type: "user",
+          },
+          {
+            id: "user4",
             type: "user",
           },
         ],
@@ -70,16 +78,14 @@ describe("UserSelectMenuBuilder", () => {
       }));
 
     it("Should return JSON base adding custom default users", () =>
-      expect(
-        UserSelectMenu().addDefaultUsers(["945029082314338407"]).addDefaultUsers(["360235359746916352"]).toJSON(),
-      ).toStrictEqual({
+      expect(UserSelectMenu().addDefaultUsers(["user1"]).addDefaultUsers(["user2"]).toJSON()).toStrictEqual({
         defaultValues: [
           {
-            id: "945029082314338407",
+            id: "user1",
             type: "user",
           },
           {
-            id: "360235359746916352",
+            id: "user2",
             type: "user",
           },
         ],
@@ -88,15 +94,11 @@ describe("UserSelectMenuBuilder", () => {
 
     it("Should return JSON base setting custom default users", () =>
       expect(
-        UserSelectMenu()
-          .addDefaultUsers(["945029082314338407"])
-          .addDefaultUsers(["360235359746916352"])
-          .setDefaultUsers(["1228065406196125810"])
-          .toJSON(),
+        UserSelectMenu().addDefaultUsers(["user1"]).addDefaultUsers(["user2"]).setDefaultUsers(["user3"]).toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1228065406196125810",
+            id: "user3",
             type: "user",
           },
         ],

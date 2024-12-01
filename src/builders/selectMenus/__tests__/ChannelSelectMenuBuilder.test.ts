@@ -44,17 +44,25 @@ describe("ChannelSelectMenuBuilder", () => {
     it("Should return JSON base with custom default channels", () =>
       expect(
         ChannelSelectMenu()
-          .setDefaultChannels(["1304852915407552512"])
-          .addDefaultChannels(["1304852937075458048"])
+          .setDefaultChannels(["channel1", "channel2"])
+          .addDefaultChannels(["channel3", "channel4"])
           .toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1304852915407552512",
+            id: "channel1",
             type: "channel",
           },
           {
-            id: "1304852937075458048",
+            id: "channel2",
+            type: "channel",
+          },
+          {
+            id: "channel3",
+            type: "channel",
+          },
+          {
+            id: "channel4",
             type: "channel",
           },
         ],
@@ -97,18 +105,15 @@ describe("ChannelSelectMenuBuilder", () => {
 
     it("Should return JSON base adding custom default channels", () =>
       expect(
-        ChannelSelectMenu()
-          .addDefaultChannels(["1304852915407552512"])
-          .addDefaultChannels(["1304852937075458048"])
-          .toJSON(),
+        ChannelSelectMenu().addDefaultChannels(["channel1"]).addDefaultChannels(["channel2"]).toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1304852915407552512",
+            id: "channel1",
             type: "channel",
           },
           {
-            id: "1304852937075458048",
+            id: "channel2",
             type: "channel",
           },
         ],
@@ -118,14 +123,14 @@ describe("ChannelSelectMenuBuilder", () => {
     it("Should return JSON base setting custom default channels", () =>
       expect(
         ChannelSelectMenu()
-          .addDefaultChannels(["1304852915407552512"])
-          .addDefaultChannels(["1304852937075458048"])
-          .setDefaultChannels(["1275065013631193241"])
+          .addDefaultChannels(["channel1"])
+          .addDefaultChannels(["channel2"])
+          .setDefaultChannels(["channel3"])
           .toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1275065013631193241",
+            id: "channel3",
             type: "channel",
           },
         ],

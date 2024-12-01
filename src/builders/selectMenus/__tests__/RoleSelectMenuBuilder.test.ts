@@ -43,15 +43,23 @@ describe("RoleSelectMenuBuilder", () => {
 
     it("Should return JSON base with custom default roles", () =>
       expect(
-        RoleSelectMenu().setDefaultRoles(["1305161856792395776"]).addDefaultRoles(["1227656741332975626"]).toJSON(),
+        RoleSelectMenu().setDefaultRoles(["role1", "role2"]).addDefaultRoles(["role3", "role4"]).toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1305161856792395776",
+            id: "role1",
             type: "role",
           },
           {
-            id: "1227656741332975626",
+            id: "role2",
+            type: "role",
+          },
+          {
+            id: "role3",
+            type: "role",
+          },
+          {
+            id: "role4",
             type: "role",
           },
         ],
@@ -70,16 +78,14 @@ describe("RoleSelectMenuBuilder", () => {
       }));
 
     it("Should return JSON base adding custom default roles", () =>
-      expect(
-        RoleSelectMenu().addDefaultRoles(["1305161856792395776"]).addDefaultRoles(["1227656741332975626"]).toJSON(),
-      ).toStrictEqual({
+      expect(RoleSelectMenu().addDefaultRoles(["role1"]).addDefaultRoles(["role2"]).toJSON()).toStrictEqual({
         defaultValues: [
           {
-            id: "1305161856792395776",
+            id: "role1",
             type: "role",
           },
           {
-            id: "1227656741332975626",
+            id: "role2",
             type: "role",
           },
         ],
@@ -88,15 +94,11 @@ describe("RoleSelectMenuBuilder", () => {
 
     it("Should return JSON base setting custom default roles", () =>
       expect(
-        RoleSelectMenu()
-          .addDefaultRoles(["1305161856792395776"])
-          .addDefaultRoles(["1227656741332975626"])
-          .setDefaultRoles(["1245770494050041866"])
-          .toJSON(),
+        RoleSelectMenu().addDefaultRoles(["role1"]).addDefaultRoles(["role2"]).setDefaultRoles(["role3"]).toJSON(),
       ).toStrictEqual({
         defaultValues: [
           {
-            id: "1245770494050041866",
+            id: "role3",
             type: "role",
           },
         ],
