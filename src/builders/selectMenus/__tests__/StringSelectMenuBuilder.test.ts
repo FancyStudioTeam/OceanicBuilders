@@ -49,8 +49,8 @@ describe("StringSelectMenuBuilder", () => {
               label: "Option 1",
               value: "option1",
             },
-            new StringSelectMenuOptionBuilder().setLabel("Option 2").setValue("option2"),
           ])
+          .addOptions([new StringSelectMenuOptionBuilder().setLabel("Option 2").setValue("option2")])
           .toJSON(),
       ).toStrictEqual({
         options: [
