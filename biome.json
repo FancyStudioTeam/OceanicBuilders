@@ -27,6 +27,7 @@
         "noReExportAll": "off"
       },
       "style": {
+        "noDefaultExport": "off",
         "useFilenamingConvention": "off",
         "useNamingConvention": "off"
       }
