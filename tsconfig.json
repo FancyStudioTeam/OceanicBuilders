@@ -24,6 +24,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist",
+    "paths": {
+      "@utils": ["./src/util/utils/index.ts"]
+    },
     "preserveConstEnums": true,
     "pretty": true,
     "removeComments": false,
@@ -32,5 +35,5 @@
     "target": "ESNext",
     "useDefineForClassFields": true
   },
-  "exclude": ["node_modules", "dist", "__tests__"]
+  "exclude": ["dist", "node_modules", "vitest.config.mts"]
 }
