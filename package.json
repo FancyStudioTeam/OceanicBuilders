@@ -9,7 +9,6 @@
     "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "tsc-alias": "1.8.10",
-    "typedoc": "0.27.3",
     "typescript": "5.7.2",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.8"
@@ -38,5 +37,5 @@
     "tgz": "pnpm build && pnpm pack"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.3"
+  "version": "1.1.0"
 }
