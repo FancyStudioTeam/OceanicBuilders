@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
   "files": {
-    "ignore": ["dist", "node_modules", "docs/.vitepress/cache"]
+    "ignore": ["dist", "node_modules", "docs/.vitepress/cache", "docs"]
   },
   "formatter": {
     "enabled": true,
