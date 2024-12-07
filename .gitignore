@@ -1,7 +1,4 @@
 *.tgz
 .VSCodeCounter
-.env
 dist
-docs
-docs/.vitepress/cache
 node_modules
