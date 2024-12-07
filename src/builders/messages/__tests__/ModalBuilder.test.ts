@@ -5,318 +5,331 @@ import { TextInputBuilder } from "../TextInputBuilder.js";
 
 const Modal = (data?: Partial<ModalData>) => new ModalBuilder(data);
 
-describe("ModalBuilder", () => {
-  describe("Using builder methods", () => {
-    it("Should return JSON base", () => expect(Modal().toJSON()).toStrictEqual({}));
+describe("Using builder methods", () => {
+  it("Should return JSON base", () => expect(Modal().toJSON()).toStrictEqual({}));
 
-    it("Should return JSON base with custom custom ID", () =>
-      expect(Modal().setCustomID("test").toJSON()).toStrictEqual({
-        customID: "test",
-      }));
+  it("Should return JSON base with custom custom ID", () =>
+    expect(Modal().setCustomID("modal1").toJSON()).toStrictEqual({
+      customID: "modal1",
+    }));
 
-    it("Should return JSON base with custom title", () =>
-      expect(Modal().setTitle("Test").toJSON()).toStrictEqual({
-        title: "Test",
-      }));
+  it("Should return JSON base with custom title", () =>
+    expect(Modal().setTitle("Example Modal").toJSON()).toStrictEqual({
+      title: "Example Modal",
+    }));
 
-    it("Should return JSON base with custom text inputs", () =>
-      expect(
-        Modal()
-          .setComponents([
+  it("Should return JSON base with custom text inputs", () =>
+    expect(
+      Modal()
+        .setComponents([
+          {
+            customID: "rawTextInput1",
+            label: "Raw Text Input 1",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput1")
+            .setLabel("Builder Text Input 1")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
             {
-              customID: "textInput1",
-              label: "Test 1",
+              customID: "rawTextInput1",
+              label: "Raw Text Input 1",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-          ])
-          .addComponents([
-            new TextInputBuilder().setCustomID("textInput2").setLabel("Test 2").setStyle(TextInputStyles.SHORT),
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
-          {
-            components: [
-              {
-                customID: "textInput1",
-                label: "Test 1",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-          {
-            components: [
-              {
-                customID: "textInput2",
-                label: "Test 2",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-        ],
-      }));
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "builderTextInput1",
+              label: "Builder Text Input 1",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
 
-    it("Should return JSON base adding JSON text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
+  it("Should return JSON base adding JSON text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
+          {
+            customID: "rawTextInput1",
+            label: "Raw Text Input 1",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .addComponents([
+          {
+            customID: "rawTextInput2",
+            label: "Raw Text Input 2",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
             {
-              customID: "textInput1",
-              label: "Test 1",
+              customID: "rawTextInput1",
+              label: "Raw Text Input 1",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-          ])
-          .addComponents([
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
             {
-              customID: "textInput2",
-              label: "Test 2",
+              customID: "rawTextInput2",
+              label: "Raw Text Input 2",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
-          {
-            components: [
-              {
-                customID: "textInput1",
-                label: "Test 1",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-          {
-            components: [
-              {
-                customID: "textInput2",
-                label: "Test 2",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-        ],
-      }));
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
 
-    it("Should return JSON base setting JSON text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
-            {
-              customID: "textInput1",
-              label: "Test 1",
-              style: TextInputStyles.SHORT,
-              type: ComponentTypes.TEXT_INPUT,
-            },
-          ])
-          .addComponents([
-            {
-              customID: "textInput2",
-              label: "Test 2",
-              style: TextInputStyles.SHORT,
-              type: ComponentTypes.TEXT_INPUT,
-            },
-          ])
-          .setComponents([
-            {
-              customID: "textInput3",
-              label: "Test 3",
-              style: TextInputStyles.SHORT,
-              type: ComponentTypes.TEXT_INPUT,
-            },
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
+  it("Should return JSON base setting JSON text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
           {
-            components: [
-              {
-                customID: "textInput3",
-                label: "Test 3",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
+            customID: "rawTextInput1",
+            label: "Raw Text Input 1",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
           },
-        ],
-      }));
+        ])
+        .addComponents([
+          {
+            customID: "rawTextInput2",
+            label: "Raw Text Input 2",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .setComponents([
+          {
+            customID: "rawTextInput3",
+            label: "Raw Text Input 3",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
+            {
+              customID: "rawTextInput3",
+              label: "Raw Text Input 3",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
 
-    it("Should return JSON base adding builder text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
-            new TextInputBuilder().setCustomID("textInput1").setLabel("Test 1").setStyle(TextInputStyles.SHORT),
-          ])
-          .addComponents([
-            new TextInputBuilder()
-              .setCustomID("textInput2")
-              .setLabel("Test 2")
-              .setStyle(TextInputStyles.SHORT)
-              .toJSON(),
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
-          {
-            components: [
-              {
-                customID: "textInput1",
-                label: "Test 1",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-          {
-            components: [
-              {
-                customID: "textInput2",
-                label: "Test 2",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-        ],
-      }));
-
-    it("Should return JSON base setting builder text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
-            new TextInputBuilder().setCustomID("textInput1").setLabel("Test 1").setStyle(TextInputStyles.SHORT),
-          ])
-          .addComponents([
-            new TextInputBuilder()
-              .setCustomID("textInput2")
-              .setLabel("Test 2")
-              .setStyle(TextInputStyles.SHORT)
-              .toJSON(),
-          ])
-          .setComponents([
-            new TextInputBuilder().setCustomID("textInput3").setLabel("Test 3").setStyle(TextInputStyles.SHORT),
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
-          {
-            components: [
-              {
-                customID: "textInput3",
-                label: "Test 3",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-        ],
-      }));
-
-    it("Should return JSON base adding JSON and builder text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
+  it("Should return JSON base adding builder text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput1")
+            .setLabel("Builder Text Input 1")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput2")
+            .setLabel("Builder Text Input 2")
+            .setStyle(TextInputStyles.SHORT)
+            .toJSON(),
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
             {
-              customID: "textInput1",
-              label: "Test 1",
+              customID: "builderTextInput1",
+              label: "Builder Text Input 1",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-          ])
-          .addComponents([
-            new TextInputBuilder().setCustomID("textInput2").setLabel("Test 2").setStyle(TextInputStyles.SHORT),
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
-          {
-            components: [
-              {
-                customID: "textInput1",
-                label: "Test 1",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-          {
-            components: [
-              {
-                customID: "textInput2",
-                label: "Test 2",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
-          },
-        ],
-      }));
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "builderTextInput2",
+              label: "Builder Text Input 2",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
 
-    it("Should return JSON base setting JSON and builder text inputs", () =>
-      expect(
-        Modal()
-          .addComponents([
+  it("Should return JSON base setting builder text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput1")
+            .setLabel("Builder Text Input 1")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput2")
+            .setLabel("Builder Text Input 2")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .setComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput3")
+            .setLabel("Builder Text Input 3")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
             {
-              customID: "textInput1",
-              label: "Test 1",
+              customID: "builderTextInput3",
+              label: "Builder Text Input 3",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-          ])
-          .addComponents([
-            new TextInputBuilder().setCustomID("textInput2").setLabel("Test 2").setStyle(TextInputStyles.SHORT),
-          ])
-          .setComponents([
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
+
+  it("Should return JSON base adding JSON and builder text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
+          {
+            customID: "rawTextInput1",
+            label: "Raw Text Input 1",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+        ])
+        .addComponents([
+          new TextInputBuilder()
+            .setCustomID("builderTextInput1")
+            .setLabel("Builder Text Input 1")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
             {
-              customID: "textInput3",
-              label: "Test 3",
+              customID: "rawTextInput1",
+              label: "Raw Text Input 1",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },
-            new TextInputBuilder().setCustomID("textInput4").setLabel("Test 4").setStyle(TextInputStyles.SHORT),
-          ])
-          .toJSON(),
-      ).toStrictEqual({
-        components: [
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "builderTextInput1",
+              label: "Builder Text Input 1",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
+
+  it("Should return JSON base setting JSON and builder text inputs", () =>
+    expect(
+      Modal()
+        .addComponents([
           {
-            components: [
-              {
-                customID: "textInput3",
-                label: "Test 3",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
+            customID: "rawTextInput1",
+            label: "Raw Text Input 1",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
           },
+        ])
+        .addComponents([new TextInputBuilder().setCustomID("builderTextInput1").setLabel("Builder Text Input 1")])
+        .setComponents([
           {
-            components: [
-              {
-                customID: "textInput4",
-                label: "Test 4",
-                style: TextInputStyles.SHORT,
-                type: ComponentTypes.TEXT_INPUT,
-              },
-            ],
-            type: ComponentTypes.ACTION_ROW,
+            customID: "rawTextInput2",
+            label: "Raw Text Input 2",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
           },
-        ],
-      }));
-  });
+          new TextInputBuilder()
+            .setCustomID("builderTextInput2")
+            .setLabel("Builder Text Input 2")
+            .setStyle(TextInputStyles.SHORT),
+        ])
+        .toJSON(),
+    ).toStrictEqual({
+      components: [
+        {
+          components: [
+            {
+              customID: "rawTextInput2",
+              label: "Raw Text Input 2",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "builderTextInput2",
+              label: "Builder Text Input 2",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+      ],
+    }));
 });
