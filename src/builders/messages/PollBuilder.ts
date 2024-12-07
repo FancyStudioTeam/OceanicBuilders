@@ -1,28 +1,9 @@
-import { parseEmoji } from "@utils";
-import {
-  type MessagePollOptions,
-  type NullablePartialEmoji,
-  type PollAnswerOption,
-  PollLayoutType,
-  type PollMedia,
-} from "oceanic.js";
+import { type MessagePollOptions, type PollAnswerOption, PollLayoutType, type PollMedia } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
+import { PollMediaBuilder } from "./PollMediaBuilder.js";
 
-const resolvePollMedia = (pollMedia: ValidPollMedia) => ("toJSON" in pollMedia ? pollMedia.toJSON() : pollMedia);
-
-export class PollMediaBuilder extends BaseBuilder<PollMedia> {
-  setEmoji(emoji: NullablePartialEmoji | string) {
-    this.data.emoji = typeof emoji === "string" ? parseEmoji(emoji) : emoji;
-
-    return this;
-  }
-
-  setText(text: string) {
-    this.data.text = text;
-
-    return this;
-  }
-}
+const resolvePollMedia = (pollMedia: ValidPollMedia) =>
+  pollMedia instanceof PollMediaBuilder ? pollMedia.toJSON() : pollMedia;
 
 export class PollBuilder extends BaseBuilder<MessagePollOptions> {
   constructor(poll?: Partial<MessagePollOptions>) {
