@@ -1,0 +1,4 @@
+{
+  "exclude": ["**/__tests__", "vitest.config.mts"],
+  "extends": "./tsconfig.json"
+}
