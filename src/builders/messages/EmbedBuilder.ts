@@ -81,7 +81,7 @@ export class EmbedBuilder extends BaseBuilder<EmbedOptions> {
     return this;
   }
 
-  setTimestamp(timestamp: "now" | Date | string) {
+  setTimestamp(timestamp: "now" | Date | string = "now") {
     if (timestamp === "now") {
       this.data.timestamp = new Date().toISOString();
     } else if (timestamp instanceof Date) {
@@ -107,4 +107,4 @@ export class EmbedBuilder extends BaseBuilder<EmbedOptions> {
 }
 
 type AvailableClearOptions = keyof EmbedOptions;
-type ValidEmbedField = EmbedFieldBuilder | EmbedField;
+export type ValidEmbedField = EmbedFieldBuilder | EmbedField;

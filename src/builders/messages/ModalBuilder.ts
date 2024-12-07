@@ -44,4 +44,4 @@ export class ModalBuilder extends BaseBuilder<ModalData> {
   }
 }
 
-type ValidTextInput = TextInputBuilder | TextInput;
+export type ValidTextInput = TextInputBuilder | TextInput;

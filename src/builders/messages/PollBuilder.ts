@@ -74,4 +74,4 @@ export class PollBuilder extends BaseBuilder<MessagePollOptions> {
   }
 }
 
-type ValidPollMedia = PollMediaBuilder | PollMedia;
+export type ValidPollMedia = PollMediaBuilder | PollMedia;

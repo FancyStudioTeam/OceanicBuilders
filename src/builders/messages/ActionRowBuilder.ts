@@ -3,13 +3,17 @@ import {
   ComponentTypes,
   type MentionableSelectMenu,
   type MessageActionRow,
+  type PremiumButton,
   type RoleSelectMenu,
   type StringSelectMenu,
   type TextButton,
+  type URLButton,
   type UserSelectMenu,
 } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import type { DangerButtonBuilder } from "../buttons/DangerButtonBuilder.js";
+import type { LinkButtonBuilder } from "../buttons/LinkButtonBuilder.js";
+import type { PremiumButtonBuilder } from "../buttons/PremiumButtonBuilder.js";
 import type { PrimaryButtonBuilder } from "../buttons/PrimaryButtonBuilder.js";
 import type { SecondaryButtonBuilder } from "../buttons/SecondaryButtonBuilder.js";
 import type { SuccessButtonBuilder } from "../buttons/SuccessButtonBuilder.js";
@@ -49,6 +53,8 @@ export class ActionRowBuilder extends BaseBuilder<MessageActionRow> {
 }
 
 type ValidDangerButton = DangerButtonBuilder | TextButton;
+type ValidLinkButton = LinkButtonBuilder | URLButton;
+type ValidPremiumButton = PremiumButtonBuilder | PremiumButton;
 type ValidPrimaryButton = PrimaryButtonBuilder | TextButton;
 type ValidSecondaryButton = SecondaryButtonBuilder | TextButton;
 type ValidSuccessButton = SuccessButtonBuilder | TextButton;
@@ -59,13 +65,18 @@ type ValidRoleSelectMenu = RoleSelectMenuBuilder | RoleSelectMenu;
 type ValidStringSelectMenu = StringSelectMenuBuilder | StringSelectMenu;
 type ValidUserSelectMenu = UserSelectMenuBuilder | UserSelectMenu;
 
-type ValidActionRowComponents =
-  | ValidChannelSelectMenu
+type ValidButtons =
   | ValidDangerButton
-  | ValidMentionableSelectMenu
+  | ValidLinkButton
+  | ValidPremiumButton
   | ValidPrimaryButton
-  | ValidRoleSelectMenu
   | ValidSecondaryButton
+  | ValidSuccessButton;
+type ValidSelectMenus =
+  | ValidChannelSelectMenu
+  | ValidMentionableSelectMenu
+  | ValidRoleSelectMenu
   | ValidStringSelectMenu
-  | ValidSuccessButton
   | ValidUserSelectMenu;
+
+export type ValidActionRowComponents = ValidButtons | ValidSelectMenus;

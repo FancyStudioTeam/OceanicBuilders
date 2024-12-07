@@ -71,5 +71,5 @@ export class StringSelectMenuBuilder extends SelectMenuBaseBuilder<StringSelectM
   }
 }
 
-type ValidStringSelectMenuOption = StringSelectMenuOptionBuilder | SelectOption;
 type AvailableClearOptions = keyof Pick<SelectOption, "description" | "emoji">;
+export type ValidStringSelectMenuOption = StringSelectMenuOptionBuilder | SelectOption;
