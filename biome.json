@@ -22,10 +22,6 @@
         "noUndeclaredDependencies": "off",
         "useImportExtensions": "error"
       },
-      "performance": {
-        "noBarrelFile": "off",
-        "noReExportAll": "off"
-      },
       "style": {
         "noDefaultExport": "off",
         "useFilenamingConvention": "off",
