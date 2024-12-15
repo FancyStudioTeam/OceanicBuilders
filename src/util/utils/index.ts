@@ -1,1 +1,3 @@
-export * from "./parseEmoji.js";
+import { parseEmoji } from "./parseEmoji.js";
+
+export { parseEmoji };
