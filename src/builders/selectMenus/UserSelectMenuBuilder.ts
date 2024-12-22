@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { ComponentTypes, type SelectMenuDefaultValue, type UserSelectMenu } from "oceanic.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
 
@@ -9,8 +10,9 @@ export class UserSelectMenuBuilder extends SelectMenuBaseBuilder<UserSelectMenu>
     });
   }
 
-  addDefaultUsers(userIDs: string[]) {
-    const defaultValues = userIDs.map<SelectMenuDefaultValue>((id) => ({
+  addDefaultUsers(...userIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(userIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "user",
     }));
@@ -21,8 +23,9 @@ export class UserSelectMenuBuilder extends SelectMenuBaseBuilder<UserSelectMenu>
     return this;
   }
 
-  setDefaultUsers(userIDs: string[]) {
-    const defaultValues = userIDs.map<SelectMenuDefaultValue>((id) => ({
+  setDefaultUsers(...userIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(userIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "user",
     }));

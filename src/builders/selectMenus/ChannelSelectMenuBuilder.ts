@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { type ChannelSelectMenu, type ChannelTypes, ComponentTypes, type SelectMenuDefaultValue } from "oceanic.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
 
@@ -9,15 +10,18 @@ export class ChannelSelectMenuBuilder extends SelectMenuBaseBuilder<ChannelSelec
     });
   }
 
-  addChannelTypes(channelTypes: ChannelTypes[]) {
+  addChannelTypes(...channelTypes: RestOrArray<ChannelTypes>) {
+    const normalizedArray = normalizeArray(channelTypes);
+
     this.data.channelTypes ??= [];
-    this.data.channelTypes.push(...channelTypes);
+    this.data.channelTypes.push(...normalizedArray);
 
     return this;
   }
 
-  addDefaultChannels(channelIDs: string[]) {
-    const defaultValues = channelIDs.map<SelectMenuDefaultValue>((id) => ({
+  addDefaultChannels(...channelIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(channelIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "channel",
     }));
@@ -28,14 +32,17 @@ export class ChannelSelectMenuBuilder extends SelectMenuBaseBuilder<ChannelSelec
     return this;
   }
 
-  setChannelTypes(channelTypes: ChannelTypes[]) {
-    this.data.channelTypes = channelTypes;
+  setChannelTypes(...channelTypes: RestOrArray<ChannelTypes>) {
+    const normalizedArray = normalizeArray(channelTypes);
+
+    this.data.channelTypes = normalizedArray;
 
     return this;
   }
 
-  setDefaultChannels(channelIDs: string[]) {
-    const defaultValues = channelIDs.map<SelectMenuDefaultValue>((id) => ({
+  setDefaultChannels(...channelIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(channelIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "channel",
     }));

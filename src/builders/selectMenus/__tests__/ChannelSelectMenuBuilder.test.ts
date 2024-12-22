@@ -46,9 +46,23 @@ describe("Using builder methods", () => {
       type: ComponentTypes.CHANNEL_SELECT,
     }));
 
+  it("Should return JSON base with custom channel types", () =>
+    expect(
+      ChannelSelectMenu()
+        .setChannelTypes(ChannelTypes.GUILD_TEXT, ChannelTypes.GUILD_VOICE)
+        .addChannelTypes(ChannelTypes.DM, ChannelTypes.GROUP_DM)
+        .toJSON(),
+    ).toStrictEqual({
+      channelTypes: [ChannelTypes.GUILD_TEXT, ChannelTypes.GUILD_VOICE, ChannelTypes.DM, ChannelTypes.GROUP_DM],
+      type: ComponentTypes.CHANNEL_SELECT,
+    }));
+
   it("Should return JSON base with custom default channels", () =>
     expect(
-      ChannelSelectMenu().setDefaultChannels([ChannelIDs.Channel1]).addDefaultChannels([ChannelIDs.Channel2]).toJSON(),
+      ChannelSelectMenu()
+        .setDefaultChannels(ChannelIDs.Channel1, ChannelIDs.Channel2)
+        .addDefaultChannels(ChannelIDs.Channel3, ChannelIDs.Channel4)
+        .toJSON(),
     ).toStrictEqual({
       defaultValues: [
         {
@@ -57,6 +71,14 @@ describe("Using builder methods", () => {
         },
         {
           id: ChannelIDs.Channel2,
+          type: "channel",
+        },
+        {
+          id: ChannelIDs.Channel3,
+          type: "channel",
+        },
+        {
+          id: ChannelIDs.Channel4,
           type: "channel",
         },
       ],

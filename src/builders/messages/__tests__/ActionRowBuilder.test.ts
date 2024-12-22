@@ -14,17 +14,24 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom button components", () =>
     expect(
       ActionRow()
-        .setComponents([
+        .setComponents(
           {
             customID: "rawPrimaryButton1",
             label: "Raw Primary Button 1",
             style: ButtonStyles.PRIMARY,
             type: ComponentTypes.BUTTON,
           },
-        ])
-        .addComponents([
           new PrimaryButtonBuilder().setCustomID("builderPrimaryButton1").setLabel("Builder Primary Button 1"),
-        ])
+        )
+        .addComponents(
+          {
+            customID: "rawPrimaryButton2",
+            label: "Raw Primary Button 2",
+            style: ButtonStyles.PRIMARY,
+            type: ComponentTypes.BUTTON,
+          },
+          new PrimaryButtonBuilder().setCustomID("builderPrimaryButton2").setLabel("Builder Primary Button 2"),
+        )
         .toJSON(),
     ).toStrictEqual({
       components: [
@@ -37,6 +44,18 @@ describe("Using builder methods", () => {
         {
           customID: "builderPrimaryButton1",
           label: "Builder Primary Button 1",
+          style: ButtonStyles.PRIMARY,
+          type: ComponentTypes.BUTTON,
+        },
+        {
+          customID: "rawPrimaryButton2",
+          label: "Raw Primary Button 2",
+          style: ButtonStyles.PRIMARY,
+          type: ComponentTypes.BUTTON,
+        },
+        {
+          customID: "builderPrimaryButton2",
+          label: "Builder Primary Button 2",
           style: ButtonStyles.PRIMARY,
           type: ComponentTypes.BUTTON,
         },

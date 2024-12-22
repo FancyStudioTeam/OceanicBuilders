@@ -44,13 +44,20 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom options", () =>
     expect(
       StringSelectMenu()
-        .setOptions([
+        .setOptions(
           {
             label: "Raw Option 1",
             value: "rawOption1",
           },
-        ])
-        .addOptions([new StringSelectMenuOptionBuilder().setLabel("Builder Option 1").setValue("builderOption1")])
+          new StringSelectMenuOptionBuilder().setLabel("Builder Option 1").setValue("builderOption1"),
+        )
+        .addOptions(
+          {
+            label: "Raw Option 2",
+            value: "rawOption2",
+          },
+          new StringSelectMenuOptionBuilder().setLabel("Builder Option 2").setValue("builderOption2"),
+        )
         .toJSON(),
     ).toStrictEqual({
       options: [
@@ -61,6 +68,14 @@ describe("Using builder methods", () => {
         {
           label: "Builder Option 1",
           value: "builderOption1",
+        },
+        {
+          label: "Raw Option 2",
+          value: "rawOption2",
+        },
+        {
+          label: "Builder Option 2",
+          value: "builderOption2",
         },
       ],
       type: ComponentTypes.STRING_SELECT,

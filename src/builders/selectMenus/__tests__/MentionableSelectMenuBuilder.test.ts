@@ -56,15 +56,20 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom default values", () =>
     expect(
       MentionableSelectMenu()
-        .setDefaultValues([
+        .setDefaultValues(
           {
             id: UserIDs.User1,
             type: "user",
           },
-        ])
-        .addDefaultValues([
           new MentionableDefaultValueBuilder().setMentionableID(ChannelIDs.Channel1).setType("channel"),
-        ])
+        )
+        .addDefaultValues(
+          {
+            id: UserIDs.User2,
+            type: "user",
+          },
+          new MentionableDefaultValueBuilder().setMentionableID(ChannelIDs.Channel2).setType("channel"),
+        )
         .toJSON(),
     ).toStrictEqual({
       defaultValues: [
@@ -74,6 +79,14 @@ describe("Using builder methods", () => {
         },
         {
           id: ChannelIDs.Channel1,
+          type: "channel",
+        },
+        {
+          id: UserIDs.User2,
+          type: "user",
+        },
+        {
+          id: ChannelIDs.Channel2,
           type: "channel",
         },
       ],

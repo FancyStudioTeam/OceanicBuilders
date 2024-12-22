@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { type MessagePollOptions, type PollAnswerOption, PollLayoutType, type PollMedia } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { PollMediaBuilder } from "./PollMediaBuilder.js";
@@ -13,8 +14,9 @@ export class PollBuilder extends BaseBuilder<MessagePollOptions> {
     });
   }
 
-  addAnswers(answers: ValidPollMedia[]) {
-    const resolvedPollMedia = answers.map<PollAnswerOption>((pollMedia) => ({
+  addAnswers(...answers: RestOrArray<ValidPollMedia>) {
+    const normalizedArray = normalizeArray(answers);
+    const resolvedPollMedia = normalizedArray.map<PollAnswerOption>((pollMedia) => ({
       pollMedia: resolvePollMedia(pollMedia),
     }));
 
@@ -30,8 +32,9 @@ export class PollBuilder extends BaseBuilder<MessagePollOptions> {
     return this;
   }
 
-  setAnswers(answers: ValidPollMedia[]) {
-    const resolvedPollMedia = answers.map<PollAnswerOption>((pollMedia) => ({
+  setAnswers(...answers: RestOrArray<ValidPollMedia>) {
+    const normalizedArray = normalizeArray(answers);
+    const resolvedPollMedia = normalizedArray.map<PollAnswerOption>((pollMedia) => ({
       pollMedia: resolvePollMedia(pollMedia),
     }));
 

@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { ComponentTypes, type MentionableSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
 import { MentionableDefaultValueBuilder } from "./MentionableDefaultValueBuilder.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
@@ -13,8 +14,9 @@ export class MentionableSelectMenuBuilder extends SelectMenuBaseBuilder<Mentiona
     });
   }
 
-  addDefaultValues(defaultValues: ValidMentionableDefaultValue[]) {
-    const resolvedDefaultValues = defaultValues.map((defaultValue) => resolveDefaultValue(defaultValue));
+  addDefaultValues(...defaultValues: RestOrArray<ValidMentionableDefaultValue>) {
+    const normalizedArray = normalizeArray(defaultValues);
+    const resolvedDefaultValues = normalizedArray.map((defaultValue) => resolveDefaultValue(defaultValue));
 
     this.data.defaultValues ??= [];
     this.data.defaultValues.push(...resolvedDefaultValues);
@@ -22,8 +24,9 @@ export class MentionableSelectMenuBuilder extends SelectMenuBaseBuilder<Mentiona
     return this;
   }
 
-  setDefaultValues(defaultValues: ValidMentionableDefaultValue[]) {
-    const resolvedDefaultValues = defaultValues.map((defaultValue) => resolveDefaultValue(defaultValue));
+  setDefaultValues(...defaultValues: RestOrArray<ValidMentionableDefaultValue>) {
+    const normalizedArray = normalizeArray(defaultValues);
+    const resolvedDefaultValues = normalizedArray.map((defaultValue) => resolveDefaultValue(defaultValue));
 
     this.data.defaultValues = resolvedDefaultValues;
 

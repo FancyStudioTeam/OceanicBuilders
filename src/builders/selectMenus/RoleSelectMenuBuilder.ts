@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { ComponentTypes, type RoleSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
 
@@ -9,8 +10,9 @@ export class RoleSelectMenuBuilder extends SelectMenuBaseBuilder<RoleSelectMenu>
     });
   }
 
-  addDefaultRoles(roleIDs: string[]) {
-    const defaultValues = roleIDs.map<SelectMenuDefaultValue>((id) => ({
+  addDefaultRoles(...roleIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(roleIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "role",
     }));
@@ -21,8 +23,9 @@ export class RoleSelectMenuBuilder extends SelectMenuBaseBuilder<RoleSelectMenu>
     return this;
   }
 
-  setDefaultRoles(roleIDs: string[]) {
-    const defaultValues = roleIDs.map<SelectMenuDefaultValue>((id) => ({
+  setDefaultRoles(...roleIDs: RestOrArray<string>) {
+    const normalizedArray = normalizeArray(roleIDs);
+    const defaultValues = normalizedArray.map<SelectMenuDefaultValue>((id) => ({
       id,
       type: "role",
     }));

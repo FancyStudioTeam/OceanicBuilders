@@ -47,7 +47,12 @@ describe("Using builder methods", () => {
     }));
 
   it("Should return JSON base with custom default roles", () =>
-    expect(RoleSelectMenu().setDefaultRoles([RoleIDs.Role1]).addDefaultRoles([RoleIDs.Role2]).toJSON()).toStrictEqual({
+    expect(
+      RoleSelectMenu()
+        .setDefaultRoles(RoleIDs.Role1, RoleIDs.Role2)
+        .addDefaultRoles(RoleIDs.Role3, RoleIDs.Role4)
+        .toJSON(),
+    ).toStrictEqual({
       defaultValues: [
         {
           id: RoleIDs.Role1,
@@ -55,6 +60,14 @@ describe("Using builder methods", () => {
         },
         {
           id: RoleIDs.Role2,
+          type: "role",
+        },
+        {
+          id: RoleIDs.Role3,
+          type: "role",
+        },
+        {
+          id: RoleIDs.Role4,
           type: "role",
         },
       ],

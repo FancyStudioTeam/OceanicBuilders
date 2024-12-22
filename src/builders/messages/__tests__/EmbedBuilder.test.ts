@@ -41,13 +41,20 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom fields", () =>
     expect(
       Embed()
-        .setFields([
+        .setFields(
           {
             name: "Raw Field 1",
             value: "Raw Value 1",
           },
-        ])
-        .addFields([new EmbedFieldBuilder().setName("Builder Field 1").setValue("Builder Value 1")])
+          new EmbedFieldBuilder().setName("Builder Field 1").setValue("Builder Value 1"),
+        )
+        .addFields(
+          {
+            name: "Raw Field 2",
+            value: "Raw Value 2",
+          },
+          new EmbedFieldBuilder().setName("Builder Field 2").setValue("Builder Value 2"),
+        )
         .toJSON(),
     ).toStrictEqual({
       fields: [
@@ -58,6 +65,14 @@ describe("Using builder methods", () => {
         {
           name: "Builder Field 1",
           value: "Builder Value 1",
+        },
+        {
+          name: "Raw Field 2",
+          value: "Raw Value 2",
+        },
+        {
+          name: "Builder Field 2",
+          value: "Builder Value 2",
         },
       ],
     }));

@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { EmbedFieldBuilder } from "./EmbedFieldBuilder.js";
@@ -6,8 +7,9 @@ const resolveEmbedField = (embedField: ValidEmbedField) =>
   embedField instanceof EmbedFieldBuilder ? embedField.toJSON() : embedField;
 
 export class EmbedBuilder extends BaseBuilder<EmbedOptions> {
-  addFields(fields: ValidEmbedField[]) {
-    const resolvedFields = fields.map((field) => resolveEmbedField(field));
+  addFields(...fields: RestOrArray<ValidEmbedField>) {
+    const normalizedArray = normalizeArray(fields);
+    const resolvedFields = normalizedArray.map((field) => resolveEmbedField(field));
 
     this.data.fields ??= [];
     this.data.fields.push(...resolvedFields);
@@ -46,8 +48,9 @@ export class EmbedBuilder extends BaseBuilder<EmbedOptions> {
     return this;
   }
 
-  setFields(fields: ValidEmbedField[]) {
-    const resolvedFields = fields.map((field) => resolveEmbedField(field));
+  setFields(...fields: RestOrArray<ValidEmbedField>) {
+    const normalizedArray = normalizeArray(fields);
+    const resolvedFields = normalizedArray.map((field) => resolveEmbedField(field));
 
     this.data.fields = resolvedFields;
 

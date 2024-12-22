@@ -47,7 +47,12 @@ describe("Using builder methods", () => {
     }));
 
   it("Should return JSON base with custom default users", () =>
-    expect(UserSelectMenu().setDefaultUsers([UserIDs.User1]).addDefaultUsers([UserIDs.User2]).toJSON()).toStrictEqual({
+    expect(
+      UserSelectMenu()
+        .setDefaultUsers(UserIDs.User1, UserIDs.User2)
+        .addDefaultUsers(UserIDs.User3, UserIDs.User4)
+        .toJSON(),
+    ).toStrictEqual({
       defaultValues: [
         {
           id: UserIDs.User1,
@@ -55,6 +60,14 @@ describe("Using builder methods", () => {
         },
         {
           id: UserIDs.User2,
+          type: "user",
+        },
+        {
+          id: UserIDs.User3,
+          type: "user",
+        },
+        {
+          id: UserIDs.User4,
           type: "user",
         },
       ],

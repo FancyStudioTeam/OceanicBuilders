@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { ComponentTypes, type SelectOption, type StringSelectMenu } from "oceanic.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
 import { StringSelectMenuOptionBuilder } from "./StringSelectMenuOptionBuilder.js";
@@ -13,8 +14,9 @@ export class StringSelectMenuBuilder extends SelectMenuBaseBuilder<StringSelectM
     });
   }
 
-  addOptions(options: ValidStringSelectMenuOption[]) {
-    const resolvedOptions = options.map((option) => resolveOption(option));
+  addOptions(...options: RestOrArray<ValidStringSelectMenuOption>) {
+    const normalizedArray = normalizeArray(options);
+    const resolvedOptions = normalizedArray.map((option) => resolveOption(option));
 
     this.data.options ??= [];
     this.data.options.push(...resolvedOptions);
@@ -22,8 +24,9 @@ export class StringSelectMenuBuilder extends SelectMenuBaseBuilder<StringSelectM
     return this;
   }
 
-  setOptions(options: ValidStringSelectMenuOption[]) {
-    const resolvedOptions = options.map((option) => resolveOption(option));
+  setOptions(...options: RestOrArray<ValidStringSelectMenuOption>) {
+    const normalizedArray = normalizeArray(options);
+    const resolvedOptions = normalizedArray.map((option) => resolveOption(option));
 
     this.data.options = resolvedOptions;
 

@@ -21,20 +21,30 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom text inputs", () =>
     expect(
       Modal()
-        .setComponents([
+        .setComponents(
           {
             customID: "rawTextInput1",
             label: "Raw Text Input 1",
             style: TextInputStyles.SHORT,
             type: ComponentTypes.TEXT_INPUT,
           },
-        ])
-        .addComponents([
           new TextInputBuilder()
             .setCustomID("builderTextInput1")
             .setLabel("Builder Text Input 1")
             .setStyle(TextInputStyles.SHORT),
-        ])
+        )
+        .addComponents(
+          {
+            customID: "rawTextInput2",
+            label: "Raw Text Input 2",
+            style: TextInputStyles.SHORT,
+            type: ComponentTypes.TEXT_INPUT,
+          },
+          new TextInputBuilder()
+            .setCustomID("builderTextInput2")
+            .setLabel("Builder Text Input 2")
+            .setStyle(TextInputStyles.SHORT),
+        )
         .toJSON(),
     ).toStrictEqual({
       components: [
@@ -54,6 +64,28 @@ describe("Using builder methods", () => {
             {
               customID: "builderTextInput1",
               label: "Builder Text Input 1",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "rawTextInput2",
+              label: "Raw Text Input 2",
+              style: TextInputStyles.SHORT,
+              type: ComponentTypes.TEXT_INPUT,
+            },
+          ],
+          type: ComponentTypes.ACTION_ROW,
+        },
+        {
+          components: [
+            {
+              customID: "builderTextInput2",
+              label: "Builder Text Input 2",
               style: TextInputStyles.SHORT,
               type: ComponentTypes.TEXT_INPUT,
             },

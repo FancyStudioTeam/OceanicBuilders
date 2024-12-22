@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import {
   type ChannelSelectMenu,
   ComponentTypes,
@@ -34,8 +35,9 @@ export class ActionRowBuilder extends BaseBuilder<MessageActionRow> {
     });
   }
 
-  addComponents(components: ValidActionRowComponents[]) {
-    const resolvedComponents = components.map((component) => resolveComponents(component));
+  addComponents(...components: RestOrArray<ValidActionRowComponents>) {
+    const normalizedArray = normalizeArray(components);
+    const resolvedComponents = normalizedArray.map((component) => resolveComponents(component));
 
     this.data.components ??= [];
     this.data.components.push(...resolvedComponents);
@@ -43,8 +45,9 @@ export class ActionRowBuilder extends BaseBuilder<MessageActionRow> {
     return this;
   }
 
-  setComponents(components: ValidActionRowComponents[]) {
-    const resolvedComponents = components.map((component) => resolveComponents(component));
+  setComponents(...components: RestOrArray<ValidActionRowComponents>) {
+    const normalizedArray = normalizeArray(components);
+    const resolvedComponents = normalizedArray.map((component) => resolveComponents(component));
 
     this.data.components = resolvedComponents;
 

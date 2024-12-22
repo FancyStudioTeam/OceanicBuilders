@@ -34,12 +34,18 @@ describe("Using builder methods", () => {
   it("Should return JSON base with custom answers", () =>
     expect(
       Poll()
-        .setAnswers([
+        .setAnswers(
           {
             text: "Raw Answer 1",
           },
-        ])
-        .addAnswers([new PollMediaBuilder().setText("Builder Answer 1")])
+          new PollMediaBuilder().setText("Builder Answer 1"),
+        )
+        .addAnswers(
+          {
+            text: "Raw Answer 2",
+          },
+          new PollMediaBuilder().setText("Builder Answer 2"),
+        )
         .toJSON(),
     ).toStrictEqual({
       answers: [
@@ -51,6 +57,16 @@ describe("Using builder methods", () => {
         {
           pollMedia: {
             text: "Builder Answer 1",
+          },
+        },
+        {
+          pollMedia: {
+            text: "Raw Answer 2",
+          },
+        },
+        {
+          pollMedia: {
+            text: "Builder Answer 2",
           },
         },
       ],

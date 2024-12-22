@@ -1,3 +1,4 @@
+import { type RestOrArray, normalizeArray } from "@utils";
 import { ComponentTypes, type ModalActionRow, type ModalData, type TextInput } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { TextInputBuilder } from "./TextInputBuilder.js";
@@ -6,8 +7,9 @@ const resolveTextInput = (textInput: ValidTextInput) =>
   textInput instanceof TextInputBuilder ? textInput.toJSON() : textInput;
 
 export class ModalBuilder extends BaseBuilder<ModalData> {
-  addComponents(components: ValidTextInput[]) {
-    const resolvedComponents = components.map((textInput) => resolveTextInput(textInput));
+  addComponents(...components: RestOrArray<ValidTextInput>) {
+    const normalizedArray = normalizeArray(components);
+    const resolvedComponents = normalizedArray.map((textInput) => resolveTextInput(textInput));
     const actionRows = resolvedComponents.map<ModalActionRow>((textInput) => ({
       components: [textInput],
       type: ComponentTypes.ACTION_ROW,
@@ -19,8 +21,9 @@ export class ModalBuilder extends BaseBuilder<ModalData> {
     return this;
   }
 
-  setComponents(components: ValidTextInput[]) {
-    const resolvedComponents = components.map((textInput) => resolveTextInput(textInput));
+  setComponents(...components: RestOrArray<ValidTextInput>) {
+    const normalizedArray = normalizeArray(components);
+    const resolvedComponents = normalizedArray.map((textInput) => resolveTextInput(textInput));
     const actionRows = resolvedComponents.map<ModalActionRow>((textInput) => ({
       components: [textInput],
       type: ComponentTypes.ACTION_ROW,
