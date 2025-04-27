@@ -1,4 +1,4 @@
-import { type RestOrArray, normalizeArray } from "@utils";
+import { type RestOrArray, normalizeArray } from "@functions/normalizeArray.js";
 import {
   type ChannelSelectMenu,
   ComponentTypes,
@@ -82,4 +82,4 @@ type ValidSelectMenus =
   | ValidStringSelectMenu
   | ValidUserSelectMenu;
 
-export type ValidActionRowComponents = ValidButtons | ValidSelectMenus;
+type ValidActionRowComponents = ValidButtons | ValidSelectMenus;

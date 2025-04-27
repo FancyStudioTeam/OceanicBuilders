@@ -1,4 +1,4 @@
-import { type RestOrArray, normalizeArray } from "@utils";
+import { type RestOrArray, normalizeArray } from "@functions/normalizeArray.js";
 import type { EmbedAuthorOptions, EmbedField, EmbedFooterOptions, EmbedOptions } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { EmbedFieldBuilder } from "./EmbedFieldBuilder.js";
