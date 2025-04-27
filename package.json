@@ -1,27 +1,29 @@
 {
-  "author": "FancyStudio",
   "dependencies": {
-    "oceanic.js": "1.11.2"
+    "oceanic.js": "1.12.0"
   },
-  "description": "A set of utilities for developing using Oceanic.js",
+  "description": "Unofficial utilities for Oceanic.js",
   "devDependencies": {
-    "@types/node": "22.10.2",
+    "@biomejs/biome": "1.9.4",
+    "@swc/cli": "0.7.3",
+    "@swc/core": "1.11.22",
+    "@types/node": "22.15.2",
     "husky": "9.1.7",
-    "lint-staged": "15.2.11",
-    "tsc-alias": "1.8.10",
-    "typescript": "5.7.2",
+    "lint-staged": "15.5.1",
+    "rimraf": "6.0.1",
+    "tsc-alias": "1.8.15",
+    "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "2.1.8"
+    "vitest": "3.1.2"
   },
-  "files": ["dist", "esm.mjs"],
-  "homepage": "https://github.com/FancyStudioTeam/OceanicBuilders",
-  "keywords": ["bot", "builders", "discord bot", "discord", "oceanic", "typescript"],
+  "files": ["dist"],
+  "keywords": ["bot", "builders", "discord", "discord bot", "oceanic", "oceanic.js", "typescript"],
   "license": "MIT",
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["pnpm biome"]
+    "**/*.{js,ts,json,md}": ["pnpm biome"]
   },
-  "main": "dist/index.js",
-  "module": "./esm.mjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "name": "oceanic-builders",
   "packageManager": "pnpm@9.15.1",
   "repository": {
@@ -29,10 +31,15 @@
     "url": "https://github.com/FancyStudioTeam/OceanicBuilders"
   },
   "scripts": {
-    "biome": "sh -c 'if [ \"$IN_NIX_SHELL\" = \"1\" ]; then BIOME_BINARY=$BIOME_BIN_PATH pnpx @biomejs/biome check --write --config-path biome.json; else pnpx @biomejs/biome check --write --config-path biome.json; fi'",
-    "build": "tsc --project tsconfig.prod.json && tsc-alias",
+    "biome": "biome check --write --config-path biome.json",
+    "build": "pnpm rimraf && pnpm build:esm && pnpm build:cjs && pnpm build:types",
+    "build:cjs": "swc src --strip-leading-paths -C module.type=commonjs --out-dir dist/cjs",
+    "build:esm": "swc src --strip-leading-paths -C module.type=es6 --out-dir dist/esm",
+    "build:types": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --outDir dist/types",
+    "postbuild": "tsc-alias -p tsconfig.prod.json dist",
     "prepare": "husky",
     "release": "bash release.sh",
+    "rimraf": "rimraf dist",
     "test": "vitest",
     "tgz": "pnpm build && pnpm pack"
   },

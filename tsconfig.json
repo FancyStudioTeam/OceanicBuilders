@@ -1,39 +1,22 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "compileOnSave": true,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true,
-    "declaration": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "exactOptionalPropertyTypes": false,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": false,
-    "incremental": true,
+    "incremental": false,
     "isolatedModules": true,
-    "module": "CommonJS",
-    "newLine": "lf",
-    "noEmitHelpers": false,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "dist",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "paths": {
-      "@utils": ["./src/util/utils/index.ts"]
+      "@functions/*": ["./src/functions/*"]
     },
-    "preserveConstEnums": true,
-    "pretty": true,
-    "removeComments": false,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true
-  },
-  "exclude": ["dist", "node_modules", "vitest.config.mts"]
+    "target": "ESNext"
+  }
 }
