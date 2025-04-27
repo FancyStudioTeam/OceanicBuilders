@@ -33,16 +33,17 @@
   "scripts": {
     "biome": "biome check --write --config-path biome.json",
     "build": "pnpm rimraf && pnpm build:esm && pnpm build:cjs && pnpm build:types",
-    "build:cjs": "swc src --strip-leading-paths -C module.type=commonjs --out-dir dist/cjs",
-    "build:esm": "swc src --strip-leading-paths -C module.type=es6 --out-dir dist/esm",
-    "build:types": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --outDir dist/types",
-    "postbuild": "tsc-alias -p tsconfig.prod.json dist",
+    "build:cjs": "swc src --strip-leading-paths --ignore **/*.test.ts -C module.type=commonjs --out-dir dist/cjs",
+    "build:esm": "swc src --strip-leading-paths --ignore **/*.test.ts -C module.type=es6 --out-dir dist/esm",
+    "build:types": "tsc --project tsconfig.prod.json --declaration --emitDeclarationOnly --outDir dist/types",
+    "postbuild": "tsc-alias dist",
     "prepare": "husky",
     "release": "bash release.sh",
     "rimraf": "rimraf dist",
     "test": "vitest",
     "tgz": "pnpm build && pnpm pack"
   },
+  "type": "module",
   "types": "dist/index.d.ts",
   "version": "1.2.0"
 }

@@ -10,6 +10,7 @@
     "isolatedModules": true,
     "module": "NodeNext",
     "moduleResolution": "nodenext",
+    "outDir": "dist",
     "paths": {
       "@functions/*": ["./src/functions/*"]
     },
