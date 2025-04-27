@@ -1,4 +1,4 @@
-import { parseEmoji } from "@utils";
+import { parseEmoji } from "@functions/parseEmoji.js";
 import type { ButtonStyles, NullablePartialEmoji, TextButton, URLButton } from "oceanic.js";
 import { ButtonBaseBuilder } from "./ButtonBaseBuilder.js";
 

@@ -1,4 +1,4 @@
-import { type RestOrArray, normalizeArray } from "@utils";
+import { type RestOrArray, normalizeArray } from "@functions/normalizeArray.js";
 import { type MessagePollOptions, type PollAnswerOption, PollLayoutType, type PollMedia } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { PollMediaBuilder } from "./PollMediaBuilder.js";

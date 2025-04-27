@@ -1,4 +1,4 @@
-import { parseEmoji } from "@utils";
+import { parseEmoji } from "@functions/parseEmoji.js";
 import type { NullablePartialEmoji, SelectOption } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 

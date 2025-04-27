@@ -1,4 +1,4 @@
-import { type RestOrArray, normalizeArray } from "@utils";
+import { type RestOrArray, normalizeArray } from "@functions/normalizeArray.js";
 import { ComponentTypes, type ModalActionRow, type ModalData, type TextInput } from "oceanic.js";
 import { BaseBuilder } from "../BaseBuilder.js";
 import { TextInputBuilder } from "./TextInputBuilder.js";

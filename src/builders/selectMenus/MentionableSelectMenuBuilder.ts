@@ -1,4 +1,4 @@
-import { type RestOrArray, normalizeArray } from "@utils";
+import { type RestOrArray, normalizeArray } from "@functions/normalizeArray.js";
 import { ComponentTypes, type MentionableSelectMenu, type SelectMenuDefaultValue } from "oceanic.js";
 import { MentionableDefaultValueBuilder } from "./MentionableDefaultValueBuilder.js";
 import { SelectMenuBaseBuilder } from "./SelectMenuBaseBuilder.js";
